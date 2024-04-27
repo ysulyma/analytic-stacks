@@ -1,0 +1,360 @@
+% !TeX root = AnalyticStacks.tex
+
+\section{Stacks (Clausen)}
+
+
+\url{https://www.youtube.com/watch?v=EEH_0QhrgEg&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
+\renewcommand{\yt}[2]{\href{https://www.youtube.com/watch?v=EEH_0QhrgEg&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO&t=#1}{#2}}
+\vspace{1em}
+
+
+The topic of today's lecture will be stacks.
+
+So far, we've discussed the theory and examples of ``analytic rings''. Next, we will explain how to use these to build geometric objects, the ``analytic stacks''. We already saw a clue of what phenomena we want to include in this world of analytic stacks in the previous lecture, namely the Tate curve over the gaseous base ring.
+
+Today we won't give the precise definition of analytic stack, but will provide motivation from algebraic geometry. The paradigm here is you have commutative rings, and you want to think of these as describing some sort of basic geometric objects which are called affine schemes.
+\begin{align*}
+  \text{commutative rings} &\leadsto \text{affine schemes}\\
+  R &\mapsto \Spec R
+\end{align*}
+These two categories are anti-equivalent. Then you want to allow yourself to glue these affine schemes together to make more general geometric objects. 
+
+There are two aspects to this gluing:
+\begin{enumerate}
+  \item What gluings are allowed?
+  \item How to identify the results of different gluings? More generally, what are the maps/what is the category we get from these formal gluings of affine schemes?
+\end{enumerate}
+
+A classic example is the projective line
+\[ \P^1 = \A^1_+ \cup_{\G_m} \A^1_- \]
+where we glue together a ``plus'' version of $\A^1$ and a ``minus'' version of $\A^1$ along the multiplicative group $\G_m$. But we want this object to have symmetries like $\PGL_2$, which don't respect this decomposition. So there has to be something said about what are the maps between different gluings.
+
+It's better to think of (2) first: specify an ambient category containing the category of affine schemes, and then single out a full subcategory by specifying allowable gluings of affine schemes in the larger category. This is one way to describe a class of geometric objects in algebraic geometry.
+\[\xymatrix@R=2em@C=1em{
+\text{category} \ar@{}[rr]|-{\supseteq} \ar@{}[dr]|-{\rotatebox{-45}{$\supseteq$}} && \text{affine schemes = $\text{CRing}^\op$}\\
+& \text{single out $\{*\}$} \ar@{}[ur]|-{\rotatebox{45}{$\supseteq$}}
+}\]
+
+In the classical approach to schemes, you take the ambient category to be locally ringed spaces, so a commutative ring gives you $\Spec R$, and then a scheme is a locally ringed space which is locally isomorphic to some $\Spec R$. So the allowable gluings between affine opens are gluings along open subsets, in terms of viewing $\Spec R$ as a locally ringed space.
+
+There's a more modern approach which says we shouldn't try to be clever about choosing an ambient category---we don't have to find the concept of a locally ringed space. We can just formally build an ambient category based on the category of commutative rings, and then work there. The category where you're allowed to glue arbitrary affine schemes is called the \textbf{category of presheaves} on affine schemes, $\Psh(\Aff)$. This is the universal category in which you can glue; more formally, it's the initial category-with-all-colimits with a functor from $\Aff$, and giving a colimit-preserving functor out of $\Psh(\Aff)$ is the same as giving a functor out of $\Aff$. There's a set-theoretic technicality here, so caution is needed; we'll discuss that later. The category $\Aff$ is not a small category, so one has to be careful when taking functor categories out of it.
+
+Now you've formally allowed yourself to glue, but you haven't explained how you should identify the results of two different gluings. If you pass to sheaves for some Grothendieck topology, that explains how to identify gluings; more generally, how to map between two of these formal gluings. The more covers you put in your Grothendieck topology, the more maps you're going to be making, which might not be so evident from the perspective of the cover. For example, the automorphisms $\PGL_2$ of $\P^1$ may not be apparent. But you don't want to add too many elements to your cover, or else you might destroy information by identifying too many things; so there's a delicate choice to be made in the Grothendieck topology.
+
+For example, you could take the Zariski topology, and then schemes is a full subcategory of Zariski sheaves on affine schemes such that they're locally representable, in the sense of open covers.
+\[
+  \text{schemes} \subseteq \Sh^\Zar(\Aff)
+\]
+You can define the notion of an open inclusion in $\Sh^\Zar(\Aff)$ just by reduction to the case of $\Aff$: a map $X\to Y$ in $\Sh^\Zar(\Aff)$ is an open inclusion if for every $\Spec A\to Y$, the pullback
+\[\xymatrix{
+  \Spec B \ar[r] \ar[d] \pullback & X\ar[d]\\
+  \Spec A \ar[r] & Y
+}\]
+is an open inclusion $\Spec B\to \Spec A$ in $\Aff$ (this includes the condition that the pullback is in $\Aff$).
+
+This is the perspective we're going to take on defining analytic stacks from analytic rings. However, we don't want to take schemes as a model, because more general geometric objects come up and are relevant, namely \emph{stacks}.
+
+\subsection{\yt{12m13s}{Why stacks?}}
+Often moduli spaces in algebraic geometry have the form $X/G$, where $X$ is a variety and $G$ is a group variety or scheme acting on $X$. So we have a quotient of some variety by some group of automorphisms.
+
+\begin{example}[\yt{12m48s}{Moduli of elliptic curves}]
+  Consider the moduli stack of elliptic curves $\M_{\text{ell},\Z[\frac16]}$, where we invert $6$ to simplify the discussion. Then this is $X/G$ with
+  \begin{align*}
+    X &= \Spec\Z\left[\tfrac16\right][A,B][\Delta^{-1}]\\
+    G &= \G_m
+  \end{align*}
+  where $\Delta$ is the discriminant.
+
+  This parameterizes elliptic curves with affine equation in Weierstrass form
+  \[ y^2 = x^3 + Ax + B. \]
+  It then turns out that the only isomorphisms between two elliptic curves given by the above equation are given by scalar multiplication with certain weights on the $x$ and $y$ variables, and that gives the $\G_m$ action.
+
+  There's also many other ways of presenting the same stack. For example, you can add level structure and then mod out by a finite group,
+  \[
+    \M_{\text{ell},N} / \GL_2(\Z/N)
+  \]
+  If $N$ is sufficiently large, $\M_{\text{ell},N}$ will be represented by a variety, and then you quotient out by the finite group $\GL_2(\Z/N)$. The Grothendieck topology that we choose should be such that this is identified with $\M_{\text{ell}}$ our category, so we should at least allow \'etale covers into the story for this, and that is indeed the classic choice.
+
+  These quotients exist in the category of schemes, and they give $\A^1_{\Z[\frac16]}$, the so-called ``$j$-line'', implemented by the $j$ function. However, this is not a good quotient. One way of measuring that is: on the moduli stack of elliptic curves, there's a natural line bundle $\omega$,
+  \[ \omega = \Lie(E)^*, \]
+  which is the dual of the one-dimensional vector space of tangent vectors at the origin. In other words, it's the cotangent space of the universal elliptic curve.
+
+  This means you can write down a line bundle on $\Spec\Z\left[\tfrac16\right][A,B][\Delta^{-1}]$ which is equivariant for the $\G_m$-action, or a line bundle on $\M_{\text{ell},N}$ which is equivariant for the $\GL_2(\Z/N)$-action. However, this line bundle doesn't descend to the quotient $A^1$, so it's a bad quotient in the sense that you can have equivariant objects on the top, but they don't come from something on the bottom. Even more basic, the universal elliptic curve over $\M_{\text{ell}}$ can't be defined over $\A^1$.
+\end{example}
+
+The problem in the above example is that the action is not free. There are some elliptic curves with extra automorphisms, and because the action isn't free, the naive quotient in schemes is collapsing too much. The solution is to take the quotient in a more refined (2-)category: (sheaves of) groupoids.
+
+Working in groupoids, there's a notion of groupoid quotient
+\[ X \gq G \]
+where:
+\begin{itemize}
+  \item the objects of $X\gq G$ are the elements of $X$
+  \item $\Hom_{X\gq G}(x,y) = \{g\in G \mid gx = y \}$
+\end{itemize}
+
+There's always a map $X\to X\gq G$, and the fibers are all isomorphic to $G$, where ``fiber'' means a pullback
+\[\xymatrix{
+  X_x \ar[r] \ar[d] \pullback & X \ar[d]\\
+  \{x\} \ar[r] & X \gq G
+}\]
+So this sort of allows us to pretend that every action is free; the map $X\to X\gq G$ is always like the total space of a $G$-bundle.
+
+The only trick is you have to interpret fiber product in the sense of 2-categories: in a pullback diagram of groupoids,
+\[\xymatrix{
+  A \times_C B \ar[r] \ar[d] \pullback & B \ar[d]^-g\\
+  A \ar[r]_-f & C
+}\]
+an object of $A\times_C B$ consists of a triple $(a,b,\gamma)$ where $a\in A$, an object $b\in B$, and $\gamma$ is \emph{an isomorphism} between $f(a)$ and $g(b)$ in $C$.
+
+So it's a way of taking a quotient such that you don't really care about the difference between a free action and a non-free action. And it's such that you formally have that line bundles on $X\gq G$ are the same as equivariant line bundles on $X$ and so on and so forth.
+
+This leads to notions such as Deligne-Mumford stack, or more generally, Artin stack. These are all full subcategories of \'etale sheaves on affine schemes.
+\[
+  \text{Deligne-Mumford stacks, Artin stacks}
+  \subseteq
+  \Sh^\et(\Aff)
+\]
+In the discussion of schemes, we had Zariski sheaves that we asked to be locally representable, where ``locally'' is in the sense of open covers. We also could have used \'etale sheaves, it doesn't change the resulting category of schemes. For Artin stacks, you more or less require that you have a smooth cover by affine schemes, and maybe some technical things you want to put in there as well.
+
+The basic example is, let $X$ be an affine scheme, for simplicity let's say over some base $S$. Let $G$ be a smooth group scheme over $S$ which acts on $X$. Then you pass to the quotient in the stacky sense, $X \to X\gq G$.
+
+So these are more general geometric objects, and this is really good for moduli theory. The theoretical justification for that is Artin representability theorem which gives concrete criteria for when a functor is represented by an Artin stack. But it's still constrained by the need for a smooth cover; in particular, this means finitely presented. So if you had some non-finite type group scheme acting on something, you wouldn't necessarily be able to take the quotient in Artin stacks.
+
+Now you might say, why do you care? It turns out there are many $X\in\Sh^\et(\Aff)$ which are geometrically relevant, but are \textbf{not} Artin stacks.
+
+\begin{example}[\yt{23m40s}{Formal schemes}]
+  \label{ex:15-formal-schemes}
+  Let $R$ be a noetherian ring, and $I\subset R$ an ideal of $R$. We want to consider the formal spectrum $\Spf(R_I)$. There are different options as to how to encode this thing, and what it should mean. One we've already discussed is Huber's theory, which includes formal schemes as an example, and is based on viewing $R$ as a topological ring. Grothendieck's theory of formal schemes is also based on viewing $R$ as a topological ring, but localizing along a smaller subset than in Huber's theory.
+  
+  Another way of looking at it is it's just the union of all the $n$th order infinitesimal neighborhoods of $\Spec(R/I)$ inside $\Spec(R)$,
+  \[ \Spf(R_I) = \bigcup_n \Spec(R/I^n). \]
+  So giving some (finite-type) data on a formal scheme should be the same as giving compatible collections of data at all of these finite levels. For example, vector bundles on $\Spf(R_I)$ should just give a compatible collection of vector bundles in the usual sense (finitely-generated projective modules),
+  \[ \Vect(\Spf(R_I)) = \lim \Vect(R/I^n). \]
+\end{example}
+
+This is a very different gluing from what you think about with schemes, and even when you think about Artin stacks. There are no smooth covers in sight here; instead, you're taking some union of infinitesimal thickenings and getting a new object.
+
+There are other examples: for some moduli problems, you really are quotienting by an infinite-dimensional group. One example that's dear to the hearts of both homotopy theorists and number theorists is the moduli of one-dimensional formal groups, the \textbf{Lubin-Tate space}. In this case the group you have to mod out by is coordinate changes on a one-dimensional formal scheme, and then there's infinitely many coefficients you have to specify. So you have an infinite-dimensional group you have to mod out by, and that doesn't fit into the framework of Artin stacks. 
+
+This suggests using a different Grothendieck topology, say fpqc instead of \'etale, if you want to accommodate infinite type phenomena in your covers. But in addition to these, there's also a very remarkable class of examples started by Carlos Simpson.
+
+\begin{center}
+  Simpson: ``Every linear algebra category is $\QCoh(\text{some stack})$''
+\end{center}
+
+Simpson didn't literally say this, and it's much too strong to be true; this is just an slogan interpretation of his work. His work gives lots of examples of this phenomenon, where you have a natural linear-algebraic category, and then it turns out you can write down some stack whose quasicoherent sheaves are that category. There are fun examples of this already in the world of Artin stacks.
+
+\begin{example}[\yt{28m22s}{Representations}]
+  Let $G$ be an algebraic group over a field $k$. Then a special case of a non-free quotient is a point $*=\Spec k$ with an action of $G$, so
+  \[ BG = * \gq G. \]
+  A quasicoherent sheaf on $BG$ should be a $G$-equivariant quasicoherent sheaf on the point; but a quasicoherent sheaf on a point is just a $k$-vector space, and the $G$-equivariance exactly means you have a representation of $G$. So we get
+  \[ \QCoh(BG) = \operatorname{Rep}_G(\text{$k$-vector spaces}). \]
+\end{example}
+
+\begin{example}[\yt{29m20s}{Filtered objects}]
+  We can also consider $\A^1/\G_m$ for the natural action of $\G_m$ on $\A^1$ by scalar multiplication. This is a funny stack, because there's an open locus in this stack, corresponding to a $\G_m$-invariant open locus in $\A^1$, namely $\G_m$ itself. On that open locus, you're taking $\G_m/\G_m$, which is a point. So this has a point as an open subset, and the closed complement is $0/\G_m=B\G_m$. In this case, (flat) quasicoherent sheaves are given by filtered $k$-vector spaces.
+  \[
+    \QCoh^{\text{flat}}(\A^1/\G_m) = \{\text{$k$-vector spaces equipped with a $\Z$-indexed filtration}\}
+  \]
+  The restriction to flat modules is just to stay in the abelian world rather than going derived.
+
+  Note that at the origin, we have
+  \[
+    \QCoh^{\text{flat}}(B\G_m) = \{\text{$k$-vector spaces equipped with a $\Z$-indexed grading}\}
+  \]
+\end{example}
+
+These are Artin stacks, so there's nothing exotic there. Here's a more interesting example.
+
+\begin{example}[\yt{31m11s}{de Rham stack}]
+  \label{ex:15-dR}
+  Let $k$ be a field of characteristic $0$, and let $X/k$ be a smooth variety. Then you can form, and Simpson did, what's called the \textbf{de Rham stack} of $X$. There is a presentation
+  \[ X \epi X^\dR \]
+  but this is not quotienting out by a group action, it's just some by equivalence relation. The equivalence relation in question is that which identifies two points if they're ``infinitesimally close'' to each other. Equivalence relations are supposed to live in the product $X\times_k X$, and what you do is you take this product and you formally complete along the diagonal,
+  \[ (X\times_k X)_{\widehat X}. \]
+  Then $X$ mod this equivalence relation gives $X^\dR$. The formal completion should be taken in this sense of Example \ref{ex:15-formal-schemes}, i.e.\ the union of the different scheme structures that are available on the diagonal as a closed subset.
+
+  (The definition of $X^\dR$ makes sense in arbitrary characteristic, but some things we're about to say will not be true in positive characteristic.)
+
+  What are quasi-coherent sheaves, let's say vector bundles, on $X^\dR$? This is the same thing as vector bundles on $X$ equipped with some kind of descent datum, but that descent datum exactly amounts to a flat connection.
+  \[ \Vect(X^\dR) = \{\text{vector bundles on $X$ + flat connection}\} \]
+  That's Grothendieck's interpretation of what is a flat connection. It's exactly giving descent, identifying infinitesimally close points.
+  
+  There's also cohomology of the structure sheaf. This gives de Rham cohomology, which is the natural notion of cohomology in the world of vector bundles with flat connection.
+  \[ R\Gamma(X^\dR, \O_{X^\dR}) = R\Gamma_\dR(X/k) \]
+
+  This is not even close to being an Artin stack either, and for different reasons from the moduli of formal groups. Here we're modding out by some formal scheme giving an equivalence relation.
+\end{example}
+
+\begin{example}[\yt{35m2s}{Prismatization}]
+  More recently, Bhatt-Lurie \cite{APC,BLPrismatization} \citeme\textcolor{red}{$F$-gauges} and Drinfeld \citeme define stacks whose $\QCoh$ capture coefficient systems for various $p$-adic cohomology theories in characteristic $p$ or mixed characteristic. For example, there's a stack capturing de Rham characteristic $p$, but it is not the one of Example \ref{ex:15-dR}. You have to use the divided power envelope of the diagonal instead of the formal neighborhood of the diagonal.
+  
+  So there are stacks capturing prismatic cohomology, de Rham cohomology, and crystalline cohomology, as well as filtered versions of these. Moreover, the comparison theorems in prismatic cohomology between all of these various cohomology theories can be explained, so to speak, ``geometrically'' in terms of the stacks. (It's arguable how geometric these kinds of stacks are :)
+  
+  Maybe the better way to say it is that, a priori these comparison theorems are about comparing linear algebra categories, e.g.\ vector spaces. But it turns out there's a more fundamental explanation, which is that you have an isomorphism of \emph{stacks}. You then deduce comparison theorems of cohomology theories by passing to quasicoherent sheaves. So you promote a comparison of cohomology theories to an isomorphism of stacks.
+\end{example}
+
+I want to give another example of this phenomenon. We've seen de Rham cohomology in characteristic zero, some $p$-adic cohomology theories as well, but what about Betti cohomology? Here's a fun example which actually has quite a bit of relevance for the course, so that's why I'm going to mention it.
+
+\begin{example}[\yt{38m6s}{Betti stacks}]
+  ``Betti cohomology'' is the algebraic geometers' term for, if you have a complex variety, then you take singular cohomology or sheaf cohomology with constant coefficients on the underlying topological space with the analytic topology. For example, if you have a compact Hausdorff space $S$, then I claim that you can make a stack.
+  
+  How do you do it? You use the old familiar idea: you find a surjection from a profinite set $T$, and then you have some fiber product $T\times_S T$.
+  \[\xymatrix{
+    T\times_S T \ar@<-.5ex>[r] \ar@<.5ex>[r] & T \ar@{->>}[r] & S
+  }\]
+  Since $T\times_S T$ is a closed subset of a product of two profinite sets, it'll also be a profinite set. Write $T_0\defeq T$ and $T_1\defeq T\times_S T$.
+  
+  So your compact Hausdorff space $S$ is a quotient of an equivalence relation in the category of profinite sets. We can then apply $C(-,\Z)$ (continuous $\Z$-valued functions) followed by $\Spec$ to get a groupoid in the category of schemes, in fact in the category of affine schemes. We define the Betti stack of $S$ as the quotient of this equivalence relation in the category of sheaves for the fpqc topology on affine schemes. 
+  \[\xymatrix{
+    \Spec C(T_1,\Z) \ar@<-.5ex>[r] \ar@<.5ex>[r] & \Spec C(T_0,\Z) \ar@{->>}[r] & S^\Betti
+  }\]
+  You could also replace $\Z$ with a commutative ring $k$.
+
+  What are quasi-coherent sheaves on Betti stacks? These are just usual sheaves of abelian groups on the topological space $S$.
+  \[ \QCoh(S^\Betti) = \Sh(S,\Ab) \]
+  That's a fun exercise. So, coherent cohomology on the Betti stack $S^\Betti$ is just usual topological cohomology of the topological space $S$. More generally, we can embed condensed sets into stacks via the above procedure, using the presentation of a condensed set via profinite sets.
+
+  \note{(something I didn't hear)}
+
+  What you have to check to see that is that, if you have a surjective map of profinite sets, then it goes to a faithfully flat map on the level of continuous functions. That's not that hard to do: $C(T_i,\Z)$ are filtered colimits of continuous functions of finite sets, which as rings are copies of products of $\Z$. In fact, for \emph{any} map of profinite sets $T_1\to T_0$, the induced map $C(T_0,\Z)\to C(T_1,\Z)$ is flat, and then if it's surjective it's faithfully flat. You also need to check that fiber products in profinite sets correspond to relative tensor products; this follows again by a reduction to finite sets.
+\end{example}
+
+So now we're faced with this somewhat baffling array of different stacks, some of which don't resemble Artin stacks in the least. But we want them because they're convenient ways of encoding different linear-algebraic and geometric phenomena. 
+
+\textbf{Question:} how to define a reasonable subcategory of $\Sh^\fpqc(\Aff)$ containing all these examples?
+
+\textbf{Answer:} $\Sh^\fpqc(\Aff)$ (modulo set theory)
+
+In other words, it's not clear that there's any other answer to this question than the entire category $\Sh^\fpqc(\Aff,\An)$. So there is content in the answer, but it didn't necessitate introducing anything wasn't present in the question. 
+
+\subsection{\yt{47m44s}{Desired examples of analytic stacks}}
+This is also the approach we will take in defining analytic stacks. We will define a Grothendieck topology on $\AnRing^\op$ and then take sheaves with respect to it (again modulo set theory). Before getting into the details of exactly which Grothendieck topology, and these set theoretic technicalities as well, let's see what kind of phenomena we want to capture, so what the examples should be. In some sense, we've already seen some.
+
+\begin{example}[\yt{48m6s}{Adic spaces}]
+  We certainly want that any adic space in the sense of Huber should give rise to an analytic stack. We already explained how the basic ingredient in adic spaces, namely Huber pairs $(R,R^+)$, give rise to analytic rings, and we explained something about how the formalism of analytic rings lets you glue. But we didn't quite discuss how you can use that to then glue these analytic rings together to get some kind of analytic stack.
+
+  We saw that at least you can localize the category of modules over that analytic ring along Huber's spectrum, but we didn't quite discuss how you can use that to then glue these analytic rings together to get some kind of analytic space. But we certainly want the kind of gluing that shows up in Huber's theory, gluing along rational open subsets in the topology defined by a basis of rational opens, we want that kind of gluing to be allowed and to give you an analytic space.
+\end{example}
+  
+\begin{example}[\yt{49m8s}{Complex analytic spaces}]
+  We also want any complex analytic space to give an analytic stack, say over $\C^\gas$ or $\C^{\liq_p}$. So the kind of gluing allowed should also incorporate gluing along open subsets in complex analytic geometry.
+\end{example}
+
+\begin{example}[\yt{49m53s}{Algebraic stacks}]
+  Another even more basic thing is we want the world of analytic geometry to be a generalization of the world of schemes, and even of algebraic stacks (in some sense---maybe not precisely the fpqc topology discussed above, but a slight modification of that). These should live over the universal base $\Z$, with trivial analytic structure ($\Mod(\Z)=\Cond\Ab$). So universally, over any analytic ring, if you have some algebraic object, you can get an analytic object.
+\end{example}
+  
+\begin{example}[\yt{51m4s}{Banach rings}]
+  Any Banach ring $R$ should also give rise to an analytic stack. This in some sense matches Berkovich's theory, in the same way that the affinoid analytic stacks coming from pairs $(R,R^+)$ match Huber's picture. There's a small interesting tidbit here, which is that the stack that we'll assign to a general Banach ring will actually not be affinoid, it will really be a stack. So, if you take $\Z$ with the usual archimedean norm, it will go to an actual stack that's not affinoid; instead, it's a stack which in some sense corresponds to $\M(\Z)$, the Berkovich spectrum of $\Z$, so that's a fun little twist.
+\end{example}
+
+\begin{example}[\yt{52m22s}{Coefficient systems}]
+  As above, there should be analytic stacks whose $\QCoh$ capture various coefficient systems for cohomology (sheaves of abelian groups, vector bundles with connection, prismatic $F$-gauges etc.)
+\end{example}
+
+\begin{example}[\yt{52m58s}{Tate curve}]
+  We want to be able to define the Tate curve as well as its uniformization over $\gasopen$. We also want to have machinery to prove it's algebraic. So we have this curve that we define via uniformization. We take the analytic $\G_m$ and we quotient by the multiplication by $q$, and we get something which Peter argued was a smooth proper curve, and it has an identity section. So then, if you have some Riemann-Roch theorem, then you can see that you have a projective embedding. And if you have some GAGA theorem, then you'll be able to see that it has to be algebraic. So we want Riemann-Roch, and we want GAGA.
+\end{example}
+
+\begin{example}[\yt{52m20s}{Comparison theorems}]
+  On the theme of GAGA, we want that various linear algebraic comparison results should promote to isomorphisms of stacks. GAGA is one such.
+  
+  GAGA is a general principle which applies in different contexts. But for example, in the world of complex analytic spaces, it says that if you have a proper algebraic variety $X$ over the $\C$, so it has an analytification $X^\an$ which is compact, then it says that coherent sheaves and their cohomology in the algebraic and in the analytic sense agree.
+  
+  So that's a question about making a comparison between two linear algebraic categories. It's saying algebraic coherent sheaves are the same as analytic coherent sheaves. And one thing we would like our formalism to do is to promote that to an isomorphism of stacks.
+
+  Another example, again in the complex analytic context, would be the comparison between Betti cohomology and de Rham cohomology. This should also promote to an isomorphism of stacks.
+\end{example}
+
+\subsection{\yt{56m48s}{Analytification}}
+Recall that adic geometry in the solid context really got started once we noticed that there's a nice subset of $\A^1_{\Z^\solid}$, namely the closed unit disc, which we were thinking of as open. Or you could think of it in terms of its complement. or the translation of that back to the origin. In the end, algebraically speaking, this came from an idempotent algebra
+\[ \Z\psr T \in \Solid_{(\Z[T],\,\Z)} \]
+Once we had this idempotent algebra, then we could move it to infinity via the change of variables $T\mapsto T^{-1}$, and then that gave us the closed unit disc, and then that let us tie into the $(R,R^+)$ theory, where we could ask that the elements in $R^+$ actually land in the closed unit disc as opposed to just being maps to $\A^1$.
+
+Similarly, over $\gasopen$, you can define a ``subset'' of $\A^1_{\gasopen}$, corresponding to an idempotent algebra of ``functions which are convergent in some (unspecified) disk around the origin''. So it's germs of functions defined at the origin, so to speak. Formally, it's going to be the filtered colimit
+\[ P[q^{-1}] \defeq \colim\left(P \xra q P \xra q P \xra q \dotsb \right) \]
+
+In the solid case, $P$ was itself idempotent and turned into $\Z\psr T$. In the gaseous setting, $P$ is not idempotent in $\Mod_{\Z[T]}(\Mod_{\gasopen})$, but it becomes idempotent after we take this colimit to shrink the open unit disc down to the origin.
+
+% \begin{remark}
+% Sorry, we write sheaves and what are they valued in? One group? Points, yeah. So, let's say group points, but of course, I mean, you might as well, yeah, I mean, but all the examples are just groupoids. And in fact, many of the examples, even though they're called stacks, are actually just sheaves of sets. So, like Simpson's Duram stack, for example, is just a sheaf of sets. It's a Duram space somehow, but anyway, somehow they call these things stacks anyway.
+
+% But yeah, so it's going to be similar to the situation with analytic rings and where we had sometimes theoretically we had derived things that were animated or whatever and so on. Theoretically we had them, but in practical examples, they didn't really show up. And similarly here, theoretically we're going to allow sheaves with values in anma, but in practical cases, they'll be at most groupoids. I mean, that's, yeah.
+% \end{remark}
+
+The idempotent algebra $P[q^{-1}]$ satisfies many of the same properties as $\Z\psr T$, and it again lets us import Huber's theory of pairs to this context. What you do is you take this idempotent algebra functions of germs at the origin in the affine line, you move it to infinity and you get germs at infinity.
+
+Let $R$ be of finite type over $\gasopen(*)$, and assume that $\Z$ is bounded in $R$. Then you get an analytic ring structure on $R$, namely $(R,\Mod_R(\Mod_{\gasopen}))$. Every element $f\in R$ gives a map
+\[ \AnSpec(R)\xra f\A^1, \]
+and we pass to the ``subset'' where all such maps land in the locus ``away from $\infty$''. This gives a new analytic space $\Spec(R)^\an$, the ``analytification'' of $\Spec(R)$.
+
+\begin{example}
+  When $R=\Z[T^\pm]$, we get $\G_m^\an$. After base change to a ring where $2$ is bounded, this is the object of the previous lecture, the thing we quotiented out by to get the Tate curve.
+\end{example}
+
+So now we have two different contexts (solid and gaseous) in which you can import Huber's theory of pairs into the world of analytic spaces. It turns out that they can be glued together, and so can the idempotent algebras. First notice that the gaseous theory makes sense over $\Z[q]$: all we had to do to define the gaseous theory was we had to write down the endomorphism $1-qt$ of $P$, and then ask that it become an isomorphism in our theory. And to do that, you didn't need to require $q$ to be topologically nilpotent. So this gives an analytic ring $\Z[q]^\gas$.
+
+\begin{itemize}
+  \item if we set $q=0$, we get the uncompleted $\Z$ theory
+  \item if you set $q=1$, you get the solid theory, $\Z^\solid$
+  \item if you require $q$ to be topologically nilpotent and a unit, you get the gaseous theory, $\gasopen$
+  \item if you work away from the locus where $q$ is topologically nilpotent, then you are working over a theory where you force both $q$ and $q^{-1}$ to be gaseous, and that implies that $1$ is gaseous, which means you're in the solid theory, so you get $\Z[q^\pm]^\solid$.
+\end{itemize}
+
+Then we can define a certain quotient of
+\[ \Spec(\Z[q^\pm]^\qgas) \]
+which more or less parameterizes choices of a notion of ``analytification''. So, anytime you have this variable $q$ which you've declared to be gaseous, you can form this colimit and you'll get an idempotent algebra at zero, and you can move it to infinity, and then you get a notion of analytification, as discussed.
+
+However, different choices of $q$ can give rise to the same thing. If two choices of $q$ differ by a bounded unit, so something in $\G_m^\an$, then you'll get the same algebra. So the quotient we want is 
+\[ \Spec(\Z[q^\pm]^\qgas)/\G_m^\an \]
+where $\G_m^\an$ acts by multiplication on $q$.
+
+This is a different role of stacks in the theory. Here we have a stack which is a quotient of ($\AnSpec$ of) an analytic ring by an equivalence relation, and which is in some sense parameterizing choices of analytic geometry over a given base ring. Let $R$ be an analytic ring with a map
+\[ \Spec R^\tri(*) \to \Spec(\Z[q^\pm]^\qgas)/\G_m^\an, \]
+which we call a ``gaseous structure'' on $\Spec R^\tri(*)$ (and again assume $2\in R$ is bounded). Then we get two functors from $R^\tri(*)$-schemes to analytic stacks over $R$, plus a natural transformation.
+
+Say $X=\Spec A$, where $A$ is an $R^\tri(*)$-algebra. We can view this as an analytic stack over the uncompleted $\Z$, and then you can base change that to $R$ to get $X_R\defeq X\times_\Z R$. But then you also have a subset
+\[ X^\an_R \xra\subseteq X_R, \]
+the analytification over $R$, given by requiring that all the functions land in the part of $\A^1$ that's away from $\infty$. Now there's a general theorem.
+
+\begin{theorem}[\yt{1h18m18s}{GAGA}]
+  If $X\to\Spec(R)$ is proper (and finitely presented), and every element $f\in R(*)$ is bounded, then $X_R^\an \to X_R$ is an isomorphism.
+
+  \note{some discussion between Peter and Dustin about whether finitely presented is really necessary. It might not matter for GAGA, but could for some other things.}
+\end{theorem}
+
+\begin{remark}
+  This implies completely formally that $D(X^\an_R)=D(X_R)$, which is some form of GAGA. Non-formally, maybe with some more conditions on $R$ (but satisfied in practice), this implies that $\Vect(X^\an_R)=\Vect(X_R)$, which is classical GAGA. 
+
+  Basically you can do algebraic geometry over the uncompleted $\Z$ theory, and then that means you can do algebraic geometry over any analytic ring just by base change.
+\end{remark}
+
+One of the things that maybe I should have been emphasizing before launching into this whole discussion is that over the completed $\Z$ theory, you can basically do algebraic geometry. And then that means you can do algebraic geometry over any analytic ring just by base change. For example, we were considering $\A^1$ over an arbitrary base ring. It's not analytified yet, but when you have extra structure on your analytic ring, then that picks out a choice of what it means to analytify an algebraic variety.
+
+All the classical GAGA theorems are special cases:
+\begin{itemize}
+  \item complex-analytic GAGA after Serre (using $\C^\gas$ or $\C^{\liq_p}$)
+  \item Grothendieck's formal GAGA: \note{look up statement of formal GAGA}if you have again complete noetherian ring $R$, and a proper scheme over it, then coherent sheaves on that is the same thing as coherent sheaves on the formal scheme you get by formally completing or, in other words, compatible collections of coherent sheaves on all the various $n$ potent thickenings there.
+
+  In terms of Huber pairs, you would work over
+  \[ \Spa(R^\land_I, R^\land_I) \to \Spec(\Z^\solid) \]
+  so $\Spa(R^\land_I, R^\land_I)$ inherits the notion of analytification from $\Z^\solid$ based on the closed unit disc.
+  
+  \item non-archimedean GAGA over $\Q_p$ or any complete non-archimedean field. For this you would take your analytic ring to be $\Q_p^\solid$. But you don't put the gaseous structure on it which factors through the map to $\Spec\Z^\solid$, rather you put the gaseous structure on it which corresponds to
+  \begin{align*}
+    \Spec(\Q_p^\solid) &\to \Spec(\Z[\hat q^\pm]^\qgas)\\
+    q &\mapsto p
+  \end{align*}
+  That's the one that picks out the notion of analytification that corresponds to usual analytification of algebraic varieties over your non-archimedean field.
+\end{itemize} 
+
+\begin{remark}
+  You could try to use the other gaseous structure on $\Spec\Q_p^\solid$ where you factor through $\Spec\Z^\solid$. But GAGA won't apply in this setting, since then $1/p$ will not be bounded, and if you make it bounded in the solid setting you'll kill everything.
+
+  Nonetheless, there is still a different gaseous structure on $\Q_p^\solid$ obtained by factoring it through $\Z_p^\solid$. In a sense the above gaseous ring structure corresponds to some kind of overconvergent version of rigid geometry, while the gaseous ring structure that factors through $\Z_p^\solid$ corresponds to usual rigid geometry.
+\end{remark}
+
+\note{1:29:22}
+
+So is there something weaker than something weaker than $n$ could you explain the question a result that would put identify $X$ $r$ with some less regular could you explain okay maybe okay yeah this assumption that this bound it yeah yeah so what is the issue if it's if you don't assume that it's empty like the if you don't assume that everything in here is bounded then when you try to do the analytics that I described then in particular you're always forcing all of the scalers $IE$ elements of here uh you're forcing them to be bounded anyway so if you don't if you don't have this assumption then your analytics changing your your base so we have so a special case is when you take $x$ equals $Spec$ $R$ and you try to analytify that what this assumption is saying is basically that then it doesn't change it like $SpecR$ is its own analytify ring where it's where this thing has been forced to be bounded but in the case of solid $QP$ if you try to force with that with that with that gaseous structure factoring through solid $Z$ if you try to force all of the scalars to be bounded um you're just going to get the zero ring because yeah yeah um right yeah um so yeah so that was the uh yeah $x$ equals $SpecR$ was giving a problem there my apologies um okay uh right so that was um kind of explaining one example of where a linear algebraic comparison result uh can be promoted to an isomorphism of stacks um more generally we want relations um so relations between the various kinds of stacks uh various.

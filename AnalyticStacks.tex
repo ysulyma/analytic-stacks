@@ -1,0 +1,90 @@
+\documentclass[reqno]{amsart}
+\usepackage{fullpage}
+\usepackage{todonotes}
+\usepackage[all,2cell]{xy}
+\usepackage{graphicx, amsmath, amssymb, amsthm}
+\usepackage{newclude}
+\usepackage{mathrsfs}
+%\usepackage{showkeys}
+\usepackage[hidelinks,backref]{hyperref}
+\usepackage{enumitem}
+
+\input{macros.tex}
+
+% \hypersetup{colorlinks=true}
+
+% make todonotes play nicely with AMS toc
+\makeatletter
+\providecommand\@dotsep{5}
+\renewcommand{\listoftodos}[1][\@todonotes@todolistname]{%
+ \@starttoc{tdo}{#1}}
+\makeatother
+
+% xy configuration
+\SelectTips{cm}{}
+\UseAllTwocells
+%\CompileMatrices
+\NoCompileMatrices
+
+% \includeonly{}
+
+\newcommand{\rpn}[1]{[#1]_\lambda]}
+\newcommand{\frpn}[1]{\{#1\}_\lambda\}}
+\newcommand{\frd}{\mathfrak d}
+\newcommand{\resp}{\quad\text{resp.}\quad}
+
+\renewcommand{\frm}{\mathfrak m}
+\newcommand{\fin}{\mathrm{fin}}
+\newcommand{\str}{\mathrm{str}}
+\newcommand{\frH}{\mathfrak H}
+\newcommand{\D}{\mathfrak D}
+% \newcommand{\G}{\mathbf G}
+\newcommand{\M}{\mathcal M}
+\newcommand{\cA}{\mathcal A}
+\newcommand{\cE}{\mathcal E}
+\renewcommand{\P}{\mathbf P}
+
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Psh}{Psh}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PGL}{PGL}
+
+
+\title{Analytic Stacks}
+
+% copy(captions.events
+%     .map(e => (e.segs ?? []).map(seg => seg.utf8
+%                                 ).join(" ")).join(""))
+
+% Add punctuation and capitalization to convert the following text into sentences and paragraphs. Remove filler words such as "uh". Do not reword the text. Use literal $ instead of rendering LaTeX.
+
+\begin{document}
+
+\maketitle
+\begin{center}
+  Lectures by Dustin Clausen and Peter Scholze
+
+  Notes by Yuri Sulyma
+\end{center}
+
+\tableofcontents
+
+\setcounter{section}{14}
+
+These are lecture notes for the Clausen-Scholze course on Analytic Stacks,
+\begin{center}
+  \url{https://www.youtube.com/playlist?list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
+\end{center}
+
+% I produced these notes by downloading the auto-generated captions from YouTube, running them through ChatGPT, then manually editing the output to clean up sentence structure, add diagrams, etc.
+
+These notes are not endorsed by either Clausen or Scholze; any errors are solely the fault of Sulyma.
+
+\include*{15-stacks}
+
+\bibliographystyle{amsalpha}
+\bibliography{../bibliography}
+% \input{biblio}
+
+\end{document}

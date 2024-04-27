@@ -1,0 +1,185 @@
+%!TEX root = AnalyticStacks.tex
+
+% \prism
+\usepackage{relsize}
+\usepackage[bbgreekl]{mathbbol}
+\usepackage{amsfonts}
+\DeclareSymbolFontAlphabet{\mathbb}{AMSb} % to ensure that the meaning of \mathbb does not change
+\DeclareSymbolFontAlphabet{\mathbbl}{bbold}
+\newcommand{\prism}{{\mathlarger{\mathbbl{\Delta}}}} 
+% random bits of notation
+
+\newcommand{\<}{\langle}
+\let\>=\undefined
+\newcommand{\>}{\rangle}
+
+\newcommand{\citeme}{\textcolor{red}{cite me}}
+\newcommand{\lf}{\left\lfloor}
+\newcommand{\rf}{\right\rfloor}
+\newcommand{\lc}{\left\lceil}
+\newcommand{\rc}{\right\rceil}
+\newcommand{\psr}[1]{[\![#1]\!]}
+\newcommand{\st}{\mid}
+
+\newcommand{\ds}{\displaystyle}
+
+\newcommand{\id}{\mathrm{id}}
+
+\newcommand{\op}{\mathrm{op}}
+
+\newcommand{\defeq}{\mathrel{:=}}
+\newcommand{\eqdef}{\mathrel{=:}}
+\newcommand{\tops}{\texorpdfstring}
+
+\DeclareMathOperator{\ev}{ev}
+
+\DeclareMathOperator{\res}{res}
+\DeclareMathOperator{\tr}{tr}
+
+% fancy diagram shortcuts
+\newdir{ >}{{}*!/-10pt/@{>}}
+\newcommand{\pullback}{\ar@{}[dr]|<<{\mbox{\Huge$\lrcorner$}}}
+\newcommand{\pushout}{\ar@<2pt>@{}[ul]|<{\mbox{\Huge$\ulcorner$}}}
+
+\newcommand{\Tamb}{\mathrm{Tamb}}
+\newcommand{\m}{\underline}
+\newcommand{\mpi}{\m\pi}
+
+% symbols
+\newcommand{\A}{\mathbf A}
+\newcommand{\C}{\mathbf C}
+\newcommand{\cF}{\mathcal F}
+\newcommand{\sF}{\mathscr F}
+\newcommand{\F}{\mathbf F}
+\newcommand{\G}{\mathbf G}
+\renewcommand{\H}{\mathrm H}
+\DeclareMathOperator{\K}{K}
+\renewcommand{\L}{\mathbf L}
+\newcommand{\N}{\mathbf N}
+\renewcommand{\O}{\mathcal O}
+\newcommand{\cP}{\mathcal P}
+\newcommand{\Q}{\mathbf Q}
+\newcommand{\R}{\mathbf R}
+\let\sec=\S
+\renewcommand{\S}{\mathbf S}
+\newcommand{\T}{\mathbf T}
+\newcommand{\W}{\mathbf W}
+\newcommand{\Z}{\mathbf Z}
+\newcommand{\bdry}{\partial}
+
+\newcommand{\THH}{\operatorname{THH}}
+\newcommand{\TF}{\operatorname{TF}}
+\newcommand{\TPhi}{\operatorname{T\Phi}}
+\newcommand{\TCmin}{\operatorname{TC}^-}
+\newcommand{\TP}{\operatorname{TP}}
+\newcommand{\TR}{\operatorname{TR}}
+\newcommand{\RO}{\operatorname{RO}}
+\newcommand{\RU}{\operatorname{RU}}
+
+\newcommand{\RP}{\mathbf{RP}}
+\newcommand{\CP}{\mathbf{CP}}
+
+\newcommand{\Fil}{\mathsf{F}}
+\newcommand{\Nyg}{\mathcal{N}}
+
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\inj}{inj}
+\newcommand{\regconn}[1]{\mathsf{P}_{#1}}
+\newcommand{\regslice}[1]{\mathsf{P}^{#1}_{#1}}
+
+% algebra
+\DeclareMathOperator{\coker}{coker}
+
+\newcommand{\tnsr}{\otimes}
+
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+
+\newcommand{\morph}{\mathop{\longrightarrow}\limits}
+\newcommand{\xra}{\xrightarrow}
+
+\newcommand{\from}{\mathop{\leftarrow}}
+
+\renewcommand{\lim}{\mathop{\operatorname*{lim}\limits_{\longleftarrow}}\limits}
+\newcommand{\colim}{\mathop{\operatorname*{lim}\limits_{\longrightarrow}}\limits}
+
+% arrows
+\newcommand{\epi}{\twoheadrightarrow}
+\newcommand{\mono}{\hookrightarrow}
+\newcommand{\monic}{\mathop{\rightarrowtail}\limits}
+\newcommand{\iso}{\overset\sim\longrightarrow}
+\newcommand{\eqv}{\simeq}
+\newcommand{\isom}{\cong}
+
+\DeclareMathOperator{\AnSpec}{AnSpec}
+\DeclareMathOperator{\Spa}{Spa}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spf}{Spf}
+
+\DeclareMathOperator{\Fix}{Fix}
+\DeclareMathOperator{\Orb}{Orb}
+
+\newcommand{\Ainf}{{\mathbf{A}_{\mathrm{inf}}}}
+\newcommand{\BK}{{\mathfrak S}}
+\newcommand{\WCart}{\mathrm{WCart}}
+\newcommand{\mup}[1]{\ar@/_1em/[u]_-{#1}}
+\newcommand{\mdown}[1]{\ar@/_1em/[d]_-{#1}}
+\newcommand{\mtamb}{\ar@{-}[d]}
+
+%Theorem Styles
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{warning}[theorem]{Warning}
+
+\renewcommand{\~}{\widetilde}
+\renewcommand{\^}{\widehat}
+\newcommand{\can}{\mathrm{can}}
+
+\newcommand{\note}[1]{\textcolor{purple}{#1}}
+
+\newcommand{\gasopen}{\Z[\hat q^\pm]^\gas}
+
+% categories
+\newcommand{\Ab}{\mathrm{Ab}}
+\newcommand{\An}{\mathrm{An}}
+\newcommand{\AnRing}{\mathrm{AnRing}}
+\newcommand{\CRing}{\mathrm{CRing}}
+\newcommand{\Cat}{\mathrm{Cat}}
+\newcommand{\Cond}{\mathrm{Cond}}
+\newcommand{\Set}{\mathrm{Set}}
+\newcommand{\Solid}{\mathrm{Solid}}
+\newcommand{\Sp}{\mathrm{Sp}}
+
+% stacks
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\QCoh}{QCoh}
+\newcommand{\Vect}{\text{Vect}}
+
+\newcommand{\Aff}{\text{Aff}}
+\newcommand{\Betti}{\text{Betti}}
+\newcommand{\an}{\mathrm{an}}
+\newcommand{\dR}{\mathrm{dR}}
+\newcommand{\fpqc}{\mathrm{fpqc}}
+\newcommand{\gas}{\mathrm{gas}}
+\newcommand{\gq}{\mathbin{\!/\!\!/\!}}
+\newcommand{\liq}{\mathrm{liq}}
+\newcommand{\qgas}{\text{$q$-gas}}
+\newcommand{\solid}{\blacksquare}
+\newcommand{\tri}{\triangleright}
+
+\newcommand{\yt}[2]{}
+
+\newcommand{\Zar}{\text{Zar}}
+\newcommand{\et}{\text{\'et}}
