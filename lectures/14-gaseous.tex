@@ -1,21 +1,32 @@
 % !TeX root = ../AnalyticStacks.tex
 
 \section{\ufs Gaseous modules (Scholze)}
+\label{sec:14-gaseous}
 
 \url{https://www.youtube.com/watch?v=krq6jCy-dhE&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
 \renewcommand{\yt}[2]{\href{https://www.youtube.com/watch?v=krq6jCy-dhE&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO&t=#1}{#2}}
 \vspace{1em}
 
-\begin{unfinished}{0:00}
+In Lecture \ref{sec:12-what-happened}, we discussed the Tate elliptic curve, and introduced a new kind of analytic ring structure, the ``gaseous'' analytic ring structure. Today, we will pick up there and analyze this gaseous analytic ring structure. To do this, we will need to use some of the results from Lecture \ref{sec:13-analytic-rings}.
 
-Last Friday, I was discussing the paper "The Curve" and I was in some sense already introducing a new kind of analytic ring structure that we called the "guest analytic $\mathbb{R}$-structure." Today, I wanted to pick up there and analyze this guest $\mathbb{R}$-structure. To do this, I will need to use some of the results that Dustin explained on Wednesday.
+The plan is roughly:
+\begin{itemize}
+  \item say something about the ``gaseous base ring'' $\subset\Z\lsr{q}$, which is a certain version of arithmetic power series
+  \item talk about the corresponding theory over the real numbers the ``gaseous real vector spaces''
+  \item the motivation for this was coming from the Tate elliptic curve curves. We claimed that the gaseous analytic ring structure would be good for that, and I want to start a little bit of explanation for that. Eventually this will require us to do some more serious analytic geometry, and that will be a point where we then start to develop a more general formalism to really carry that out.
+\end{itemize}
 
-Okay, so the plan roughly for today is to first say something about the "guest displacement," which is a certain version of arithmetic power series in some variable that I called $Q$ last time. Then, I actually want to take a little bit of time to talk about the corresponding series of the real numbers, "guest real." Finally, I want to discuss the motivation for this, which was coming from $p$-adic curves. Last time, I claimed that this $\mathbb{R}$-structure would be good for that, and I want to start a little bit of explanation for that.
 
-So, I want to say just a few words already now about the construction of the "guest" structure. But at that point, we'll have to do some more serious analytic geometry, and I think that will be a point where we then start to develop a more general formalism to really carry that out.
+\subsection{\ufs The gaseous base ring}
+Recall: the motivation was to find a ``minimal'' analytic ring $(A^\tri,\Mod_A)$ over which the Tate elliptic curve $E_q$ can be defined. The Tate elliptic curve is an example of an elliptic curve, and the universal one would be the moduli space of elliptic curves. But this a priori won't do---we really want something that is of the form $\G_m/q^\Z$, in some analyic sense.
 
-Okay, so let's start with the "guest space" over here. The motivation was to find a minimal analytic ring over which we can find a lift of the $p$-adic curve. There's an example of a $p$-adic curve, and the universal one would be the moduli space. But this is not what we want to do---we really want something that is of the form $\text{Spf}(\mathbb{Q}\langle\!\langle Q\rangle\!\rangle)$ for some variable $Q$, depending on some conditions.
+Desiderata:
+\begin{enumerate}
+  \item topologically nilpotent unit $q\in A^\tri$
+  \item if $P\tnsr A$ is the free $A$-module on a nullsequence, then $1-q\cdot\shift\actson P\tnsr A$ is an isomorphism
+\end{enumerate}
 
+\begin{unfinished}{5:40}
 The first condition is that there should be an element $Q$ that is a topological unit in the ring. The second condition, which I mentioned earlier and I think is quite natural, but where I didn't so far explain, and maybe I will get to the end of today why it's really the good condition, is that if $P$ is a free $\mathbb{R}$-module on an $N$-sequence, then the operator $1 \div Q$ acting on $P$ is well-defined.
 
 This is similar to how we defined the "solid analytic $\mathbb{R}$-structure," where we had $Q$ to the 1 instead. And of course, then we didn't ask for it to be a unit. This is a weaker condition because saying that for any sequence $a_n$, the sum of $a_n$ is well-defined. If you think about what the inverse of this would be, then it would be
@@ -153,3 +164,5 @@ So the $\mathbb{G}_m$ is locally isomorphic to $S^1$, but now $S^1$ is again pro
 Questions? $\mathbf{Z}_\infty$ is also defined over this $a$. You can base change it to $a$, you don't have to write it. And this always--there will be a functor from condensed sets towards analytic spaces, and so $\mathbf{Z}_\infty$ I consider as a closed set, and this will have an incarnation as an analytic space. This will actually mean that the theory of analytic spaces will be related to the condensed story in two ways: one, because the analytic rings themselves are founded on condensed things, which is the role that condensed objects have played so far. But suddenly there will be another role that the condensed sets play, because the way this thing will be realized in the analytic space world, it actually just uses the adic rings, it will not use any interesting condensed structure on the ring level.
 
 \end{unfinished}
+\subsection{\ufs Gaseous real vector spaces}
+\subsection{\ufs The Tate elliptic curve}
