@@ -16,7 +16,6 @@ The plan is roughly:
   \item the motivation for this was coming from the Tate elliptic curve curves. We claimed that the gaseous analytic ring structure would be good for that, and I want to start a little bit of explanation for that. Eventually this will require us to do some more serious analytic geometry, and that will be a point where we then start to develop a more general formalism to really carry that out.
 \end{itemize}
 
-
 \subsection{\ufs The gaseous base ring}
 Recall: the motivation was to find a ``minimal'' analytic ring $(A^\tri,\Mod_A)$ over which the Tate elliptic curve $E_q$ can be defined. The Tate elliptic curve is an example of an elliptic curve, and the universal one would be the moduli space of elliptic curves. But this a priori won't do---we really want something that is of the form $\G_m/q^\Z$, in some analyic sense.
 
@@ -193,7 +192,17 @@ The coefficient of $Q$ to the $m$ can lie in $\Z_n^* \times \Z_{n+k}$. Okay, I w
 Yeah, so whenever I have something that grows where the coefficients grow in $m$ just like a polynomial, then because I have all these monomials here at my disposal, I can somehow split up all the individual summands to make them bounded. There are a lot of choices about how you go about doing this. And when you want to prove that this complex actually ends up being in degree zero, you somehow have to show that a different way of arranging the terms here differs from the other one by something bounded, some bounded thing in the next term of the complex. And this will actually not be true for a given $k$, but when you allow your $k$ to increase a little bit, then you can do it.
 
 There's a question in the chat about whether you can interchange the order of $\Z , Y ,S$, and indeed you can interchange the order. The kind of argument you have to do here to see that this is well-behaved is a little reminiscent of the arguments you have to prove that liquid cohomology is well-behaved, but it's several orders of magnitude easier. It's again a situation where you have some kind of system of complexes where each term has some kind of norm, and then you have to see that if you have something with differential zero, you can bound the preimage. But here, you can really just do it.
+\end{unfinished}
 
+\subsection{\ufs Gaseous real vector spaces}
+
+\begin{definition}
+  A (light) condensed $\R$-vector space $V$ is \emph{gaseous} if
+  \[ \ul\Hom_\Z(P, V) \actedonby 1-\tfrac12\cdot\shift \]
+  is an isomorphism.
+\end{definition}
+
+\begin{unfinished}{1:09:00}
 All right, so this is all I wanted to say about the proof of this box formation. Now, I want to talk briefly about Gassar-Greenberg real vector spaces. Let me condense or light... We started emitting the light at a couple of times, so throughout this course we're always working with this light filling, and it might not always be mentioned.
 
 If I take the internal Hom from, say, $P$ which was always the free abelian group on the integers here, and then I choose one topological unit in the real numbers, you might actually wonder, doesn't it matter that I chose 1/2 here? And it doesn't. So in this setup of liquid analytic --- of this liquid drink structures on the reals, there was this extra parameter that you have to choose, how non-convex you allow your vector spaces to be. Here, it seems you also have to make a choice, but actually it doesn't matter. The condition is independent of what number, like 1/2, you choose. You could also take a negative number, any topological unit.
@@ -259,5 +268,4 @@ So the $\mathbb{G}_m$ is locally isomorphic to $S^1$, but now $S^1$ is again pro
 Questions? $\mathbf{Z}_\infty$ is also defined over this $a$. You can base change it to $a$, you don't have to write it. And this always--there will be a functor from condensed sets towards analytic spaces, and so $\mathbf{Z}_\infty$ I consider as a closed set, and this will have an incarnation as an analytic space. This will actually mean that the theory of analytic spaces will be related to the condensed story in two ways: one, because the analytic rings themselves are founded on condensed things, which is the role that condensed objects have played so far. But suddenly there will be another role that the condensed sets play, because the way this thing will be realized in the analytic space world, it actually just uses the adic rings, it will not use any interesting condensed structure on the ring level.
 
 \end{unfinished}
-\subsection{\ufs Gaseous real vector spaces}
 \subsection{\ufs The Tate elliptic curve}
