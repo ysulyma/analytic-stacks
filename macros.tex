@@ -18,6 +18,10 @@
 \newcommand{\rf}{\right\rfloor}
 \newcommand{\lc}{\left\lceil}
 \newcommand{\rc}{\right\rceil}
+
+\newcommand{\resp}{\quad\text{resp.}\quad}
+
+% power series ring
 \newcommand{\psr}[1]{[\![#1]\!]}
 \newcommand{\st}{\mid}
 
@@ -41,10 +45,6 @@
 \newcommand{\pullback}{\ar@{}[dr]|<<{\mbox{\Huge$\lrcorner$}}}
 \newcommand{\pushout}{\ar@<2pt>@{}[ul]|<{\mbox{\Huge$\ulcorner$}}}
 
-\newcommand{\Tamb}{\mathrm{Tamb}}
-\newcommand{\m}{\underline}
-\newcommand{\mpi}{\m\pi}
-
 % symbols
 \newcommand{\A}{\mathbf A}
 \newcommand{\C}{\mathbf C}
@@ -55,8 +55,10 @@
 \renewcommand{\H}{\mathrm H}
 \DeclareMathOperator{\K}{K}
 \renewcommand{\L}{\mathbf L}
+\newcommand{\M}{\mathcal M}
 \newcommand{\N}{\mathbf N}
 \renewcommand{\O}{\mathcal O}
+\renewcommand{\P}{\mathbf P}
 \newcommand{\cP}{\mathcal P}
 \newcommand{\Q}{\mathbf Q}
 \newcommand{\R}{\mathbf R}
@@ -67,36 +69,13 @@
 \newcommand{\Z}{\mathbf Z}
 \newcommand{\bdry}{\partial}
 
-\newcommand{\THH}{\operatorname{THH}}
-\newcommand{\TF}{\operatorname{TF}}
-\newcommand{\TPhi}{\operatorname{T\Phi}}
-\newcommand{\TCmin}{\operatorname{TC}^-}
-\newcommand{\TP}{\operatorname{TP}}
-\newcommand{\TR}{\operatorname{TR}}
-\newcommand{\RO}{\operatorname{RO}}
-\newcommand{\RU}{\operatorname{RU}}
-
 \newcommand{\RP}{\mathbf{RP}}
 \newcommand{\CP}{\mathbf{CP}}
 
 \newcommand{\Fil}{\mathsf{F}}
 \newcommand{\Nyg}{\mathcal{N}}
 
-\DeclareMathOperator{\lcm}{lcm}
-\DeclareMathOperator{\inj}{inj}
-\newcommand{\regconn}[1]{\mathsf{P}_{#1}}
-\newcommand{\regslice}[1]{\mathsf{P}^{#1}_{#1}}
-
-% algebra
-\DeclareMathOperator{\coker}{coker}
-
 \newcommand{\tnsr}{\otimes}
-
-\DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\End}{End}
-\DeclareMathOperator{\Aut}{Aut}
-\DeclareMathOperator{\Tor}{Tor}
-\DeclareMathOperator{\Ext}{Ext}
 
 \newcommand{\morph}{\mathop{\longrightarrow}\limits}
 \newcommand{\xra}{\xrightarrow}
@@ -114,20 +93,9 @@
 \newcommand{\eqv}{\simeq}
 \newcommand{\isom}{\cong}
 
-\DeclareMathOperator{\AnSpec}{AnSpec}
-\DeclareMathOperator{\Spa}{Spa}
-\DeclareMathOperator{\Spec}{Spec}
-\DeclareMathOperator{\Spf}{Spf}
-
-\DeclareMathOperator{\Fix}{Fix}
-\DeclareMathOperator{\Orb}{Orb}
-
 \newcommand{\Ainf}{{\mathbf{A}_{\mathrm{inf}}}}
 \newcommand{\BK}{{\mathfrak S}}
 \newcommand{\WCart}{\mathrm{WCart}}
-\newcommand{\mup}[1]{\ar@/_1em/[u]_-{#1}}
-\newcommand{\mdown}[1]{\ar@/_1em/[d]_-{#1}}
-\newcommand{\mtamb}{\ar@{-}[d]}
 
 %Theorem Styles
 \newtheorem{theorem}{Theorem}[section]
@@ -151,6 +119,27 @@
 
 \newcommand{\gasopen}{\Z[\hat q^\pm]^\gas}
 
+% operators
+\DeclareMathOperator{\AnSpec}{AnSpec}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Lie}{Lie}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\Psh}{Psh}
+\DeclareMathOperator{\QCoh}{QCoh}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Spa}{Spa}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Tor}{Tor}
+
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\coker}{coker}
+
 % categories
 \newcommand{\Ab}{\mathrm{Ab}}
 \newcommand{\An}{\mathrm{An}}
@@ -163,8 +152,6 @@
 \newcommand{\Sp}{\mathrm{Sp}}
 
 % stacks
-\DeclareMathOperator{\Mod}{Mod}
-\DeclareMathOperator{\QCoh}{QCoh}
 \newcommand{\Vect}{\text{Vect}}
 
 \newcommand{\Aff}{\text{Aff}}
@@ -179,7 +166,30 @@
 \newcommand{\solid}{\blacksquare}
 \newcommand{\tri}{\triangleright}
 
-\newcommand{\yt}[2]{}
 
+\newcommand{\size}{\mathrm{size}}
+\newcommand{\weight}{\mathrm{weight}}
 \newcommand{\Zar}{\text{Zar}}
 \newcommand{\et}{\text{\'et}}
+
+% project macros
+
+% YouTube link - defined in each article
+\newcommand{\yt}[2]{}
+
+% change to generate completed pdf
+
+\newif\ifcompleted
+\completedfalse
+
+\ifcompleted
+  \excludecomment{unfinished}
+\else
+  \newenvironment{unfinished}[1]{
+    \color{BrickRed}\textbf{Unfinished starting from #1}
+
+  }{\color{black}}
+\fi
+
+% unfinished section
+\newcommand{\ufs}{\tops{\color{BrickRed}}{}}

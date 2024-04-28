@@ -1,0 +1,268 @@
+% !TeX root = AnalyticStacks.tex
+
+\section{\ufs Light condensed sets (Scholze)}
+
+\url{https://www.youtube.com/watch?v=_4G582SIo28&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
+\renewcommand{\yt}[2]{\href{https://www.youtube.com/watch?v=_4G582SIo28&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO&t=#1}{#2}}
+\vspace{1em}
+
+\begin{unfinished}{0:00}
+All right, so welcome back to the second lecture. I guess I should make an announcement about the schedule for the next few weeks, which is a little bit different than usual. Usually, it should be the case that Dustin lectures Wednesdays at PS and Fridays I lecture here. But due to some traveling, I will give the next few lectures all at MPI, but note that there will be a gap of two lectures. So there are no lectures next Friday and the Wednesday after.
+
+So the goal of today's lecture is to recall---partly this will be much repetition of a very similar lecture I gave four years ago, also five years ago. But something I want to stress throughout is why we switch to the Huber setting and which properties you gain when you make this restriction.
+
+Before I go there, let me just say a few introductory words from my perspective about what was said last time. So what's our goal with all of this analytic geometry? For me personally, one goal since 10 years or so has always been to find---there's all this fancy geometry that has been developed $p$-adically, like perfectoid spaces, prismatic cohomology, $p$-adic shtukas, and the geometrization of local Langlands. This all works quite beautifully over the $p$-adic numbers. But it has to use some quite fancy $p$-adic geometry, like these highly non-noetherian perfectoid spaces and so on.
+
+I mean, I'm always hoping that similar ideas or techniques could also be applied not just over $p$-adic local fields, but also real local fields. That's actually something that I think really is possible now. But then also over the whole integers, globally.
+
+So in some sense, what I want is some kind of notion of a global $\Spec(\Z)$, something like that. And this guy, this should definitely be some kind of analytic space, some kind of adic space, some non-affinoid---I mean, some model by some rings with a non-archimedean norm. Well, it should definitely include those archimedean and non-archimedean parts, $\R$ and $\Z_p$. You know, hopefully a kind of uniform language to talk about these parts. But it should also be extremely non-noetherian---you can't hope for any of the usual finiteness properties often imposed.
+
+So it's clear that you need some new language to talk about these things. And so basically, the goal of this course is to develop a language in which it is at least conceivable that such objects exist.
+
+I mean, here's some kind of very vague idea that's possibly completely misguided. So when you do these perfectoid things, you have some kind of perfect field, maybe $\mathbb{C}_p$ or something like this. But then when you have an atlas over this, you're always doing the thing where you adjoin a variable, but with it also all its $p$-power roots. So I mean, this is a prototypical example.
+
+Well, if you think about how you would do something similar, like not a fixed prime but kind of globally---well, then you say you definitely want to get rid of the choice of the fixed prime here. So okay, so maybe you have no idea what the base is, but at least you can try to understand what happens relatively. And then relatively, I think you at least certainly want to adjoin some variable with all of its rational powers. Because each prime $p$ is forced in some way.
+
+But then you're only taking care of the finite primes, and then you maybe wonder, what could be the analog of this at an infinite prime? I mean, something that suggests itself---and again, maybe it's completely misguided, but something that you tend to wonder is whether you should try to form some ring where you adjoin all real powers of a variable $T$. But then you begin to wonder, what kind of object should this even be?
+
+I mean, so you can definitely just treat the real numbers as a discrete thing and then adjoin here and all real powers, and then this would be some kind of algebra. But I mean, this feels somewhat artificial---that's the real, I mean, and sometimes then the real numbers are just some uncountable dimensional Cantor space, and you don't feel like you really made the situation any better.
+
+So you definitely want to kind of keep track of the topology on the reals here. But then it's mixing the topology, like the profinite topology you usually have appearing, in a very strange way with the real
+
+Correspondences, F-schemes and similar---this should be some algebra modeling for some local model of the space St I called this last time. But even I'm more unclear what kind of geometry that should be.
+
+So maybe these are not at all the correct objects. But maybe we could at least, if these would turn out to be the correct objects, want to have a language we can talk about those. So some such things will be involved.
+
+Okay, and so when Dustin came to Bonn in 2018, he somehow made the suggestion that one should really everywhere kind of replace topological spaces by condensed sets. Since 2018, we've been pursuing this path of replacing topological spaces by condensed sets.
+
+Something that was definitely clear from the very start is that this switch does resolve a lot of the foundational issues you usually have when you work with some analytic geometry. For example, it makes it possible to remove Noetherian hypotheses that are quite pervasive, for example for adic spaces or formal schemes. I'll talk about abelian categories of complete modules and so on, and derived categories.
+
+It was clear that a lot could be gained by doing the switch. Simultaneously, something that I always liked is that suddenly such a thing as $\Z[[T]]$ does make sense. This is something I will in some form also discuss today. Maybe this is not really the correct thing to consider, maybe some other thing, but I was quite happy that this kind of object at least exists in this framework.
+
+So our attitude then was that maybe we have really no idea what we're really looking for, but let's just try to develop the foundations of some kind of analytic geometry from the perspective that you should start from some kind of condensed rings. Then try to build as natural as possible a framework so as to at least accommodate all the known examples and possibly extend them quite a bit further, for example allowing Schemes over $\mathbb{F}_1$ and $\mathbb{F}_{1^2}$.
+
+Then just see where you're led to, and maybe someday one can hope to understand how such more exotic examples might be related to some kind of interesting geometry or number theory. Basically, try it out.
+
+Also, in the known formalisms, there are sometimes things that are slightly beyond the traditional categories. For example, if you work with adic spaces, there's the usual things built on Banach algebras. But Grosse-Klönne for example has a theory where you have some overconvergent functions instead, and usually this is yet another category. You would also like to accommodate all these variants.
+
+Peter, can you hear me? Great. There's a request to write a bit larger if possible. Oh, we cannot. Okay. Maybe we can increase the-- [Camera discussion]
+
+Okay, so this course will not really touch on anything fancy like that. It will just try to really lay out what the formalism should be and how it accommodates the known examples.
+
+Okay, let's start the course. Let me start by talking about condensed sets. The starting point for the whole theory is profinite sets, which will for the moment be restricted to these small things. First of all, I want to recall the following proposition. Sorry, I'm not writing bigger.
+
+Always, the following categories are equivalent: The pro-category of finite sets. Sometimes this is a purely combinatorial kind of category, where the objects are just certain diagrams of finite sets, formal inverse limits, where the $S_i$ are just some finite sets and $I$ can be taken to be cofiltered.
+
+Recall that this means that $I$ is not empty, and whenever you have two elements in $I$, you can find one that is strictly smaller.
+
+The morphisms, well, this is an inverse limit, so you can pull that out first. But then there are two traditions about writing limits and colimits, either with an arrow and just a "lim" or writing "lim" and "colim". I'm kind of combining the two for maximum clarity.
+
+I might at some point just write lim and colim, but for the moment I'll use the directional arrows. But then when you have a formal inverse limit, nothing just means one in TJ. This--
+
+One can also think of this $S$ more concretely, but now using---in some sense this whole theory could be developed without mentioning topological spaces, but let's not try to do so. It's also equivalent to totally disconnected spaces, where here you send---let me write the functor.
+
+A third possibility is to take the category of Boolean algebras. So recall what a Boolean algebra is: it's a commutative ring $R$ such that for all $x \in R$, $x^2 = x$. In particular, $(-1)^2 = -1$, meaning that $2 = 0$. So these are---let me write down some functors.
+
+So if you have a formal inverse limit of $S_i$, you can map this to $S$, which is the limit of $S_i$ but with the inverse limit topology. And then this would map to the continuous functions on $S$ valued in $\{0,1\}$, which then also, if you compose the two things, is just the colimit of all $\{0,1\}$-valued functions.
+
+And one can also go back. If you have a Boolean algebra $A$, this maps to $\mathrm{Spec}(A)$, which is also---you want a map from $A$ to---so actually all points of the spectrum are just $\mathrm{Hom}(A, \{0,1\})$. And actually, we can also write this $\mathrm{Hom}$ as a colimit, a limit over all finite subalgebras $A_i \subset A$ of $\mathrm{Hom}(A_i, \{0,1\})$. Alright, let me not say anything about the proof. I mean, one can actually quite easily check these functors.
+
+So most often, I will actually think in terms of this presentation. Whenever I have a profinite set, I will usually just present it in some way as such a limit. I'll most often think about it that way.
+
+And now that I want to come to the main things, I need to tell you two ways to measure how big---well, let's say $S$. When I write this, I implicitly mean that the $S_i$ are finite sets and the index category is filtered.
+
+The size of $S$ is just the cardinality of the underlying set. And then there is something that's traditionally called the weight. Maybe this has a different name, let's just---so this is the cardinality of the corresponding Boolean algebra.
+
+Let me make this definition. Here, $S$ is light if it has kind of the smallest possible weight, except it could be finite. We definitely want infinite things. $S$ is light if the weight is at most $| S |$. It's countable, yeah, so this is also equivalent to--- actually, if $\lambda$ is infinite, then it's also equal to the smallest possible cardinality for a small, possible---
+
+In general, there are many ways to present a profinite set. For example, a point you could present as an index limit of a large profinite set of just always a one-element set, which is kind of silly. But there's always a minimal possible choice. And if it's infinite, then this is unique.
+
+So in other words, a profinite set is light if and only if it's at most countable. Alright, so let me give some examples.
+
+Just a quick question: "How does it compare to having countably many non-trivial closed subsets?" How do the properties compare to having countably many non-trivial closed subsets? If you take the maximum---I mean, the closed subsets are basically the ideals, right? How many of them---what does it mean?
+
+Yeah, I think that's also the same thing. Because any such collection is given by countably many finite collections of such subsets. And I think this is still the same.
+
+So let's do some examples of profinite sets and of their size and weight. Okay, so for finite sets, you can figure out what the size and weight is.
+
+And then maybe the first, the smallest kind of infinite profinite set is the one-point compactification of the integers. And one way to think about this is that it's a limit of all maps $\N \to [n] \cup \{\infty\}$ counting up to 
+
+Limit. So it's still light, but obviously it's much bigger than this one if you just think in terms of the number of points. Number of points is, in general, these are really different.
+
+Let me give one more example that has some relevance in the theory, although excluded. So that one very important thing: any locally compact space has two compactifications---one compactification, and the Stone-Čech compactification. This one is small, this one is really huge. So let me not try to present this as a limit.
+
+Well, let me instead of presenting it as a limit, let me really say what are the continuous functions from $S$ to $\F_2$. These are the continuous functions from the Stone-Čech compactification. But by the universal property of Stone-Čech compactification, this is really just a continuous map from the natural numbers to $\F_2$. But these are discrete, so this is really just the set of giving such $\N \to \F_2$. You just have to specify the image of zero, and this is just any subset of the integers. So this is just the set of all subsets of the numbers.
+
+So we see that this actually has weight $2^{\aleph_0}$, and it's not super clear, but you can show that it has size $2^{2^{\aleph_0}}$. It's pretty large. So in all those examples, it turns out that, well, in the example that you gave, the size in the infinite case---the size is either equal to the weight, or it is bigger.
+
+For some reason, I only hear you very softly. We need to get CL. Okay, okay. So I just... There is something that I don't remember the answer to. Do you hear me now? Yes, now I hear you better.
+
+Okay, so in the examples, of course there are trivial estimates that the size is at most $2^{\text{weight}}$ and at most $2^{\text{size}}$. And so you can ask whether there is about inequalities between them. So in the case where you consider, like you have the countable set and the Stone-Čech, the size is $2^{\text{weight}}$. So the question is whether it can be the other way in the infinite case, that is, that you have actually... When I prepared, because I wanted the same question and I didn't, but I think I know an example, but anyway it's a bit complicated. But that's also what I suspected.
+
+So let me tell you what I know is easy and sufficient for us to know. Here's a proposition. As Ofer mentioned, you have trivial estimates, and I will tell you they are trivial, that $\lambda$ is at most $2^{\kappa}$ and $\kappa$ is at most $2^{\lambda}$. And you see that this one can be attained, and actually in quite large generality you can make examples where this becomes as large as this. But it's actually quite hard to give examples where $\lambda$ becomes bigger than $\kappa$.
+
+So let me just note that in the case that's most relevant to us, if you have a profinite set that's countable, then actually it can also be written as a countable limit of finite sets. So all the ones, these are like, I mean, this wouldn't follow from this inequality, right?
+
+Why are these called "trivial"? $\lambda$, I said, was the continuous functions. Certainly bounded by all the maps from, this is obviously $2^{\kappa}$. And on the other $\kappa$ is the homomorphisms from the Boolean algebra, right? Because I said you can recover the profinite set as a map from Boolean algebra to $F_2$. And again, this is bounded by all the maps from $\lambda$.
+
+So what's quite nice about this is that these estimates even hold true in the finite case. In the finite case, actually this one becomes $\kappa = \lambda$.
+
+Let me do this one case where $\kappa$ is equal to $\aleph_0$. So then you can enumerate $S$, we can enumerate the elements. And then for each $n$, inductively choose a quotient $S_n$ compatible, so that first three elements $z_n$ inject any finite set. You can always find such a quotient.
+
+Then you see that the map from $S$ to the inverse limit of $S_n$
+
+As Scholze mentioned, you build a finite quotient where these elements are distinguished and then take the limit.
+
+Alright, okay. So because this SL condensate will be so important for us, let me just rephrase the first proposition for light condensates. The following categories:
+
+First, let's call it $\text{Pro}^N$, the sequential pro-category of finite sets. The objects here are not some fancy limit along some cofiltered poset, but really just some limit along the integers of some finite sets. And the morphisms are as before, but you are not allowed to change the $m$, so that's an important thing. So the $\text{Hom}$ from $\varprojlim F_m$ to $\varprojlim G_m$ is again, you can first pull out the limit and then take the other thing to be the colimit. Let me actually note that there's a different way to think about this. Basically, something you are always allowed to do in a pro-object is to pass to any cofinal subsequence. And then, if you want to give a morphism from here to here, you think that first you extract a subsequence of the $n$s, and then you really just give compatible maps. So one way to express it is, it's really some colimit over all possible strictly increasing functions $\varphi$ of compatible maps for all $m$ towards $G_{\varphi(m)}$, but from the three-scale version.
+
+You can also phrase this pairability condition in terms of totally disconnected compact Hausdorff spaces, and it's precisely the condition that they are metizable. And the last one was Banach algebras, and for Banach algebras, we precisely made the condition so there we made it.
+
+So let me just note one very simple proposition that will be used throughout. If you work in $\text{Prof}_{\text{fin}}$-sets, and this says you have all limits, but if you restrict to light $\text{Prof}_{\text{fin}}$-sets, then you still have all countable limits and sequential limits of surjections are surjective. Maybe I should say surjectivity is just meant in terms of the underlying sets, like taking the actual limit. So in other words, surjectivity on the point set of the component processes. And I mean, something similar is true, that any limits of surjections are surjective in all $\text{Prof}$-sets, but there it uses some rather high-powered compactness result, like the Tychonoff theorem. In the sequential case, it's really kind of stupid, you just successively lift.
+
+Okay, so the first interesting thing I want to mention is that the natural numbers actually play a bit of a universal role within the light profinite sets. That is, if you have any light profinite set $S$, then there exists a surjection from $\widehat\N$ onto $S$. I mean, the proof is really simple induction. It just writes $S$ as a sequential limit and then at each point, just pick a large enough finite quotient of $\widehat\N$ to accommodate everything you already have.
+
+Alright, so now I want to come to two properties that light profinite sets have and that fail in general, and that will play a technical role in what we're doing. These are some of the key reasons that we make the switch. Now, two properties that are special to light profinite sets, they may also work for some other $\text{Prof}$-sets, but that would be hard to single out there.
+
+First, open subsets of light profinite sets can be too wild. If $U$ is an open subset of a light profinite set $S$, then $U$ is actually a countable disjoint union of profinite subsets of $S$. So this is to be contrasted with the following: In general, there exist open subsets $U$ in a profinite set $S$ that are not disjoint unions of profinite subsets. One way in which this can fail is, for example, you could take a product of profinite sets. I mean, disjoint unions take coproducts to products, and on profinite sets, these are totally disconnected. So you can't have non-trivial open coverings in this sense. But in general, the structure of these open subsets
+
+Let $U$ be an open subset of a profinite set $S$. Then $U$ is a union of clopen subsets, so we can write $U = \bigcup_{n} S_n$ where each $S_n$ is clopen in $S$. More precisely, choose a presentation $S = \varprojlim S_n$ where the transition maps $S_{n+1} \to S_n$ are surjective. Then $U$ is the union over all $n$ of the images of $S_n \setminus f_n^{-1}(S \setminus U)$.
+
+So now you've at least written it as a sequential union of closed subsets. Maybe I should have said, one way to think about open subsets purely in this language of pro-categories and profinite sets is to think about the closed things instead. Closed subsets should themselves be profinite sets, and then the closed subsets are precisely the injective maps of profinite sets.
+
+The closed complement should be a profinite set. Someone injects, you take the preimage of this. Then if you want, you can write $U$ as a union over all $n$. Now these are subsets and are themselves profinite sets. Okay, so that's one nice thing.
+
+Here's another one. Then $S$ is an injective object in the category of profinite sets. I will spell out what I mean by that. This means that whenever you have an injection of profinite sets $Z \to X$ and a map $Z \to S$, you can always find an extension $X \to S$.
+
+Assume that these don't characterize all injective objects. Or are these exactly injective objects? So there are more injective objects. For example, any injective object in general is closed under taking products, so any product of profinite sets would also be allowed. But the profinite sets in particular are profinite.
+
+So let me prove this. Actually, the first thing one should check is the case where $S$ is just $\mathbb{F}_2$. In this case, it means that the continuous maps from $X$ to $\mathbb{F}_2$ are in bijection with the clopen subsets of $X$. Or equivalently, any clopen subset of $Z$ can be extended to a clopen subset of $X$. Consequently, I don't know what an exercise to do.
+
+Okay, let's assume we know this case. Then in general, just write $S$ as a limit of finite sets $S_n$. In general, the transition maps are not required to be surjective, but I will assume that all the maps are surjective. You can always assume that.
+
+In this case, you will argue by induction on $n$. If you want to extend the map to $S$, you need to extend it compatibly to all the $S_n$'s. But if you've already extended the map to $S_n$, then extending further to $S_{n+1}$ means the whole situation decomposes into a disjoint union over all the fibers over $S_n$.
+
+So you can assume that $S_n$ is just a point, but then $S_{n+1}$ is just some finite set. Then it's a very easy exercise to extend, maybe just have to extend a bunch of clopen subsets. Okay.
+
+Exercise: Figure out why this argument doesn't apply to a general profinite set. You might still think that you can similarly extend as a limit along surjective maps. You can always do that and then try to inductively extend.
+
+Just a small remark. If $Z$ and $S$ are both empty, do you need something? No, $Z$ is empty and $X$ is not empty. Okay, if $S$ is not empty, it's okay.
+
+Okay, I think that's it for my general preparations about profinite sets. So let's now finally come to the definition of profinite condensed sets on a site with the following covers. We always take a profinite set $S$ and a cover of $S$ by other profinite subsets. This is the cover, and also surjectivity.
+
+So let me, as last time, spell out what this really means. A profinite condensed set $X$ is a functor from profinite sets to sets satisfying the following conditions:
+
+1
+Here is my attempt at correcting the transcript with punctuation, capitalization, and paragraph breaks:
+
+Just need to $M$ both of them individually, and then there is this funny condition. This comes from allowing all the surjective maps. This means that whenever you have any surjective map of profinite sets, then to give a map from $S$ to $X$, it's sufficient to give a map from $T$ to $X$. 
+
+At least as a first approximation, you want that any map from $S$ to $X$ is determined by what it does on $T$. But actually, you also want to characterize which maps from $T$ to $X$ actually come from $S$, and these should be the ones that agree on fibers of this map, so to speak. The good way to say this is that the two ways you can make a map out of the fiber product, either first projecting to the first coordinate or the second coordinate, this should agree. This is what the sheaf condition for this surjection says.
+
+Before expanding machinery, let me just tell you this key example to have in mind. Let's say $A$ is a compact Hausdorff topological space. Then we can define $\underline{A}$, and this is the thing that takes any $S$ to the continuous maps from $S$ to $A$. Here the presheaf on profinite sets precisely remembers how profinite sets map continuously into your topological space. This has all the fun properties.
+
+Whenever you have a map between profinite sets, that remembers how a continuous map from one gives one to the other. It turns out that this condition is always satisfied. There's actually not a concrete topology, so if you would omit continuity then this would be clear. If you want a map from $S$ into $A$, it's sufficient to give one from $T$ into $A$, and then it factors over $S$ if and only if on the fibers the map is constant, which is kind of expressed by this.
+
+But you're saying more than that here, because you ask that the maps have the continuous property. In other words, if you have just any map from $S$ into $X$ and you know that if you restrict to $T$ it becomes continuous, then it was actually continuous to start with. Equivalently, $S$ is actually a quotient and has a quotient topology from $T$. This is actually a general property for profinite compact Hausdorff spaces - they are actually quotients. In particular, $|A|$ is just $A$ as a set.
+
+In general, for any condensed set $X$, we think of $|X|$ as the underlying set. But you can also evaluate on some of our other favorite profinite sets, and maybe the most important one is this one-point compactification of the integers. What does this correspond to?
+
+It's a continuous map from $\N \cup \{\infty\}$ to $A$. In other words, it's a sequence in $A$ together with a limit point. So in other words, it's a convergent sequence, generally with the choice of a limit point, though most often there's at most one limit point. 
+
+Similarly, when evaluating $X$ on this, where giving such a convergent sequence, we also have to give a witness for what the limit is.
+
+Okay, and then you can do more wild things. You can evaluate this at the Cantor set, and well, this is what it is. One thing to note however is that it's just a set, but it comes equipped with all the continuous endomorphisms of the Cantor set.
+
+Let me just give one remark here and then forget about this forever. If you have a condensed set, it's completely determined by what I will describe as a functor from profinite sets to sets. By $|X|$, the Cantor set together with the actions, where this is really just an abstract set. This guy here is just, so you could think of a condensed set purely algebraically as a set equipped with an action of the profinite monoid. But I think this is a strictly worse way to think about this. Don't do that.
+
+But I mean, it makes the point that in some sense such a set is a very algebraic kind of thing. But why, maybe I should at least say why this is the case. This is precisely the case because if you want to know what the value on any other $S$ is, you can cover it by Cantor sets. And then for the fiber product
+
+You're saying it into the category of what, exactly? Well, I think just this functor from sets to... No, sorry, this presheaf on this abstract monoid. Right, just consider sets equipped with an action of this monoid, this abstract monoid. I think this is a fully faithful embedding.
+
+Maybe put a topology on this that... Actually, no, because you need to ensure that this funny covering condition... Here, I mean that for any surjection in the category, in particular, you need to ask the sheaf condition. And this amounts to some conditions that are possible.
+
+Right, so this functor that takes a topological space to... At least for today, I want to stress the other direction, because I'm also discussing something related.
+
+So this has a left adjoint that takes any condensed set $X$ and maps it to the underlying set (what you want to think of as the underlying set) and canonically equips it with a certain quotient topology.
+
+So whenever you have anything that you want to think of as a continuous map from $S$ to $X$, you in particular get a map from $S$ (or rather, just the underlying set of $S$) to this $X^*$. This gives us a map from $S^*$ to $X^*$. Take this union here and endow all of these with their natural topology as a condensed space, and this was an isomorphism.
+
+Okay, so the image actually lands in... This will always be like "mildly compactly generated". What is this? This is for fixed $S$, and all $X$. Or if you want, you could just take the full subcategory, because everything is a presheaf on this.
+
+So for topological spaces, there's a notion of a compactly generated topological space, which is one where, when you want to test whether a map is continuous, it's enough to test it on compact spaces mapping to it. And this is by definition the case for this $X^*$, because if you want to test continuity from here to somewhere, by definition of the quotient topology, you only have to test it from here.
+
+So you only have to test continuity on these condensed sets, but these are actually metrizable. So it's actually in this sense "mildly compactly generated". I hope you can imagine what this should mean.
+
+And conversely, if you start with a mildly compactly generated space, first treat it as a condensed set and then go back, you're precisely recovering the correct topological space, because basically exactly this condition here, and because the condensed objects anyway will come back.
+
+In other words, there is any... Basically, any underlying... So in other words, the kind of unit of the adjunction map in this case.
+
+So they have the... I mean generally, any $X$ maps to this $X^{**}$, the unit of the adjunction. And on these guys, it's an isomorphism.
+
+And so in particular, this means that these guys will form a full subcategory of all condensed sets. And it's... This is a very weak condition to be in this subcategory. I mean, virtually all the topological spaces that ever arise in nature... I mean, for example, we're mostly using these condensed sets in our, like, functional analysis, so to say, for topological modules. And any kind of Banach spaces, Fr\'echet spaces, whatever, they all have this property. They are all usable. So it's not so bad.
+
+I wanted to make one more remark here about the relation to other similar tools that have been considered in the literature.
+
+One is something that I think was quite influential. There's a paper of Johnstone called "On a topological topos", where he has a similar idea that, because topological spaces are not such a very well-behaved category, you should rather try to find a topos that is very well-behaved, which is very close to topological spaces.
+
+So this is something that's achieved by this condensed sets. They form a topos, and one that is extremely closely related to topological spaces. And such things have been done before. One is Johnstone's topological topos. This is based on just the sequence spaces, so no larger profinite sets appear, only the sequence spaces.
+
+And he uses a canonical topology. So on any category, there's a so-called "canonical topology", which is the finest one for which all the representable presheaves are sheaves. In general
+Infinity that are really just infinite covers, so it's an infinite collection of them that covers, but no finite subcollection will cover. But this actually leads to a Banach-Alaoglu property.
+
+You could also just use a finitary one and then get a version of astosch where I think most of what does also works. And then actually there's one that extremely close to what we're doing. I think a paper by es, if I remember right. Basically what they're doing is they take like profinite sets, but only finite. This is a finitary topos, so that's nice, but they don't allow all continuous maps.
+
+I'm not sure if I will come to it today, but it's really important for the good algebraic properties for the functors we want to do to allow all here. I might come to such a point today.
+
+I think they make explicit what their stuff is in terms of this picture, but I think when you only allow the discrete, it is slightly better to make this exclusive.
+
+So you said that being finitely generated is a really weak property. It gives some wellability, for example, in schwartz, or even weak sequential implies sequential. Sequential just means that this sequence space is enough to check, and even that is basically always satisfied. That's why I mean Johnson I think came up with the idea to just use this one, because usually it's actually too small to around with a version that uses even smaller spaces like this.
+
+But in the end, it's actually quite important for us to keep the countable sets in, because if you want like a countable set that surjects onto any metric compact space, for example any like closed manifold or something, you can always cover it by countable. And this is actually important for us, that you can always find from like one profinite the whole thing. Otherwise we couldn't control the other at all, it would become infinite.
+
+Right, so I have here something about this, but look not now.
+
+Right, so maybe this is all I want to say right now about condensed sets, and as I said, for us their main importance is as a home for doing homological algebra. So let's talk about like abelian groups.
+
+Recall like on any topos, abelian groups always form an abelian category. In particular, colimits exist, and there's a set of generators. In particular, this applies to condensed sets.
+
+And so in particular, it's definitely abelian, and now something must have happened that like in topological abelian groups, we run into this issue that they are not at all abelian categories. But now we have abelian categories, so let me briefly discuss how that's possible.
+
+Dustin mentioned the inclusions can be problematic. So for example, you might take $\mathbb{Q}$ inside $\R$, which is a natural topology, or even more drastically, you could have $\R$ a discrete topology inside $\R$ with its natural topology. So these are maps of topological abelian groups, perfectly nice ones, but where the cokernel is kind of problematic.
+
+So let me briefly just compute these cokernels and abelian groups, or like what happens if you take underline. Well, first of all, a point definitely just quotients.
+
+But more interestingly, what happens to give a condenser, we also have to give the values at any set $S$. And so like, you have to be slightly careful when you take quotients, because now the sheaf condition actually becomes important. And like the naive answer you might guess is that this should be continuous maps to the reals mod continuous maps from $\mathbb{Q}$, where $\mathbb{Q}$ is discrete. These are just locally constant.
+
+And you can actually prove that you don't have to sheafify in this case, and this is already a sheaf, and this is the true answer. Okay, so this means that this quotient still kind of remembers something about how there was a topology on this guy, even if you can't really phrase it in terms of the topology itself in this guy. It still remembers that on this part you should take all the continuous maps, but on this part you should only allow the locally constant ones.
+
+And so now let's even do the more drastic thing where you modify all of $\R$ by a discrete guy. Well, then the underline set is just zero, right? It's $\R/\R$, which is zero.
+
+But there should be a value at 
+Very much nonzero. So here's some controlling this funny thing by observing that it has nontrivial maps on general. So, say again... Andity, it's not... Sorry, I again meant to... The, yeah, think... I mean, the rational numbers are not at all embedded in the real numbers. Okay, so let me just state the theorem and then maybe prove it next.
+
+So, part of this I already said. Condensed light condensed... In particular, the exact... But even better, countable limits. Countable products. And for the people that know this funny XM, that's Soal 86 XM inen Le's hope paper, which is about some funny way that products can affect the co-limits. And this is satisfied for products.
+
+This is worse than in all condensed being GS, where all products are exact. Here it's just the countable ones, but I don't know, I mean, most of them really only take countable limits, so it's not so bad. But it's one reason that we were at first a bit hesitant to make this switch. It's also now not anymore... It doesn't have enough compact projective objects.
+
+But one thing that's extremely nice: there is a free guy guys stop. So you can take the light profile set convergent sequence, and then you can always build a free condensed group on there. This turns out to be internally projective. And this is really a property that's extremely specific to the light setting.
+
+Within all condensed being groups, we have plenty of projective objects, but none of them are internally projective, except trivial cases like $\Z$. But also, all of them are really, really big. I mean, they all come from extremely disconnected sets, so they are kind of impractical.
+
+This one wouldn't be projective in condensed groups, but within light condensed groups, it just so happens to be projective and even internally projective. And so this is the only setting of any variant of condense theory in groups where I'm aware of any non-trivial object that's internally projective. And like, the free on a convergent sequence is actually kind of important as a very basic object in the theory. So it's really nice that within this setting, it has its good categorical properties. And it's one of the main reasons we made the switch to the light setting.
+
+The forgetful functor, say, from light condensed groups to the underlying light cond... This has a left adjoint, the free functors on objects. Any light profile sets with free being group on that. I will discuss it more next time. In particular, inside here you have light profile sets while... And in particular, you can take on the light profile set and infinity fre, okay?
+
+So I have this and then discuss some other things on... One questions? Can I ask a question about the... So you said you stated two facts about light case that are not true in the general case. This is a technical question to understand the contra in fact.
+
+I found... So the one can give cont example using the interval from zero to the first uncountable ordinal, which is a forfinite set. And so for the second statement, I take this cross itself and then the closed subset, which is the first uncountable ordinal cross the set union, the set cross this last element, and then the whole thing, the overall product. This is not the retract of the whole product. And for the first thing, I take the complement of the last element, and this is a big open which is not disjoint union of Clen. This is not difficult to see.
+
+On the other hand, you state that there are cases where the shift topology is nonzero. So just for a general interest, I want to know if this is true in this case, and what is the reference for this fact? The shift topology can be... No, if you take the first uncountable order, treat it as a profile set, and remove the limit point, this is a case where the open is not a disjoint union of profile sets. Doesn't high... I think it has.
+
+But you said that people know that sometimes it has... I think you can definitely put examples where there is... You can also take the Stone compactification of integers and remove a part of the boundary. Also pretty, maybe less computable in general.
+
+Is it still true that light top is... You take category stop this... Yeah, you know, the underlying set, right? So that's enough for face.
+
+There no further questions, and let's stop here and we resume on Wednesday.
+\end{unfinished}

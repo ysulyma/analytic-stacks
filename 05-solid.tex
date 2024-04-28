@@ -1,0 +1,192 @@
+% !TeX root = AnalyticStacks.tex
+
+\section{\ufs Solid abelian groups (Scholze)}
+
+\url{https://www.youtube.com/watch?v=bdQ-_CZ5tl8&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
+\renewcommand{\yt}[2]{\href{https://www.youtube.com/watch?v=bdQ-_CZ5tl8&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO&t=#1}{#2}}
+\vspace{1em}
+
+\begin{unfinished}{0:00}
+  Right, so today I want to talk about solid abelian groups. The goal is to isolate a class of intuitively speaking "complete" objects. The point being that in the previous lecture, we've seen that when we work in the category $\Cond(\Ab)$ and start with reasonable examples, then the outcome is also reasonable. But when you instead do some free construction, for example you form some tensor product---I don't know, you take one power series algebra and tensor it with another power series algebra in abelian groups---then ideally speaking, there should be some kind of completeness, where this comes out as complete in both variables. But if you just naively form the standard condensed abelian groups, then the underlying object is still just the algebraic tensor product of these things, which is some nasty indescribable thing. Product-like condensed groups are not so nice.
+
+So the idea is that you would want to define a subclass of complete objects, and then you would like to complete things, and hope to get a reasonable answer instead. Idea being, there should be some notion of completeness for condensed abelian groups. But we definitely also still want that complete objects form as nice a category as condensed abelian groups themselves, they should still be an abelian category.
+
+You definitely want something like the integers to maybe be complete, and maybe the $p$-adic numbers should be complete. But then if you want this to be an abelian category, you also want some kind of extension of $p$-adic numbers by the integers to be complete. But this is a very non-Hausdorff thing. So you definitely can't phrase completeness as meaning convergent sequences have a unique limit. First of all, it's not really possible to say what a convergent sequence is, other than one that already has a specified limit point, in this condensed setting. Abstractly, "convergent sequence" isn't really a notion. But also, even if there was, you couldn't ask that they have unique limits, because you want these non-Hausdorff examples.
+
+Okay, and so back in the day when we were first thinking about this stuff, this was really one of the key questions for us: how to define such a notion of completeness. Originally we wanted one fixed notion, where in particular the real numbers should be complete, the $p$-adic numbers should be complete, maybe all locally compact abelian groups should be complete. And still something where you can form cokernels and it's stable.
+
+In the end, we couldn't directly make that work. But we realized that if we for the moment forget about the real numbers and just want something non-archimedean, then there is something that works quite nicely. So it turns out it's difficult to find a notion where the real numbers are complete, but there is a theory that works well for all non-archimedean fields.
+
+Later we will recover the real numbers, but that's a different story. Today I want to talk about a theory that works well in the non-archimedean context. Originally we did things very differently, so today I actually want to give a presentation of the theory of solid abelian groups that's very different from the one you will find in the first lecture notes. It's a presentation that really only works in this nice way in the condensed setting.
+
+Okay, but in the condensed setting, one can base everything on the following idea: being complete in some sense means any null sequence is summable. One basic nice fact in non-archimedean analysis is that sequences are summable if and only if they go to zero. You can just try to turn that into a definition. It turns out this is actually a definition that makes very good sense. So let me try to indicate how you formalize this idea.
+
+Here's a formalization of the idea. Let me consider this projective object that we had: $\underline\Z^\N$, the constant sequence. We want to say something about convergent sequences, so this should play a role somewhere. Recall that this is an internally projective object. Let me recall what this means.
+
+One way to say what this means is if you look at the internal $Hom$ functor into any condensed abelian group, ...
+
+And what does it do? It takes some life Beilinson group, sends to life Beilinson group. That is, the one that takes any life problem to the internal hom from P. So the underlying, so if we evaluate this at a point, and I just get hom from P2M, but then I've enriched this back into the solid Abelian groups. And then the thing is that this functor is actually exact, but also preserves all limits and colimits. Can you find all that? But actually these are compact objects, right? Okay.
+
+Okay, so this will become important in a second. And now we want to phrase the condition that any null sequence is summable. And one way to do is the following. So let me write something down. I consider the endomorphism F, which is the identity minus the shift map, which is an endomorphism of P. So complete P has a basis generated by some $\text{exp}(n)$, and we make $\text{exp}(n)$. So this is the basic space of null sequences $m_0, m_1$, and so on. And what does F do? If you just translate the formula there, it just sends such a null sequence to a new null sequence, which is $m_0 - m_1, m_1 - m_2$, and so on.
+
+And what would the inverse be? The inverse should send a null sequence here--well, you should be able to recover $m_0$ as $m_0 - m_1$ plus $m_1 - m_2$ plus $m_2 - m_3$ and so on, by telescoping, right? And so if there is an inverse, the inverse has to be S, which takes a null sequence and produces a new sequence where the first term is just the sum of all of them.
+
+So this is one way to phrase the condition that any null sequence in M is summable. It's a very structured way of saying this, because maybe to say that, you would only have to say it on the actual hom, on the internal hom. But it turns out to be much better if you ask the condition on the internal hom.
+
+Okay, and so the goal of today's lecture is to understand this $C(\text{Solid } \text{Ab})$. And in the original approach, proving that this is an Abelian category was actually the last thing one could really prove in this live setting. It's actually the first thing one can prove.
+
+If you consider the subcategory of $\text{Solid } \text{Ab}$, it's actually a reflective subcategory, stable under internal colimits like tensor products, all limits and colimits, even internal homs, and internal exact sequences if you want. This also contains some objects--it contains the integers. And once it contains the integers, everything you can build by limits and colimits and kernels and whatnot will contain all this. It's not everything.
+
+It contains the real algebraic numbers. It does not contain the reals, because of course the reals are just wrong. Okay, I understand. Because there is, yes. So it's definitely current.
+
+And so Jaron, when you introduce later this proposition, it basically tells you that this is an analytic ring structure on the integers here. Okay.
+
+And so previously, I mean, the way we set up the theory previously, it was a bit of an art to construct analytic ring structures, because there were a lot of things you have to check, and none of them were easy to guarantee. And so there were basically only two examples one could construct, which is the solid ring structure on the integers, and then there is this liquid ring structure on the reals and some related rings. Those proofs were pretty hard, and they were really very handcrafted things. But it turns out that because of this internal reproductivity of P, it's now trivial to construct analytic ring structures, because for any endomorphism of P, you can ask such a condition, and all this will come for free.
+
+I mean, yeah, so let's just try to prove that for example, it's stable under kernels. Say you have a map $M \to M'$ where this happens, and then you want to know that for the kernel it also happens. But the internal hom from P is an exact operation, so it just preserves the kernel. So of course the same condition is true for the kernel, the same for the cokernel. Or if you
+You have stability under retracts and finite limits automatically in an abelian category. This limit is also clear, and this colimit also, because just the internal Hom has these properties. So it's all for free.
+
+What about internal Hom from $X$ to internal $X$? This looks more difficult. It's also trivial, no? Because internal Hom you can also pull over, right? I mean, just by adjunction. Ah, but then you need only internal Hom on the second... I mean, you need only... Okay, let's try Hom, because maybe I didn't... I just wrote that down on the board and I didn't write in my notes.
+
+Something guaranteed. Okay, so here is stability under... Let's first do the internal Hom, then see whether it works for the internal tensor product. Let's say $M$ is solid and let's say actually any $N$. What's the internal Hom from $N$ to $M$?
+
+Okay, I see it, because you can permute... Write it down. See, so what is this? For this, we have to prove something about this guy theater. But by the Hom-tensor adjunction, that's also the internal Hom from $- \otimes N$ to $M$. But then, if $M$ is solid, you can commute the two Homs and it becomes internal Hom from $N$ into the internal Hom from $-$ to $M$. But then, if you come as $M$ here... So of course, another fun still.
+
+And if you look at internal tensor product, then because internal Hom from $-$ is exact, you also have that the internal Hom from $-$ into the internal will also just come out as the internal tensor product from the completed tensor product. And then again, the internal tensor product from $N$ internal Hom...
+
+Okay, and so... Yeah, so I mean, this is something extremely... that when you just enforce such an "is solid" condition on the internal Hom from $-$, you get these very... Okay, so everything is for free, except possibly that there is any object that satisfies it. But okay, so you can just compute that the internal Hom from $\Z^{(\N)}$ into the integers is just a direct sum of copies of the integers. Because if you have a null sequence in the integers, then it must be eventually zero because they are discrete.
+
+Okay, it takes a little bit to see that it's really internally Hom, but that's true. Again by adjunction, if you want. And yeah, so if you just compute what identity on $\N$ here... So you want to show that any null sequence is summable. But any null sequence is eventually zero, so it's easy to sum it.
+
+Okay, before actually focusing more on this specific example of like completeness condition, let me draw some... It's good to know. So just by some abstract adjoint fun, this means that there... this inclusion here... will typically have a left adjoint, some kind of completion. So fun that takes any abelian group to a solid one. This is what we call solidification. And so, this is characterized by the property that for all solid $N$, what do we have... that for all solid ones, the Hom from $N$ to $M$ is the same thing as the Hom... The completion does make it the right adjoint, as opposed to the left? It's the left adjoint to the inclusion, because I'm using the inclusion. So I should write some kind of fun here, which is inclusion fun. Because this... No no no, my question is that... So but you see that both are stable under all colimits. It also has a right adjoint, which I've never considered. Yes, but there is some... also some small solid sub, I guess.
+
+Okay, but over solid objects... requires need product... product... making the solidification. So concretely, this is just if you have two solid abelian groups and you want to form the tensor product, you first form the tensor product inside the abelian groups and then pass to solidification again. There's a little bit of unraveling to show that this is really some half-tor operation. But the key thing that you need for this is that the class of solid modules is stable under pullback. And...
+
+Okay. Is this required to be symmetric? No.
+
+Symmetric. Let me just... So the existence of solidification is just an instance of trying. Basically, if you want to have a left adjoint, it should commute with all limits. Then, under very mild assumptions, it also exists and they are satisfied here.
+
+For the symmetric monoidal structure, well, we define $I$ to just be the constant sheaf. Then we want the symmetric monoidal structure. So what we want is that for all $M$ and $N$, which are just condensed abelian groups, first we individually solidify them, then tensor them back in the category of condensed abelian groups, and then resolidify.
+
+To check that, you check that the solidification is a left adjoint. So to check that this is nice, you check that there are maps into all... For all $Z$, which is solid, we want $\mathrm{Hom}(M\otimes^{\mathbb{S}}N, Z)$ to agree with $\mathrm{Hom}(M\otimes N, Z)$. On the right, $Z$ is still solid, so it's enough. But then the two $\mathrm{Hom}$'s are the same, so it's also the $\mathrm{Hom}$ from $M\otimes N$ to $Z$. This is not from the solidification, it's from the original one, but it's okay.
+
+So we have a very nice category. It acquires its own enrichment, but now we would like to understand what it actually looks like. Actually, one thing we also need to understand is how to interact with the real numbers. We already said that the real numbers are certainly not solid, but something stronger is true. Namely, the real numbers do not admit any nonzero maps to anything solid. Or equivalently, the solidification of $\R$ is equal to zero.
+
+Okay, so for this, note that $\R_{\mathrm{solid}}$ is a ring, because the real numbers are a ring, and if you solidify it, it stays a ring. For a ring structure, to show that a ring is zero, it's enough to show that $1$ equals $0$. Now you want to make use of the fact that in an abelian group, you can uniquely form sums of $\N$-indexed sequences. There are lots of $\N$-indexed sequences in the real numbers that are not actually summable, so you would expect that using such divergent sequences, one can produce a contradiction.
+
+It actually took Dustin and me considerable effort figuring that out, but just yesterday, Ian and then also Kobe found an argument. Here's their argument. We consider the $\N$-indexed sequence $1, \frac{1}{2}, -\frac{1}{2}, \frac{1}{4}, -\frac{1}{4}, -\frac{1}{4}, -\frac{1}{4},$ and so on. I hope you can guess how it continues. You take $\frac{1}{2^n}$ and take each one $2^n$ times.
+
+This is a sequence $\chi: \N \to \R$. Then in the solidification, we have a map $\chi: \N_{\mathrm{proet}} \to \R_{\mathrm{solid}}$. When you compose further to the solidification, we have this map $\N \to \N_{\mathrm{proet}}$, and then there exists a unique map $\mathfrak{m}: \N_{\mathrm{solid}} \to \R_{\mathrm{solid}}$ filling this diagram, because we are using that solidification forms a localization. So we can uniquely find such a "summable sequence" in the solidification, which intuitively speaking should be the thing starting the sequence with $1$. In particular, if you restrict to the inclusion of $0$ in $\N_{\mathrm{solid}}$, you get a map from $\ast$ to $\R_{\mathrm{solid}}$, an element of $\R$
+
+Solidification is right exact if you have enough projectives. If $M$ is an $R$-module, then you can resolve $M$ by a solid projective resolution. Then, for example, if you solidify this resolution, you see that $R$ solid is zero. By a spectral sequence argument, the vanishing of Ext groups here reduces to the vanishing of Ext groups from the reals. But the Ext groups from the reals, they are $R$-modules. A different way to state this would be to observe that all the internal Ext's of $M$ against something solid will be $R$-modules, but the solidification of $R$ is actually zero, so any $R$-module works.
+
+When you compute the internal Hom Ext's, since you don't have enough projectives, the classical approach is to use injectives. But then they are no longer solid. I don't know if that's solid, but of course if you have enough solid projectives... The internal Ext's I was referring to here, they are the ones in condensed abelian groups.
+
+If you compute them by injective resolution of the right hand side, the solid argument... If you compute them by projective resolution of $M$, then by what we proved before, all the internal Hom's are solid. But if you are obliged to compute them by injective resolution... I think it's okay. This is definitely an $R$-module, right? But it's also solid. Why is it solid? Because internal Hom against something solid is always solid. That's something I previously said. But it doesn't follow immediately...
+
+Okay, so everything on real numbers is completed by a limit argument. But on the $p$-adic numbers and so on, you get them by a limit of discrete things. So everything that's pro-discrete is definitely solid.
+
+So, next goal is to compute the solidification of $\Z$. The idea is that when you solidify $\Z$, you need to adjoin lots of new elements, because $\Z$ has no non-zero divisible subgroups. But then the divisible subgroups are summable. So the sum of the sequence $1, 1/2, 1/3, 1/4, 1/5, \dots$ must now also be in $\Z$ solid, and so on. We expect there to be lots of new elements.
+
+One way to make this precise: Consider the subspace $X \subset \prod_{n \in \Z} [-n,n]$ given by the union over all integers of the products $\prod_{k=-n}^n [-k,k]$. So it's a subspace of the whole product. Then there is a null sequence here, which is given by the sequences that are non-zero in only one term. Explicitly, let $e_n \in X$ be the sequence that is everywhere zero except the $n$-th spot is 1.
+
+Then actually on solidifications, that $e_n$ sequence becomes zero. Actually, I didn't talk about the verification, so I would like to even say that not just on solidifications, but in derived solidifications, this $e_n$ sequence becomes zero. A different way of stating this is to talk about Ext groups against solid objects.
+
+That the solidifications agree means that the $\text{Hom}$'s against any solid object agree. But in fact, all the higher Ext groups agree as well. I cannot read what you wrote, just after the $\mathbb{P}$. Is it the map from which $s_n$ to... And then here you have a sum of those basis vectors $e_n$ that are everywhere zero except in one spot where they are 1.
+Let's organize this into sentences and paragraphs:
+
+These $e_n$ are just the basis vectors, which is a null sequence in here because the sum has the topology of pointwise convergence. Can you send $n$ to the sequence where only the $n$-th coordinate is 1 and the rest are 0?
+
+Yes, I think so. We know that this makes $\tilde{K}$ quite big, because the underlying abelian group of $\tilde{K}$ is actually an uncountable abelian group. You sum only along finite sums of these countably many basis vectors, but $\tilde{K}$ is a very large, uncountable thing.
+
+So we've got quite a bit to prove. Let me draw some nice diagrams. Okay, maybe I won't do all the compatibility checks, but let me just draw the diagrams and then I'll leave a little bit of diagram chasing.
+
+So we're trying to make good use of the fact that when you have solid abelian groups, the internal $\operatorname{Hom}$'s behave well. In other words, they commute with solidification.
+
+Okay, so we have this diagram here. And then we have another map which is... Okay, so what are the maps here? Giving a map from $\prod_{n=0}^\infty \Z$ or something to here corresponds to a map from $\Z$ to the internal $\operatorname{Hom}$, meaning it corresponds to a null sequence in the internal $\operatorname{Hom}$. So to give this map, I have to give a null sequence of maps from the direct product $\prod_{n=0}^\infty \Z$ to itself, which are the projections to the coordinates greater than or equal to $n$. In other words, in the first $n$ coordinates it's the zero map, and on the others it's the identity.
+
+And so then what does this composite do? This composite here also corresponds to... Let me first describe this composite here. This corresponds to the sequence of maps which are just projection to one fixed coordinate. Because if I think about the difference between two consecutive maps, only one fixed coordinate remains.
+
+But the thing is, the projection to the $n$-th coordinate actually factors over the integers. So in each case, when I fix one $n$ here, the corresponding map is just projection to the integers and then adding back in. But this means that actually all of these maps that are parameterized here, all of them factor over the subspace $\tilde{T}$. 
+
+So this means that this composite factors over this subspace here. I actually need to use that I take a bounded product, because if the coordinates stayed unbounded, I wouldn't actually get this characterization.
+
+Okay, so what's the idea here? You have the identity endomorphism here, and you write this as a sum of a null sequence of endomorphisms. And the null sequence of endomorphisms is the projections to the individual coordinates. So the identity endomorphism here is the sum of the projections to any coordinate.
+
+But all of these endomorphisms that you sum, they all factor over the subspace $\tilde{T}$. And one other thing I should say is that because the first map that I project is really just the identity, if I project to coordinates greater than or equal to 0, I'm not doing anything. This actually means that if I come back, at the 0 end, this $s$ here is the identity.
+
+And so then I can solidify this diagram. I guess that's how to rewrite it.
+
+Okay, so we have this diagram. Well, now this here is an isomorphism, because $F$ solidifies to an isomorphism just by definition of what solid means. And solidification is symmetric, so both of these maps become isomorphisms.
+
+But now this means that this map actually is a split surjection, because you can find an inverse by first going here, then going here, and then going here. So this is actually a split surjection, which is almost what we wanted to prove. It's actually an isomorphism.
+
+To show that it's an isomorphism, you have to show that when you circle around this diagram, you get the identity. And this is another diagram chase that maybe I won't do, it's not difficult. Yeah, so all the maps are isomorphisms.
+
+And so this means that this actually becomes an isomorphism too. I claim something slightly stronger, namely the agreement
+
+So there's a derived solidification functor. And then the same argument is true on solid modules. This $T$ that you solidified is $p$-completely solidified. A ring object now, it will be, but it's not obvious. Oh no, sorry, I think $T$ itself is already a ring object. It doesn't have a unit, does it? Well, just zero, if you want. I mean, I'm not sure. Wouldn't the identity be the constant sequence 1? Which is not, I'm not sure how you get a ring structure component-wise.
+
+I guess, in fact, once we're here, we can actually compute the solidification with another example. So that if we take $S^1$ product, then the whole product, but I mean, this is already solid. We don't need to solidify. And it's also a condensed ring, okay.
+
+And actually, this is a case where I do need a little bit of this $\varprojlim^1$ business. Because it's actually, so we have this sequence here, $\varprojlim S^1$ is pretty large, and then we have this funny $\varprojlim^1 S^1$, which is some weird non-separated guy, but whatever. And so what we have to see is that $\varprojlim^1$ for all $i$ equal to zero, and then this guy doesn't have any $\varprojlim^1$.
+
+Now, of course, I've carefully planned my lecture. So now we know already one class of examples where the solidification exists, which is anything that admits a module structure with a real number. So the claim is that this guy is a condensed ring, which seems surprising at first.
+
+But so why? Actually, there's a different way to write this. It's also the same thing as a bounded product of copies of the real numbers modulo unbounded products, where I define the unbounded product the same way, as an increasing union. And why is that? Because the difference between these two notions, mapping $A$ to $B$ to $C$ to $D$, is the same as first taking ratios here and ratios here.
+
+So what is the ratio here, or $\varprojlim^1$, whatever. Here the ratio between these two is, of course, just the product of $z_i$. But the $\varprojlim^1$ here is also the same thing. Because if you want to surject onto a product of circles, then of course you can keep the projection, can keep them $z_i$ and $1$. So this definitely surjects onto here, but then the kernel is obviously just $B$ sequences of $z_i$. So if you want, you can draw some kind of three-diagram of short sequences justifying this. Like a short sequence here, short sequence here, and then they give you a snake lemma.
+
+Right, and so this one is visibly a condensed ring. Apart from this discussion, the upshot is that the completion of $\Z$ is just the whole product, and the $\varprojlim^1$ is zero. So then, now where here on the right I'm taking the ext groups, all the ext groups I'm taking are currently still taking in condensed abelian groups.
+
+Noting that, I mean, of course this is zero for $i$ greater than zero. Because, so in particular, we recover that $\Ext^i$ in condensed abelian groups from this product of copies $\Z$ to say, $\R/\Z$, which is a discrete abelian group, is just a direct sum of copies of $\Z$ and $\Z$ for $i$ positive and zero. So this is something that I also proved at the very end of the last lecture. And actually, I imagined it would be an input into today's lecture, but now actually one can present the argument so that it's a corollary here.
+
+Did you use the solid analytic feature to show that $\Ext^1$ vanishes?" Yes, I did. Well, I mean, they're also in condensed abelian groups, but yes, I definitely used a different argument. Also, when you actually want to justify that this map here is surjective, I mean, it's actually, if you think in terms of
+
+Why? I mean, this is just given by... Think that, but $p_T$ of $P$, you can take this to $P$. And basically, there's a free guy on, like, an $n \times n$ grid of elements that all jointly converge to zero. But then, well, you can just enumerate... Same, it's just, here is some kind of...
+
+So, in particular, like, phrased in terms of... One way to think about power series algebras, in particular, two power series algebras together, and you get the power series algebra. And maybe up there I should have noted, in some cases, the product of $n$ is some compact projective object. No, I'm sorry.
+
+Alright, so we understand quite a bit. We don't yet necessarily understand all the objects and groups, because there are other generators in life groups: $\Z$ join assets fin. And so we could wonder what their solidification is, but this can also be understood.
+
+And then the... exist from the free... toward using solidification and on $X$ solidification. So you see that also these solidifications of these guys will be a product of... And finally, any assumption on $S$? Like, $S$ should be non-empty or infinite, or you should... Yes, yes. Yes, infinite.
+
+Canonically, one way to write a morphism is that if you write $S$ as a limit of compact sets $S_n$ with surjective transition maps, this will actually just be the limit of these... These are all find of free being in groups, the... the transition maps. So it's easy to see that any such limit would be isomorphic to a product of copies of $\Z$.
+
+So, in our previous way of setting up solid series, we were actually taking this formula as the starting point for defining what a solid guy is. So we were just, on all the generators of our category, all these $\Z$ join $S$'s for profinite $S$, we were by hand declaring what the solidification should be. We were defining it to this limit, and then we were checking by hand that this gives a valid pretheory. But this argument is actually much harder than the way I've set it up now. In some sense, the definition of what a solid group is, is much clearer, and then this really becomes a computation.
+
+Okay, so let me quickly give a sketch. So we have our $S$ and it's written as this limit of finite sets. I assume that all the transition maps are surjective and I inductively choose... Well, first the section $i_\Z$ from $S$ second $\Z$ back into $S$. Then, on all elements of $S_1$ that are not in the image of $i_\Z$, you pick the first playing on on $S_0$. And then if you project back down to $S_1$, in particular, you've already some elements of $S_1$ which you've already lifted to $S$, but then there's new elements of $S_1$ that I didn't yet have. And so on, then I pick $p_i$ new $S$ sometimes on $S_1$ minus the image, and so then jointly these two things together now define for me a section from $S_1$, which on some elements is given by projecting to $S_0$ and then taking the lift you already have there. And the other elements, you make a new choice. And then you continue.
+
+Okay, so this way, what in particular you will get is a countable sequence of elements in $S$, right? Because the union of all these maps is just a countable subset of this, but it will certainly be dense.
+
+And so, let's also enumerate the elements. So, enumerate $n$ as you start enumerating at zero, then start enumerating the elements of $S_1$ that weren't in $S_0$, one and so on. And we get a map $d$ from $\N$, which is some of the free guy on this copy of $\N$, towards $S$. Right, on $S_\Z$ this is given by $i_\Z$, but on some higher $S_{n+1}$ it's given about the difference, the next in
+
+Canonically, it should be this thing. In order to prod such an isomorphism, I have to produce such an isomorphism. If you carefully think about how you would actually go about doing that, you have to choose a new base of elements. Then it is precisely what you want to end up to.
+
+The argument is actually very similar to the argument we already did. We have our carefully here, and then sectors, where again, giving such a map means I give a pro-sequence of maps from S to S. The pro-sequence I consider here is a sequence of $S \to S_{\leq n}$. So you start with the identity, which we have to do because we want this splitting here, and then take $I$ project to the $\leq n+1$ and take the splitting $\pi_n$.
+
+Okay, so when I write these maps, I need the maps induced on quotients. It turns out that because some of these maps approximate the identity here, the same as $S_{\leq n}$, and so then this guy here, this corresponds to the sequence of the differences $\pi_{n+1} - \pi_n$. If you think about what these differences are actually doing, you realize that they are only changing something on a small part. I would mess it up if I try to say it orally, but you can check that you've exactly crafted things so that this difference will factor over the image of this $S_{\leq n}$.
+
+The idea here is again that you take the identity here and try to write it as an infinite sum of maps, all of which factor over the submodule. For this, you use the sequence of functions $\Z_S$ which are factors of something of finite range $\Z_S$, and then you can do it. The argument is just the same as before.
+
+What becomes critical here is that you really have a pro-finitely presented $I$. If I were to set up the theory of solid abelian groups back in alter groups, then the condition I gave that just talk about pro-sequences wouldn't be enough, because you will never see this $I$ as a quotient of the integers. You're really using that you can still understand this via its finitely presented quotients.
+
+Okay, so now we have that $\mathrm{Solid}(\mathrm{Ab})_{\mathrm{ST}} = \mathrm{Coh}(\mathcal{O}_S^\mathrm{a.cg})$. In particular, this includes that it has a compact projective generator, a single compact object which is a full subcategory of products $\Z_S$, and it's actually internally projective. In fact, if you tensor it with itself, it becomes isomorphic to itself.
+
+Also, in the solid case, being solid is equivalent to only having the $\mathrm{Hom}$-finite condition hold, which is what we took as our original definition. It had only $\mathrm{Hom}(\Z_S,-)$ preserve filtered colimits, and all maps $\phi : \Z_S \to M$ have a unique extension to $\Z_S^{\mathrm{a.cg}}$ from the free object, which is the colimit $\varinjlim_n \Z_S$.
+
+And this, and then also because $\phi$ is actually zero. And maybe I didn't say, but you do it, you can do it by taking $M$ to be anything, and then you go from the universal property for $\Z[S]$ to the same one for any $M$, because you represent the solidification of $M$ as $\Z^S$. So the fact that any map from $M$, from other $M$ (I mean $M'$) to $\Z[S]$, factors through the solidification, and then by then is clear that this is the same as $\Z^S$. I think this also represents $M$. Part of it is clear, a direct fact.
+
+So, time, so let me just give one kind of philosophical way of thinking about this solid condition. The very end condition was that all null sequences are summable. And something that we get out of this is that one can always integrate against certain kinds of measures. So one can also think of $\Z[S]$, it's actually the same thing as the continuous functions from $S$ to $\Z$, because the continuous functions, they have a colimit of the functions on $S$ to finite sets. This gives a description.
+
+And so from this perspective, these are some kind of $\Z$-valued measures on $S$. And so this means that whenever you have a map from $S$ to $M$, where $M$ is solid, and whenever you have a measure on $S$, then this induces by what I said here, and this is the measure $M$ to something here. So we can and this to the integral of $f$ against $\mu$. In other words, whenever you have a map from some profinite set into $M$ and some $\Z$-valued measure on $S$, then you can form the integral.
+
+One thing that I should stress here is that this characterization of solid at the end, I only talk about homs, not about internal homs. The first characterization I gave where I talked about differences, I had to talk about the internal homs. Here it's a problem enough.
+
+All right, I'm out of time. Let me check why the composition is zero. Because these are $0$, solidification is also $0$. I'm slightly confused about my diagram, why it's still a presentation of $M$. That's maybe... First, you definitely get a right exact $M$ with a solidification. Solidification is right exact. But then, and you definitely always have this map here, but then the observation that there exists this map back, which is zero here, means that this actually retracts. So $M$ is a retract of its solidification by this argument. But retracts of solid guys are solid. So there is a single compact projective generator.
+
+Right, so I mean we'll discuss this more next time. So one can give some purely synthetic algebraic descriptions of what the category of solid abelian groups is without talking about anything. And so you can say what they are, right? Products of sums of $\Z$, they are just infinite matrices which in every row are eventually zero.
+
+Are you going to give a similar new way to define, a new definition for liquid modules? Or is this new formalism available only for the solid setting? The question is whether one can also characterize the liquid vector spaces in a similar way by mapping. I think it should be possible, and we're currently figuring out the details of what works. Let's see, we still have a few weeks.
+
+\end{unfinished}

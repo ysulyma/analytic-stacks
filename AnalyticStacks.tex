@@ -1,11 +1,13 @@
 \documentclass[reqno]{amsart}
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{comment}
 \usepackage{fullpage}
 \usepackage{todonotes}
 \usepackage[all,2cell]{xy}
 \usepackage{graphicx, amsmath, amssymb, amsthm}
 \usepackage{newclude}
 \usepackage{mathrsfs}
-%\usepackage{showkeys}
 \usepackage[hidelinks,backref]{hyperref}
 \usepackage{enumitem}
 
@@ -28,63 +30,58 @@
 
 % \includeonly{}
 
-\newcommand{\rpn}[1]{[#1]_\lambda]}
-\newcommand{\frpn}[1]{\{#1\}_\lambda\}}
-\newcommand{\frd}{\mathfrak d}
-\newcommand{\resp}{\quad\text{resp.}\quad}
-
-\renewcommand{\frm}{\mathfrak m}
-\newcommand{\fin}{\mathrm{fin}}
-\newcommand{\str}{\mathrm{str}}
-\newcommand{\frH}{\mathfrak H}
-\newcommand{\D}{\mathfrak D}
-% \newcommand{\G}{\mathbf G}
-\newcommand{\M}{\mathcal M}
-\newcommand{\cA}{\mathcal A}
-\newcommand{\cE}{\mathcal E}
-\renewcommand{\P}{\mathbf P}
-
-\DeclareMathOperator{\Lie}{Lie}
-\DeclareMathOperator{\Psh}{Psh}
-\DeclareMathOperator{\Sh}{Sh}
-\DeclareMathOperator{\GL}{GL}
-\DeclareMathOperator{\PGL}{PGL}
-
+% uncomment to work on just one lecture
+% \includeonly{03-light-condensed}
 
 \title{Analytic Stacks}
-
-% copy(captions.events
-%     .map(e => (e.segs ?? []).map(seg => seg.utf8
-%                                 ).join(" ")).join(""))
-
-% Add punctuation and capitalization to convert the following text into sentences and paragraphs. Remove filler words such as "uh". Do not reword the text. Use literal $ instead of rendering LaTeX.
 
 \begin{document}
 
 \maketitle
 \begin{center}
   Lectures by Dustin Clausen and Peter Scholze
-
-  Notes by Yuri Sulyma
 \end{center}
 
 \tableofcontents
 
-\setcounter{section}{14}
-
-These are lecture notes for the Clausen-Scholze course on Analytic Stacks,
+These are crowd-sourced lecture notes for the Clausen-Scholze course on Analytic Stacks,
 \begin{center}
   \url{https://www.youtube.com/playlist?list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
 \end{center}
 
-% I produced these notes by downloading the auto-generated captions from YouTube, running them through ChatGPT, then manually editing the output to clean up sentence structure, add diagrams, etc.
+The repository for these notes is
+\begin{center}
+  \url{https://github.com/ysulyma/analytic-stacks}
+\end{center}
 
-These notes are not endorsed by either Clausen or Scholze; any errors are solely the fault of Sulyma.
+These notes are not endorsed by either Clausen or Scholze; any errors are solely the fault of the transcribers. Sections in red were auto-generated from the captions and have not yet been cleaned up by humans.
 
-\include*{15-stacks}
+\include{01-introduction}
+\include{02-light-condensed}
+\include{03-light-condensed}
+\include{04-ext-computations}
+\include{05-solid}
+\include{06-solid-complements}
+\include{07-solid-affine-line}
+\include{08-huber-pairs}
+\include{09-localization}
+\include{10-adic-spaces}
+\include{11-solid-miscellany}
+\include{12-what-happened}
+\include{13-analytic-rings}
+\include{14-gaseous}
+\include{15-stacks}
+\include{16-analytic-stacks-6ff}
+\include{17-shriek-descent}
+\include{18-shriek-topology}
+\include{19-analytic-stacks}
+\include{20-normed-analytic-rings}
+\include{21-six-functors}
+\include{22-berkovich-spaces}
+\include{23-berkovich-spaces}
+\include{24-outlook}
 
 \bibliographystyle{amsalpha}
-\bibliography{../bibliography}
-% \input{biblio}
+\bibliography{./bibliography}
 
 \end{document}

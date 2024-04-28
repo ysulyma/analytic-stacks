@@ -1,0 +1,276 @@
+% !TeX root = AnalyticStacks.tex
+
+\section{\ufs Ext computations in (light) condensed abelian groups (Scholze)}
+
+\url{https://www.youtube.com/watch?v=EW39K0J7Hqo&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO}
+\renewcommand{\yt}[2]{\href{https://www.youtube.com/watch?v=EW39K0J7Hqo&list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO&t=#1}{#2}}
+\vspace{1em}
+
+\begin{unfinished}{0:00}
+  All right, I think that's a signal to start. Good morning, welcome back. So today I want to talk about some EXT computations in condensed mathematics, and then some...
+
+So I guess the basic claim is that this category of condensed abelian groups is a very convenient framework for doing homological algebra. It's a very nice abelian category. You can, without any problem, form a derived category. And because topological spaces essentially embed faithfully into condensed sets, topological abelian groups also basically embed faithfully (under some mild assumptions).
+
+So now you have a nice home to play with them, but then because you have an abelian category, you can ask about EXT groups, and then you can wonder what they actually are. And for this theory to be somewhat useful, you want all the answers of these EXT computations to give you reasonable answers that are interpretable.
+
+So the first theorem that I stated last time is the following theorem. One thing you can do is start with, for example, some nice geometric object like a CW complex X. And let's say M is an abelian group. Then one can look at the EXT groups in condensed abelian groups between the free condensed abelian group on X (or rather, on the corresponding condensed set), and M treated as a discrete abelian group.
+
+Basically, if you treat X as a condensed set, then in any topos there is this internal notion of cohomology, which one way to express is as EXT groups in the topos. So this is the internal notion of cohomology of X with coefficients in M in the condensed world. And fortunately, it turns out that this precisely recovers the singular cohomology of X with coefficients in M. Okay.
+
+So the first thing I probably want to do today is sketch a proof of this theorem. Maybe I should say that to a large part, in this lecture and maybe also the next one or two, I will still follow the first course that I gave on condensed mathematics some years ago. You can find lecture notes online, so for much of what I'm talking about today and last time, a reference is this "cond.pdf" that you can find on my webpage.
+
+Okay, so proof sketch is that, well, as X is a CW complex, it's an increasing union of some $X_i$, where the $X_i$ are compact. It's filtrable, built from finite dimensional cells. And then on both sides, you take colimits (direct limits). Yeah, you probably need a slightly better statement there to really compare the complexes, not just individual groups. But basically, you can reduce to the case that you just have a compact space X, a compact CW complex.
+
+Then there's actually a more general statement that works for any compact Hausdorff space X that may not be a CW complex built from cells. That's the Čech theorem. Again, you still have these EXT groups between the free abelian group on X and M. It turns out that in this case, you can always compute this as what's known as Čech cohomology on X with coefficients in M.
+
+So here, \v Cech cohomology is defined in terms of the category of sheaves of abelian groups on $X$. You consider a topological space X (or the corresponding site), and abelian sheaves on X. Then you have a global sections functor from abelian sheaves to abelian groups (I'll write this as $H^0(X, -)$ to distinguish it from other notation). You apply this to the constant sheaf $M$ on $X$, and take derived functors.
+
+
+It is known that Čech cohomology, when restricted to CW complexes, satisfies the Eilenberg-Steenrod axioms and agrees with singular cohomology. So for $X$ a CW complex, the two notions coincide. But not in general - in fact, singular cohomology is really only valid for CW complexes. In general you should use something like Čech cohomology (or really the same thing).
+
+So here's a key example to keep in mind, of relevance to us: If $X$ is totally disconnected, then you can actually show that the global sections functor $H^0(X, -)$ is already exact. So in this case, Čech cohomology vanishes in positive degrees. Okay.
+So here is a proposed correction of the transcript:
+
+Compact, I mean... Yeah, I'm still... Sorry, yeah, the prof fin set. These are the global sections and the global sections are just locally constant maps from $X$ to $\N$, equal to zero, and there's no higher cohomology.
+
+But if you would consider the singular cohomology, this is defined in terms of the singular chain complex, which is built from just mapping points and simplices into $X$. But from the perspective of all simplices, there's no way to tell apart $X$ from just a discrete set of points, right? Because simply connected... So any connected space will just factor over one point.
+
+But when you... So you can also compute the singular cohomology of $\N$, and again it's $\R$ in degree zero, but in degree zero you get all functions.
+
+Yes, continue. So this means that thinking about cohomology doesn't really see anything about the topology of $X$ anymore. The sheaf cohomology does.
+
+I think another possibility is to consider locally contractible spaces. I believe that when you cross $X$ with an interval, this sheaf cohomology group should not change. I'm not completely sure what it looks like, and then one can do for locally contractible spaces a comparison with sheaf cohomology. And if in addition it is paracompact, then you get comparison to singular cohomology. But the usual results on... 
+
+Yes, yes, right. Yeah, I think the key statement you really need about $X$ is that it's locally contractible in this funny sense. "Locally contractible" doesn't mean it's covered by opens, or that any point has a basis of open neighborhoods that are contractible. But rather that for any point and any neighborhood, you can find a smaller, possibly smaller neighborhood that can be contracted in the larger one. And under this funny assumption, that's the official definition of locally contractible.
+
+You can actually show that yeah, I think everything that I said about CW complexes extends to this. But to compare sheaf and singular cohomology, the usual treatment requires paracompactness. I'm not sure if it is... So yeah, maybe paracompactness... 
+
+Yeah, I think these paracompactness assumptions, they would kind of only matter in intermediate... If you go all the way back to here, I think it probably disappears again.
+
+Yes, the question... So the question was, often one considers topological spaces up to weak equivalence. And then obviously any space is weakly equivalent to a CW complex, and for example $X$ is weakly equivalent to just a discrete set of points. But here I don't want to consider topological spaces up to weak equivalence, because otherwise I wouldn't be able to treat totally disconnected spaces at all. I'm not using here topological spaces as a way towards pure homotopy theory, I'm really interested in the actual topology.
+
+Um, right. So okay, so here is what I want to prove. If I have any abelian group, then I can compare these sheaf cohomology groups. And this can actually be further upgraded, and I mean, I'm not doing this just for fun, actually...
+
+So here's a first upgrade you can do. Sheaves were defined... So there are two sides. On the one hand, you can fix $X$, let's call it the topos of $X$. So this is what's used on the right-hand side. And on the other hand, you can consider the category of slices of the topos, defining light contravariant set-valued functors. You can consider light profile sets together with a map to $X$.
+
+And once you pass to sheaves, or once you pass to the corresponding topos, it turns out that that's actually a geometric morphism here. So... These here are light sets with a map to $X$, and these are $X$, and there is a map here.
+
+So what I'm telling you is that whenever you have a sheaf over $X$, you can pull it back to get a light functor on contravariant sets over $X$. And to define what the pullback is, you really only have to define it on those generating objects. So $\mathcal{L}$ of $U$, when $U$ is an open subset of $X$, is just $U$.
+
+Okay, so here's the usual sheaves on $X$, and you can pull them back to get light sets over $X$. And correspondingly, you also have the topos of sheaves on 
+
+This means that $X$ is a sheaf group, which are some kind of forms. In particular, for all $\mathcal{F}$ which are abelian groups on $X$, the cohomology on the site of condensed sets over this coefficients in $\mathcal{F}$ is the same thing as the cohomology. If you apply this to a constant sheaf, you recover the previous result. This is for $X$ locally compact.
+
+The kind of $X$ I was having in mind is the case where $X$ is a compact Hausdorff space, probably profinite would be good. So if we apply this to the constant sheaf on the abelian group, we get the previous result.
+
+Maybe this all sounds a bit scary, but the point is just the sheaf is defined in terms of cohomology on one side, and the other is basically also just cohomology on the other side. The original claim was that for a certain very specific sheaf, namely a constant sheaf, they have the same cohomology. But actually something much more robust is true: that any sheaf $\mathcal{F}$ which can be represented in terms of such a functor is fully faithful.
+
+Okay, so let me sketch. We need that on any object, the pushforward of $\mathcal{B}$-cohomology sheaves on $X$, the adjunction map from $\mathcal{A}$ to the pushforward of the pullback of $\mathcal{A}$ is an isomorphism. This is a certain map in $\mathcal{D}^+(X)$, and then just a general fact that you can check whether such a thing is an isomorphism by checking it on stalks. This is really the key point where I'm kind of using the topos-theoretic formalism in order to make a reduction to checking something on stalks.
+
+We want that $a_x$ maps isomorphically to---oh, right, we wonder what this maps isomorphically to. Now the key point is that you can actually have suitable base change properties that allow you to pull taking the stalk into this pushforward operation.
+
+The key base change property, taking stalks at $x$, uses the following: this is where you actually use something about the nature of the stalks, namely you use a general cohomology result for taking the stalk of some kind of $\mathcal{F}$ and taking cohomology of some kind of formula. There are certain statements when you can interchange them. Such base change results hold in the generality of what's called coherent topoi.
+
+Coherent topoi is just basically the same thing as being quasi-compact and quasi-separated. So on the end, what you see is that the key thing you really need at this point is that this condensed set corresponding to $X$, in this internal language of topoi, means to be quasi-compact and quasi-separated. This was precisely the thing I mentioned last time: that if you want to do this, for example, for the interval, you need to know that there is a surjection from one of the generating objects, the contractible sets, towards the interval.
+
+So implicitly here you're using that you can cover something like an interval by contractible sets. Sorry, yes, thank you. Why did you use the boundedness assumption? Because otherwise this statement doesn't hold true in general. If you don't have things that are bounded to the left, there's always some issue of how cohomology changes with cosic limits, and there are all sorts of questions.
+
+Basically, there are at least three versions of which way you can do this. There's Lurie's version, which may be the best one, and then there is just the rough category of sheaves, and then there is the left completion. If you want the functor to be fully faithful here, you should always take the left completion.
+
+All of this matters if $X$ is not locally compact, or if it's five-dimensional, then everything's the same. But this kind of general statement, that it always holds for any Grothendieck topos, only works when you're bounded to the left. Otherwise there are some issues. I believe you want to regard the point as a limit of its closed neighborhoods rather than open neighborhoods, yes, exactly.
+
+So if you actually want to execute what I gave here as a hint, then you actually have to use that. I mean, this is cofinal with all open neighborhoods of $x$, but when you're in a compact
+Sure, I'll help clarify this transcript. Here's the revised version with added punctuation, capitalization, and paragraph breaks:
+
+You can take the closed neighborhoods here, which has the advantage that if you pull back a closed neighborhood, you actually get some profinite set. You want to stay within the realm of proper, compact, separated objects, for which you need to take a closed neighborhood. But you can just do that.
+
+So, we can pull in---taking the stack $X$, this basically means that we've reduced to the same statement, but now the space $X$ has to just become a point. Let's do this. Okay, but if it's a point, then all these are just abelian groups. Well, this is still something---abelian groups embed fully faithfully in there.
+
+This basically means the integers, as a profinite group, are still projective. So the $X$---yeah, maybe you have to explain, but it's obvious that this $Hom(S, lim M_i)$, with this topology---you have to use that these are in between the open and closed neighborhoods. So if you pull back to open neighborhoods, but then the transition maps, if you have two open neighborhoods and their intersection, then the intersection on the closed neighborhoods sits in between. So it doesn't matter which one you use.
+
+Let me just pause a second and let me try to understand what happened here more completely. So we're interested in computing $X(S, G)$ for some $X$, and we're interested in computing, well, let's just say, in arbitrary degree. Then we would like---now I took a very fancy approach, but we could try to do it more down-to-earth. How would you actually try to compute $X(S, G)$ in abelian groups? You would try to find a projective resolution, and if you cannot find one that's projective, at least you would try to find one that's a free resolution.
+
+This actually breaks the proof in two steps. Step one is to show that if $X$ is actually totally disconnected, then you don't actually have to do anything. So in this case, $X(S, G)$---in this case it's one of these generating objects in our site, it is in this case some profinite set $S$. The continuous maps from $S$ to $G$ are equal to $G(S)$ in degree $0$ and nothing in positive degree.
+
+Okay, so for $S$ being, for example, the profinite completion of the integers, this really just follows from the statement from last time that this is a projective object. But in general this is not true, and for the general case you still have to resolve this $S$. But for---so this comes down to the following:
+
+If there was some, for example, some $H^1(S, G)$, you could always split this $H^1$ after you pass to a cover of $S$ by what it means that it's injective. Similarly, if there's any higher $H^i(S, G)$, you can always split it after passing to some kind of infinite resolution of this $S$. So concretely, what this amounts to is that for hypercovers---so this is a simplicial object in profinite sets---there's $S_0, S_1$, and so on.
+
+Concretely, this means that $S_0$ is a cover of $S$, and then you can recover $S$ as a quotient by this fiber product $S_0 \times_S S_0$. But then the next one $S_1$ is required to surject onto the fiber product, and so on. Here, it takes a little bit of effort in writing.
+
+So whenever you have such a hypercover, there's actually some completely general thing that in any site, if you have an object with a hypercover, then you can build the corresponding chain complex. This is actually always exact, and you need to see that when you dualize and pretend that this should be the answer you would want, if I now pass to the corresponding complex of continuous functions, that this is still exact. This is not automatic, this is what you have to prove.
+
+So we need to show for all hypercovers---the exactness is automatic, what we need to show is that the corresponding complex of continuous maps is also exact. There are several ways to prove this. One is to use the same argument I used, which is to argue that in order to prove this exactness, you can treat everything here as a sheaf on $S$, because instead of taking global
+
+Stalls, and then again when you pass to stalks, you realize the same thing. Where now you're covering a point they have to cover a point, but then again, because it's a point, their cover---there's nothing.
+
+So that's one way. The other way is to prove something, some abstract lemma, that whenever you have a hypercover of profinite sets by profinite sets, you can always write this as some cofiltered limit of hypercovers of finite sets by finite sets. And then this writes this thing as some filtered colimit of corresponding things where everything is a finite set. But then for finite sets also, hypercovers are split and the exactness is automatic.
+
+I think that the latter argument is the one I actually used in the lecture. The first argument is like cohomological descent in SGA 4, and I think that they also check---I forgot in which reference, but in one of the proper base change theorems for separated, proper maps. And then the arguments in cohomological descent go through, and it will give this. The cohomological descent spectral sequence will give you this result. Right?
+
+Yeah, I guess the previous thing on the right was, I guess, it's called Mor. Either that, or you have a colimit, and it actually takes a little bit of unwrapping that you can always do this, but it's okay, to reduce to the case of finite sets where it's obvious.
+
+Okay, so that's the first step if you try to do this more concretely, but maybe also the less interesting step, because we're still just treating these totally disconnected spaces. And now, step two is to treat general spaces.
+
+And so we would again like to find such an acyclic resolution, and now we actually found a lot of acyclics, because now we know that for these connected guys at least this is all right. So now it's enough to find a projective resolution, but one by such joins.
+
+So we want to resolve $\Z$ on $X$, but on $SS^{-1}S$ is lol. And so how does one actually do that? But one uses precisely that---one uses that you can always find the surjection from the constant set, so from some profinite set on to $X$. And then you get some equivalence relation $S_0 \times_{SS} \Z$. And this actually, I mean, if $S_0$ is already totally disconnected, then $S_0 \times S_0$ is, and this is a closed subspace if you take the fiber product. So this is actually always totally disconnected. You don't even have to do any further resolution.
+
+So you can take Čech's nerve, where this is $S_0$, this is $S_{-1}$, this is $S_{-2}$. In general, these $S_i$ are just some $i+1$-fold fiber product. We have some hypercover, in fact Čech cover, of $X$.
+
+And so again, by the general principle that hypercovers give you resolutions, you now get such a resolution of $\Z$ on $X$ by these three guys. This is our resolution by things that are Čech for functions.
+
+And so this tells us that, if you're interested in $R\Gamma(X, \Z)$, this can be computed by taking these guys. And now we know that this guy here is computed by this complex, where you take here the continuous functions from $S_0$ to $\Z$. Which is some really awkward formula for something like singular cohomology.
+
+So you take your nice base $X$, maybe the interval, cover it by some constant set, and then take all the fiber products. And then everywhere you take just the locally constant functions to the integers, and build this cochain complex. And the claim is that this computes $R\Gamma(X, \Z)$. 
+
+Now, it's not so clear a priori that it really computes the right thing. What the previous proof amounts to is to check that, to again treat all of these things here as sheaves on $X$, so as global sections of some sheaves on $X$. And then to check that this computes the right thing, you can again somehow compute on stalks, and then you're done. And then we check that it resolves the constant sheaf.
+
+Sorry, sir
+So what are some examples of objects in here? Well, also the $\Z$ are in there, and then I don't know, the real numbers $\R$ are there, or something like the real numbers modulo the integers $\R/\Z$, or the $p$-adic numbers are in there. Also something nice like the adeles, which are the restricted product of the completions of the integers.
+
+One nice thing about the adeles is that they sit in a short exact sequence where you have $\mathbb{Q}\hookrightarrow\mathbb{A}_{\mathbb{Q}}\twoheadrightarrow\mathbb{A}_{\mathbb{Q}}/\mathbb{Q}$, and $\mathbb{A}_{\mathbb{Q}}/\mathbb{Q}$ is compact. So there is some kind of structure theorem for these guys.
+
+Each object can be broken up into three pieces: one piece is the discrete piece, one piece is a finite-dimensional real vector space, and one piece is a compact piece. As you see, there are some kind of interesting exact sequences in there. So you definitely expect that there is some kind of Ext$^1$ group, like $\Ext^1(\R/\Z,\Z)$, which classifies the extensions of real numbers by integers, something like this.
+
+Two things that one knows about this category: it seems to be like an exact category, and computing Yoneda Ext from the category, one knows that all the Ext$^{\ge 2}$ groups are equal to zero for these objects. I don't know about Ext$^1$ groups.
+
+So you can wonder whether something similar holds true now if you compute Ext groups inside the category of condensed abelian groups. Okay, so let's take any two locally compact abelian groups which are also metrizable. Then, again, this metrizable assumption can be ignored; it only comes from the restriction to metrizable condensed abelian groups. Then you can compute the Ext groups as condensed groups from the corresponding guys as topological groups.
+
+I mean, just from the fully faithfulness, you already know that the Hom groups, they can't be changed; they must just be the usual topological homomorphisms. But a priori, there could be some weird Ext$^1$ groups that you didn't know about. Here you're computing Ext groups within the whole category of condensed abelian groups, and there could be some really weird extensions between them. Actually, later, maybe hopefully today, I'll give an example where this actually happens.
+
+But here it turns out that's not the case. All the Ext groups, all the extensions of a locally compact group by a locally compact group in condensed abelian groups, they all are themselves extensions of locally compact abelian groups. You can really identify the abstract Ext group with the usual thing, where we're looking at short exact sequences $B\to X\to A\to 0$, so exact sequences in locally compact abelian groups up to the appropriate notion of isomorphism.
+
+Let me give some key examples. Actually, something slightly better: you could even consider this. So first of all, you can compute Ext groups of anything against the circle group $S^1=\R/\Z$. This is actually $\mathrm{Hom}(-,S^1)$, so this is $\mathrm{Hom}$ as condensed groups, and it's precisely the Pontryagin dual group as a compact group.
+
+Or another example, one could also try to compute some Ext groups like $\Ext^{\bullet}(\R,\Z)$, where some of the intuition is that the real numbers are something connected, so they can never map to the integers which are totally disconnected. So you would expect all these Ext groups to be zero, and indeed, if I remember correctly, that's true.
+
+I think actually these are more or less the key examples. To understand this computation, what you have to do is, you can do a devissage where $A$ and $B$ can be reduced to these basic cases. So for example, if you map from something discrete, then there's not really anything to show, because then the Ext groups are easy to compute. So you can assume basically you have a compact abelian group
+
+Algebraic geometry to do some computations. But the statement we needed was never actually put in by Grauert. There is an unpublished letter of Thom to Grauert, where he proves the result, but it's some unpublished---but it's a very nice theorem. Let me use $\mathbb{B}$ for this.
+
+There is a resolution of the form, something functorial in abelian groups $S$. So what is a resolution? You're trying to resolve any abelian group $M$, and you're trying to find some kind of universal projective resolution of this. They're trying to resolve by free abelian groups, and there's of course a very easy way to at least find a projection onto them. You send some of the generators, given by some element of $M$, $M$ as an element in here, some the finite free abelian group generated by the elements of $M$, right? But of course, this is way, way bigger than this.
+
+So the standard way actually to do this is to do some kind of monadic resolution, where you use a free abelian group monad. And then there is some kind of general thing that the next term---I mean, you might put here, and this would be (it's not what I want to do)---you could put as a free abelian group on the free abelian group on $M$, and then two maps here, and then the difference you use here. And then you can continue, but then these things get uncontrollably large. So this is not what you want to do.
+
+And you realize that actually, you don't need something as big as this to generate the kernel. Because really, the only thing you really have to enforce is that when you add two elements of $M$, then they become the same as the sum, right? So basically, whenever you have a pair of elements of $M$, so here generators are certain pairs $(a,b)$, you can send that to $a+b$, $a+b$. And it's easy to check that this actually generates the kernel of this map, because once you prescribe those relations, then you can uniquely sum any such thing. And you realize you used to just ignore time.
+
+And then you can continue. So each term will just be $\Z$ joined with $\Z^M$ to some power. And there are some transition maps that are given by some universal formulas like this, except nobody's able to write them down.
+
+Do you have to take a finite direct sum or in each term of such powers? Or is it enough to have one power? Like when we originally wrote this up, we used to find some of these things. But you can actually, by some stupid argument, you can basically cover any such finite direct sum again by such a free guy. Okay, I see, I see. You will actually realize that there's a small issue with a zero, but you will figure it out.
+
+You can just choose one term in each degree. And so all the differentials are given as some universal formulas, which actually have functoriality. All the differentials are universal. So it's a little bit of a mathematical result.
+
+And surprisingly, the proof of the theorem uses a little bit of stable homotopy theory. So in some incarnation, it uses something like the finite stable homotopy groups. And that they appear in the proof is also the reason that you don't really know how to do this explicitly. Because at some point, you need to basically kill something like stable homotopy groups, $\pi_n^s(S^k)$, using surjections from finite free groups onto them. And you can do that, but you won't get anything.
+
+But one very nice thing is that this is really functorial. And so this means that this immediately works in any topos. In any topos, you can write down the same complex, the same universal formulas. But whenever you have a sheaf of abelian groups, you can write down the same complex as sheaves of abelian groups on that side, and it will automatically be exact.
+
+So functoriality, or really the universal formulas, also works for sheaves. And so we now get a resolution of our $A$ that we're interested in, where now all the terms are some $\Z[A]$ or $A^{\square n}$ or some such. And so in order to compute $X$ from here, there's some reduction to computing $\text{Ext}$
+Only did the case where the target was the $\mathbb{S}^1$ group for the $\mathbb{S}^1$. I also need a case where the target are the real numbers.
+
+Yeah, so if you look back at what I did in these notes on $p$-adics, then there are also proofs that for any compact Hausdorff space $X$, you can compute some of the $X$ groups of $\Z$ (join $X$ into $\R$) as also needed for all $X$ to compute $X$, so from all the $X$ for $X$, but now with real coefficients. And then the claim is that this actually doesn't have any higher cohomology, whatever $X$ is. And $\Z$ of course, it just gets a continuous $\R$.
+
+This also works with $\R$ replaced by any Banach space, but it doesn't work if it's just $\R$. But it really uses local convexity because there are some partition of unity arguments in the proof. You know, for the partition of unity to behave nicely, you need that the target Banach space is locally convex.
+
+Sorry, that's important. So as a preview of something that will happen later: when we consider real vector spaces in $\R$, we will actually have to consider non-locally convex cases. And so we will actually really be interested in situations of such computations where comp, and then we do not have something on all comp spaces. And then this means that we will actually have to resolve. So when we want to resolve by a simplex, we really have to go to totally disconnected.
+
+All right, so let me give an example of how such computation will come out. So when you're trying to compute the $X$ groups of the reals against integers, then $X$ is--no I think that's right, it's a shift from the free on $X$.
+
+All right, if you want to $\R$, you just have to map into $\R$.
+
+Yeah, thanks. So when you computed, when you compute that, then you're resolving this by the $\R$ on $\R$ on $\R$'s and finite vector spaces, and then we know--I mean, finite vector spaces, that's definitely a CW complex. So we know that the $X$ groups, you can see, um, sorry there's some $2i$'s here, that this is, well, it's the same thing as a singular cohomology $\R$. And so this is of course $\Z$ in degree $0$ and $0$ otherwise.
+
+And so this means that when you compute the $X$ groups out of this, then each term will just give you one copy of $\Z$. You would like this to be $0$ for all $i$ greater than $0$. You might be worried that there's some more lots of $\Z$'s remaining, and maybe you don't know what the differentials are. But one way to control this is to observe that you can do a stupid thing of also using this resolution for $\Z/2\Z$, which is also $0$ by several properties of the integers.
+
+And then you realize that when you compute $X$ out of this sequence, it's the same thing as computing $X$ out of here, because each term individually has the same $X$ groups. And so then out of here is the same as out of here here, but this just results $0$.
+
+Okay, so this is how one can leverage this knowledge about the $X$ groups from these free guys on reasonable things into such $X$ groups from locally compact groups.
+
+Let me actually mention the variant of this argument. So one might be worried that it's kind of weird trying to do very explicit computations by using an inexplicit resolution. But some of the inexplicit nature of resolution somehow never becomes an issue. Just the existence of such a resolution, its properties is enough. But actually there is a resolution that is explicit and that can also be used. This is something known as the Eilenberg-MacLane or $Q$-construction, which was rediscovered in the process of this formalization as well.
+
+So this is an explicit complex. It starts just like we expect.
+
+Do this on the other face too. So you take $-a$, $c$, $-b$, $a+b$. I hope you can check that if you compose the two differentials, you get zero. If not, then there is some easy variant of this that should work.
+
+Now you can imagine how you do this one step up. Imagine $\N^8$ is where the eight elements sit on the vertices of a cube. Then you take this side minus this side, and this side plus this side, minus the sum of the sides.
+
+Then there is a theorem that this is kind of linear. More precisely, $Q(M)$ is always quasi-isomorphic to $Q(\Z) \otimes_\Z M$. In particular, if you look at all the homology groups, everything is free. This just means that the homology of this cubic construction is just a linear functor. In general, there's some extra $2$-torsion.
+
+Yeah, this linearity in $M$ turns out to be kind of sufficient. So $X_i(A,B)=0$ for all $i$ if and only if all the $EX$ groups from this explicit complex vanish. Basically, all we are trying to prove is that they can be put into the form that some $EX$ group should vanish for all $i \geq 0$. Then we can use this explicit resolution of $A$. I mean, it's not quite a resolution of $A$, but for this purpose, it's good enough.
+
+Another thing you can actually compute is what this thing is, using some stable homotopy theory. You can show that it is actually $\bigoplus_{i \geq 0} (\Z[S^i])^{\oplus 2^i}$ shifted into degree $-i$. So this is where a little bit of stable homotopy theory comes in. Basically, whenever you write down something explicit, the explicit answer should have something to do with stable homotopy groups of spheres.
+
+Okay, this is just to say that instead of an explicit resolution, you can also do all of these arguments with this explicit complex instead. It doesn't really change any of the arguments, except you have a little bit more comfort that you actually know which objects you are dealing with.
+
+Just to clarify, it's not direct. I think it actually is a direct summand. You think no? Yes, I think the statement is that there are $Q$ and $Q'$, so there is actually a modification that kills something extra, and then you just get this summand. But then you are removing the extra stuff.
+
+All right, so finally I can say one corollary that's really important for the theory of condensed abelian groups. One thing you can now compute is an $EX$ group of something that's not at all locally compact anymore, but actually quite big. You can take the whole product of a countable number of copies of the integers, so the profinite integers. Or if you want, you can take the product of $p$-adic integers.
+
+It turns out that these $EX$ groups are actually just a direct sum of countably many copies of $\Z$. This is very different from the classical answer, where if $EX$ was the naive dual of a countable product of copies of $\mathbb{F}_p$, which is a profinite group, now we are looking at some continuous things, and we just get the direct sum. The really critical thing is that there's nothing in higher degrees.
+
+So this guy will be the compact projective generator of solid $\Z$-modules, which is a full subcategory of condensed abelian groups. All the solid $\Z$-modules should be solid, and then if you want it to be projective, you definitely want all the higher $EX$ groups to vanish.
+
+Okay, so let's prove that. This actually uses a weird trick. Naively, you would now again try to resolve this by free guys on profinite sets, but the issue is that this is a really large thing. Here's a warning: if you treat this here as a condensed set, then this is a union over all functions $f: \N \to \N$ of the product over $n \in \N$ of the interval from $-f$
+
+And so this approach would actually be extremely hard to execute, but there's a trick you can do. You can resolve now in the other direction, which seems weird. You can embed this into a product of copies of the real numbers. This is a similar thing.
+
+At this point, we crucially use that products are exact in condensed mathematics. It might be easier to justify this specific case. Okay, so this is exact.
+
+And now we're trying to compute $X$ against---so this maps the $X$ from here into the $X$ from here, and the $X$ from here. Let's do this one first. This is actually a compact Hausdorff space that is totally disconnected. It's still profinite, right? So it's a countable product of profinite groups.
+
+And so we know what the $X$ groups are. The $X^0$ is a product of $\Z$ copies. It turns out that this is, well, this is discrete and this is something connected, so there shouldn't be any maps. And then it turns out that in degree one, the computation will show that this is just a direct sum of copies of $\mathbb{Q}/\Z$.
+
+Nothing else. This is what the result of the previous lemma refers to. Then if you write the long exact sequence, you realize that what you need is that the $X^2$ groups from this product of copies of the real numbers is equal to zero for $i \geq 2$.
+
+And now, still in the same kind of situation, we do some kind of huge diagram chase. And now there are two ways to finish the argument. One way is you can observe that if you do a similar operation now with this guy, then each of the terms here becomes a product of intervals. So each of the guys becomes an $H^n$-cube, and actually you can show that also for an $H^n$-cube it behaves like the highest degree---this comparison with singular cohomology is also true for the $H^n$-cube. There's no higher cohomology, so the argument we gave for the real numbers works also for this $H^n$-cube variant.
+
+Oh, there's a slightly different way of arguing using a little bit of adjunctions. The source here is some condensed module, it has a module structure over the real numbers. And so this means that maps from the product into any module $M$ will always be the same thing as the internal $\mathrm{Hom}$ in condensed modules over this condensed ring $\R$, from this guy into $M$, since internal $\mathrm{Hom}$ and external $\mathrm{Hom}$ agree here by this general adjunction.
+
+But now this internal $\mathrm{Hom}$ is already zero by the result for $\R$. And so the whole thing vanishes. So we don't really need to know exactly what this is, it's enough to know that it's some module over the real numbers. And then because the real numbers don't map into any module was real analytic functions.
+
+Okay, okay, so that's one of the key computations that we needed, which kind of gives me---so I have maybe five minutes left. Let me talk about a fun theorem with some set theoretic stuff.
+
+So here's a theorem. All right, let me consider the following conditions, consider the following assertion $(\ast)$:
+
+For all sequential limits $M_0 \to M_1 \to \cdots$ of countable condensed abelian groups, and all possibly non-abelian condensed sets $N$, the $X^i$ groups from the sequential limit of $\underline{\mathrm{Hom}}(M_n, N)$ towards $n$, this is the colimit of $X^i(\underline{\mathrm{Hom}}(M_n, N))$. Sorry, and of course this vanishes at least for $i \geq 2$, because these are just $X^i$ groups and condensed abelian groups, and $X^i$ groups in condensed abelian groups agree for $i \leq 1$.
+
+So they vanish at least for $i \geq 2$. And then the colimit also, it's actually equivalent to the following statement: that if I take the $X^i$ group of the product 
+
+So first of all, it's not just that this is excluded by $\star$. In fact, $\star$ implies that the continuum must be really large; $2^{\aleph_0}$ must be bigger than $\aleph_\omega$.
+
+Basically what happens, I think, is that if $2^{\aleph_0}$ is some $\aleph_n$ for some finite $n$, then you will get some $\Ext^n$ problems. But if you make it larger than all $n$, then you have a chance.
+
+In fact, it cannot actually be equal to $\aleph_\omega$ by some GCH. What I proved is that actually the smallest bigger thing is consistent: $\star$ holds and $2^{\aleph_0} = \aleph_{\omega+1}$. You can also---the first possibility after this can be realized.
+
+In fact, it holds whenever you have any ground model. Then you can extend this ground model by doing a Cohen forcing; it holds in the forcing extension.
+
+By joining $\aleph_\omega$-many reals, Cohen invented this notion of forcing that takes one model of set theory and builds another one, a bigger one, in order to show that the continuum hypothesis may be false. This is like the most basic forcing. I mean, now they have billions of different types of forcing, but this is still the most basic one, where you're just adjoining new real numbers, so to say, to your model. And you're adjoining quite a lot of them; $\aleph_\omega$-many would be the minimal thing that you can do in order to have a chance.
+
+$\aleph_\omega$-many, but once you join that many Cohen reals to your model, the simplest kind of forcing is done, which will ensure that this is true. It turns out, always.
+
+Okay, and why do I mention this? Well, we don't actually ever in this course---I will never use this principle $\star$. But it's kind of neat to know that you can use it. Often when you try to compute certain things, it's easy to figure out what the answer would be if this was true, and then the things you really need, you can usually prove them without invoking this general principle.
+
+But there are also some situations where you might want it. For example, in order to control $\Ext$ groups out of Banach spaces, where it really is the case that you get the expected answer under this principle $\star$.
+
+But in general, these $\Ext$ groups are just some... 
+
+Question from audience: Why is it $\aleph_\omega$ and not $\aleph_1$? I mean, as I said in the first lecture, it comes from having the smallest possible .
+
+Another audience question: I have a basic question. When you said that, um, when you computed the $\Ext$ groups for $\mathbb{T}$ locally compact, and then you said that this is zero for $i > 1$, right? You said just because you ...
+
+Lecturer: I don't know, I mean, I'm sorry, I didn't want to refer to--there's no simple reason. You actually have to do a computation. It comes out as zero, but in the end it's nice, it matches what ...
+
+Audience: Thank you. I didn't catch the previous answer, but I want to ask again on this computation of $\Ext$. So for example, if you have a compact abelian group and you take the $\Ext^i$ to the reals, via the condensed formalism, you have a complex that computes it where the terms will be continuous functions on various powers of this compact group to the reals, right? You have to compute that this is acyclic in higher degree. So I don't see exactly how you do it. For the group cohomology complex, you have this averaging by integrals, but I don't know exactly what is ...
+
+Lecturer: I didn't actually look it up in preparation for this. How does it work? So instead of mapping to $\R$, it might also be that you want to ... How does it work? No, so it's different. You use that, um ...
+Where's--just go--I mean, I can't think right now, but you can find it in the notes.
+
+I don't see any further questions, so let's--so in the set-theoretical setting, what was the colimit on the blackboard you're now looking at? What is the $X_\theta$? This is the colimit of what?
+
+So he writes this thing as this huge colimit of all functions, and then you can write, indexed by the same index category, where all the terms are now something you can write down. And then it's precisely these $\delta$-limits that they are studying.
+
+Okay, I understand now, because we know that there is a cohomological dimension result for $\mathrm{Alf}^n$. I see how it's related, because if I think there were all $\dim_\mathbb{Q}$ functions--suppose that of eventual dominance--then under, for example, continuum hypothesis, this would be the same as $\omega_1$.
+
+And then such $X$-groups indexed by $\omega_1$ should be bad. But the specific order type of this poset of functions ordered by eventual dominance depends extremely much on the specific model.
+
+\end{unfinished}
