@@ -20,28 +20,65 @@ The plan is roughly:
 \subsection{\ufs The gaseous base ring}
 Recall: the motivation was to find a ``minimal'' analytic ring $(A^\tri,\Mod_A)$ over which the Tate elliptic curve $E_q$ can be defined. The Tate elliptic curve is an example of an elliptic curve, and the universal one would be the moduli space of elliptic curves. But this a priori won't do---we really want something that is of the form $\G_m/q^\Z$, in some analyic sense.
 
-Desiderata:
-\begin{enumerate}
-  \item topologically nilpotent unit $q\in A^\tri$
-  \item if $P\tnsr A$ is the free $A$-module on a nullsequence, then $1-q\cdot\shift\actson P\tnsr A$ is an isomorphism
-\end{enumerate}
+\begin{desiderata}
+  For the sought-after analytic ring $A$:
+  \begin{enumerate}
+    \item there should be a topologically nilpotent unit $q\in A^\tri$
+    \item let $P\tnsr A$ be the free $A$-module on a nullsequence, then $1-q\cdot\shift\actson P\tnsr A$ should be an isomorphism.
+  \end{enumerate}
 
-\begin{unfinished}{5:40}
-The first condition is that there should be an element $Q$ that is a topological unit in the ring. The second condition, which I mentioned earlier and I think is quite natural, but where I didn't so far explain, and maybe I will get to the end of today why it's really the good condition, is that if $P$ is a free $\mathbb{R}$-module on an $N$-sequence, then the operator $1 \div Q$ acting on $P$ is well-defined.
+  On (2): this is  similar to how we defined the solid analytic ring structure, where we had $q=1$ instead. And of course, then we didn't ask for it to be topologically nilpotent. This is a weaker condition because we are saying that for any sequence $(a_n)_n$ in $A$, we can form $\sum_{n\ge0} a_n q^n$. Note that
+  \[
+    \frac1{1-q\cdot\shift} = 1 + q \cdot\shift + q^2 \cdot\shift^2 + \dotsb
+  \]
+  which applied to $(a_0,a_1,\dotsc)$ gives
+  \[ \left(\sum_{n\ge0} a_n q^n, \sum_{n\ge0} a_{n+1} q^n, \dotsc\right) \]
+  so we get the desired sum in the $0$th component. In particular, we can form some kind of geometric series in $q$ with the coefficients from an nullsequence.
 
-This is similar to how we defined the "solid analytic $\mathbb{R}$-structure," where we had $Q$ to the 1 instead. And of course, then we didn't ask for it to be a unit. This is a weaker condition because saying that for any sequence $a_n$, the sum of $a_n$ is well-defined. If you think about what the inverse of this would be, then it would be
-\[ 1 + 2 * shift + 3 * shift^2 \]
-and so on. In particular, we can form some kind of geometric series in $Q$ with the coefficients from an $N$-sequence, and we certainly want some condition here, because if we didn't ask any kind of completeness condition, then we would just work with all $p$-adic integers, and it wouldn't be completed in any sense. But we do want to be able to form some kind of infinite series.
+  We certainly want some condition here, because if we didn't ask any kind of completeness condition, then we would just work with all condensed $A$-modules, and it wouldn't be completed in any sense. But we do want to be able to form some kind of infinite series.
+\end{desiderata}
 
-Here, we have a triangle. So, we want one, then we want a triangle to come with such an $M$, right, because it's a free, condensed ring equipped with a topological point unit. This is a free guy with a topological point element, and this is okay. So, then we can form a certain sequence and send it up to this guy.
+\begin{proposition}
+  There is an initial analytic ring with these properties. In fact, there is an initial animated such, which turns out to be static.
+\end{proposition}
 
-And we have already here: we have 1, $\mathbb{Z}$, and 2. And then we can define a certain full subcategory of all the modules over the string. We want this to become a nice $\mathbb{L}$M, so in other words, whenever we map this to something over a module over an analytic ring, this should become an isomorphism. So, we can simply declare this to be all those modules over $\mathbb{Z}$-triangles such that 1 - 2 acts on the internal $\mathbb{H}$ from $\mathbb{P}$.
+Before the proof, let's introduce some notation.
 
-This is extremely analogous to how we defined solid modules, right? The ring that was just the integers, and then we ask a similar condition for $\mathcal{O}$ to act as the identity. And because this $\mathcal{H}^{\bullet}$ from $\mathbb{P}$ has this excellent property, it's immediate to check, and this is what I did for solid modules, that the subcategory has all the stability properties that we ask for for analytic $\mathrm{G}_{\mathbb{R}}$.
+\begin{definition}
+  Denote the free condensed ring on a topologically nilpotent unit by
+  \begin{align*}
+    \Z[\hat q]
+      &\defeq \frac{\Z[q^{\{\N\cup\infty\}}]}{q^\infty}\\
+      &= P \text{ as cond.\ ab.\ gps}
+  \end{align*}
+  As a condensed abelian group, this is the same as the module $P$ defined earlier. The monoid structure of $\N\cup\{\infty\}$ induces a ring structure on $P$. But it will be useful to keep $P$ as a module separate from $\Z[\hat q]$ as a ring.
+\end{definition}
 
-So, then the fair triangle mod $\mathbb{A}$ is something we call, nothing called last time, pre-analytic $\mathscr{B}$, so kind of a long analytic $\mathscr{B}$. So, it doesn't satisfy, I mean, satisfy all the properties of an analytic ring, except for the property that the ring itself is complete. The base ring is really just this uncompleted thing so far. And we can see something about that, but then properties 1 and 2 they $p$-prise mean that it's analytic over analytic.
+By definition, (1) is equivalent to asking for a map
+\[
+  \underbrace{\Z[\hat q][q^\pm]}_{\defeq A_0^\tri} \to A^\tri.
+\]
+Then we can form
+\[ P\tnsr_\Z A_0^\tri \]
+which is acted on by $1-q\cdot\shift$. We define our subcategory
+\[ \Mod_A \subset \Mod_{A_0^\tri} \]
+by
+\[
+  \Mod_A = \left\{
+    M \in \Mod_{A_0^\tri}
+    \,\middle|\,
+    \parbox[c]{5cm}{\raggedleft$1-q\cdot\shift\actson\ul\Hom(P\tnsr_\Z A_0^\tri,M)$\\is an isomorphism}
+  \right\}
+\]
 
-And so now, we just use what we proved on Wednesday, that the inclusion from an analytic ring to a pre-analytic ring has a left adjoint. So, you can always complete such a pre-analytic thing. And as I also explained last time, it's actually better to, when you have a general string, to complete it in the sense of an animated analytic rank, because a priori, the completion of the unit in this case, the derived completion, might not be zero. And then the better object to consider is the derived completion. In this case, it will turn out to be the case that this derived completion actually sits in degree zero, so there will not be a difference. So, that's one reason that we somehow switch in this discussion about completion of analytic structures.
+This is extremely analogous to how we defined solid modules. In that case $A^\tri_0$ was just $\Z$, and we asked for the same condition with $q=1$. And because this $\ul\Hom(P,-)$ has such excellent properties, it's immediate to check (and this is what we did for solid modules) that this subcategory has all the stability properties that we ask for for an analytic ring.
+
+Then the pair $(A_0^\tri,\Mod_A)$ is a pre-analytic ring (c.f.\ Definition \citeme of Lecture 13). It satisfies all the properties of an analytic ring, except for the property that the ring itself is complete: $A^\hat_0\notin\Mod_A$.
+
+But conditions (1) and (2) are equivalent to asking for a map from $(A_0^\tri,\Mod_A)$ to an analytic ring, and in the previous lecture we saw that there is a left adjoint from pre-analytic rings to analytic rings, so we can complete this pre-analytic ring. So the completion of $(A_0^\tri,\Mod_A)$ does the job.
+
+\begin{unfinished}{15:18}
+And as I also explained last time, it's actually better to, when you have a general string, to complete it in the sense of an animated analytic rank, because a priori, the completion of the unit in this case, the derived completion, might not be zero. And then the better object to consider is the derived completion. In this case, it will turn out to be the case that this derived completion actually sits in degree zero, so there will not be a difference. So, that's one reason that we somehow switch in this discussion about completion of analytic structures.
 
 The reason for the final stretch of the talk last time was that we now want to compute this analytic ring structure. And for this, DUS gave some general recipe for computing this completion factor in some cases.
 
@@ -49,39 +86,39 @@ Describe the condensed structure. Here's a way to do that. Let me try to write b
 
 Take a union over $K$ and $n \geq -n$. Basically, $K$ is giving me the polynomial degree, and $n$ is giving me the order of the pole of my the wrong suit, broadly speaking. So then I'm taking a product over all $n$ which are at least $-n$, of those which lie in the interval from $n + n$ to the $Kn + n$, right integer in these bounds. Each of these is a finite set, so this product here is a finite set. Then taking the union, this describes this as a condensed set first of all, but then a subset of here and stable under the ring structure.
 
-What I'm not sure why start call me switch to my usual name $S$. So this describes this thing, and then it also describes the free modules. For $Liv_{prof} S$, written as a limit of $fin_S$ modules, $S$ has a natural norm form to write it. One way to say it is that if it's living like also on $\mathbb{Z}$ power series $\mathbb{Q}$, you can take the guide on $S$ and you can solidify that, so something we understand.
+What I'm not sure why start call me switch to my usual name $S$. So this describes this thing, and then it also describes the free modules. For $Liv_{prof} S$, written as a limit of $fin_S$ modules, $S$ has a natural norm form to write it. One way to say it is that if it's living like also on $\Z$ power series $\Q$, you can take the guide on $S$ and you can solidify that, so something we understand.
 
-Let me recall this is just the limit over powers of $Q$, in other words these are some kind of $\mathbb{Z}$ power series, two-valued measures on this proficient. It sits inside there. In particular, I only just describe it as a condensed set, because the group structure will be the one on the target.
+Let me recall this is just the limit over powers of $Q$, in other words these are some kind of $\Z$ power series, two-valued measures on this proficient. It sits inside there. In particular, I only just describe it as a condensed set, because the group structure will be the one on the target.
 
 One way to think about this is that we have an element here, some kind of measure, which is a sum over all $m$ and $v$ of some measures $m \cdot Q^m$. And then again, I put a growth condition on the $m_m$. So first of all, actually say the $m_m$ are actually just sums of Dirac measures, so for any fixed power of $Q$ you cannot really take infinite sum here, this really must just be a sum of Dirac measures. But even more than that, you asked that some of these are not too large, nor of sub-polynomial growth.
 
-Now, let's describe the condensed structure. It's very similar to the above, so it's again a union over $K$ and $n$, playing the same role as above. But now we also need to squeeze in this inverse limit over $i$ to get something for $S$. And then now we just do the obvious things: we take $m \geq -n$ of the measures on $\mathbb{Z} \Join S_i$ which are of norm at most $n + m$ to the $K$-th power.
+Now, let's describe the condensed structure. It's very similar to the above, so it's again a union over $K$ and $n$, playing the same role as above. But now we also need to squeeze in this inverse limit over $i$ to get something for $S$. And then now we just do the obvious things: we take $m \geq -n$ of the measures on $\Z \Join S_i$ which are of norm at most $n + m$ to the $K$-th power.
 
-I wonder if it might be a bit clearer to just drop the $n > 0$ and only take the term $n = \mathbb{Z}$ and then just invert $Q$ on the outside. But then I would have to do this funny thing where I replace $n + m$ here by something like $n + 2$ in order for the zero coefficients to be allowed to grow. Okay, yeah, or you could have a constant $C$ in front, like polynomial growth. Anyway, this is correct, and you can certainly find many other ways to write this.
+I wonder if it might be a bit clearer to just drop the $n > 0$ and only take the term $n = \Z$ and then just invert $Q$ on the outside. But then I would have to do this funny thing where I replace $n + m$ here by something like $n + 2$ in order for the zero coefficients to be allowed to grow. Okay, yeah, or you could have a constant $C$ in front, like polynomial growth. Anyway, this is correct, and you can certainly find many other ways to write this.
 
 I thought if I'm already taking a union, then inverting $Q$ at the end seems like an operation many... I don't know, a matter of taste, I guess.
 
 Okay, so I don't want to give
 
-Is our goal given by asking that the integral cohomology derive from some algebra? Note that this condition, that the integral cohomology is equal to the point, let me call it $c$. So this is the triangle modulo $\mathbb{R}$. But now I actually want to think about $\mathbb{P}$ as a ring. I didn't want to do that, and I want to keep my notation separate. But at this point, I do want to remember that $\mathbb{P}$ admits a ring structure.
+Is our goal given by asking that the integral cohomology derive from some algebra? Note that this condition, that the integral cohomology is equal to the point, let me call it $c$. So this is the triangle modulo $\R$. But now I actually want to think about $\P$ as a ring. I didn't want to do that, and I want to keep my notation separate. But at this point, I do want to remember that $\P$ admits a ring structure.
 
-It's actually a free $\mathbb{P}$-module on the topological generator $X$, and $\mathbb{A}$ was also a free $\mathbb{P}$-module. And then okay, so I had $T$ over $\mathbb{Q}$, and then one minus the shift operator, which is multiplication by $X$, so this is actually a commut[ative]. So the condition is that the $\mathbb{R}$-linear map from $B$ (because this $\mathbb{R}$-Hom is literally just the cone of the Homs, and the Homs are in degree zero because of the excellent properties of $\mathbb{P}$), and also $B$ has the property that the internal Hom from $B$ commutes with all limits, the same property for $\mathbb{P}$.
+It's actually a free $\P$-module on the topological generator $X$, and $\mathbb{A}$ was also a free $\P$-module. And then okay, so I had $T$ over $\Q$, and then one minus the shift operator, which is multiplication by $X$, so this is actually a commut[ative]. So the condition is that the $\R$-linear map from $B$ (because this $\R$-Hom is literally just the cone of the Homs, and the Homs are in degree zero because of the excellent properties of $\P$), and also $B$ has the property that the internal Hom from $B$ commutes with all limits, the same property for $\P$.
 
-So this was one of the conditions under which Dustin explained the formula for the $\mathbb{R}$-completion. The $\mathbb{R}$-triangle $\mathbb{A}$ is given by taking a module $M$ which is in the derived category of $\mathbb{A}$-triangle modules, and taking the colimit of the following diagram. This formula is quite useful in situations where you're just algebraically inverting some element $F$. But trying to use this formula to compute solid confusion turns out to be extremely confusing.
+So this was one of the conditions under which Dustin explained the formula for the $\R$-completion. The $\R$-triangle $\mathbb{A}$ is given by taking a module $M$ which is in the derived category of $\mathbb{A}$-triangle modules, and taking the colimit of the following diagram. This formula is quite useful in situations where you're just algebraically inverting some element $F$. But trying to use this formula to compute solid confusion turns out to be extremely confusing.
 
-Anyway, so how do we actually go about computing this? The key is to understand the internal Hom from $\mathbb{P}$ to $B$. If we don't invert $\mathbb{Q}$, then this is really just the free $\mathbb{P}$-module, which is just $\mathbb{P}$. So we need to understand the internal Hom from $T$ to $\mathbb{P}$, where we think of $T$ as $\mathbb{Z}[X]$.
+Anyway, so how do we actually go about computing this? The key is to understand the internal Hom from $\P$ to $B$. If we don't invert $\Q$, then this is really just the free $\P$-module, which is just $\P$. So we need to understand the internal Hom from $T$ to $\P$, where we think of $T$ as $\Z[X]$.
 
 So these three objects, which are some kind of completed pro-groups on some pro-sets, are always given as a union over all $n$ of things which have bounded norm at most $n$. And this will commute with some internal Hom, so this will also be a union over $n > 0$ where now I'm taking the part of this algebra where some of the norm at most $n$ terms are allowed to appear. 
 
-But then when I do that, the new object, where I'm allowed to do an overall $n$, which is like the power of $\mathbb{Q}$ dividing by $n$, and then that's a direct sum of $\mathbb{Q}_p^n$, but then inside this you take sums of at most $n$ basis elements, you take sums $\sum_{i} a_i \mathbb{Q}^i$ where the sum of the absolute values of the $a_i$ is at most $n$, and then you take polynomials in a variable $X$.
+But then when I do that, the new object, where I'm allowed to do an overall $n$, which is like the power of $\Q$ dividing by $n$, and then that's a direct sum of $\Q_p^n$, but then inside this you take sums of at most $n$ basis elements, you take sums $\sum_{i} a_i \Q^i$ where the sum of the absolute values of the $a_i$ is at most $n$, and then you take polynomials in a variable $X$.
 
-There's a similar formula for the internal Hom from $\mathcal{P}$, which again is a pro-set, except with the adjoint you have some sort of profile sets, and it's just the same sort of structure, we take a union of all $n > 0$ and take an inverse limit over all $n$'s, and then you take $\mathbb{Q}_p^n \oplus$, but inside there again this part that some of at most $n$ sums are difference of at most $n$ basis elements, and then I take a polynomial in the dual variable.
+There's a similar formula for the internal Hom from $\mathcal{P}$, which again is a pro-set, except with the adjoint you have some sort of profile sets, and it's just the same sort of structure, we take a union of all $n > 0$ and take an inverse limit over all $n$'s, and then you take $\Q_p^n \oplus$, but inside there again this part that some of at most $n$ sums are difference of at most $n$ basis elements, and then I take a polynomial in the dual variable.
 
 Anything on the limits over the exponents of the $X$, or the $Y$? I didn't want to call it $X$ because it's the dual of $X$, but of course maybe I should have used a different notation to make that clear. The star didn't have any specific meaning here.
 
-In particular, one consequence of this internal Hom from $\mathcal{P}$ is that it's actually just the subspace of $\mathbb{Z}[[Y]]$ with a certain kind of funny condition, where the coefficients of the power series in $Y$ are bounded. Similarly, the internal Hom from $\mathcal{T}$ to this is also a subring of $\mathbb{Z}[[Y]]$ where each coefficient of $Y$ satisfies a certain boundedness property.
+In particular, one consequence of this internal Hom from $\mathcal{P}$ is that it's actually just the subspace of $\Z[[Y]]$ with a certain kind of funny condition, where the coefficients of the power series in $Y$ are bounded. Similarly, the internal Hom from $\mathcal{T}$ to this is also a subring of $\Z[[Y]]$ where each coefficient of $Y$ satisfies a certain boundedness property.
 
-Transition turns out to be just $Q$ minus one, and so this sits in degree zero, and this sits in homological degree one. And if you do the similar computation with more variables, $y_1$ to $y_k$, then you get a similar picture but just the $k$ of the variables $y$. This is computed by a complex in the $y$ variable. So instead, what you take is you take $\mathbb{Z}$ and then you join $y_1$ up to $y_k$, and then again you take such power series in $Q$. And then, I mean, some of this was the derived notion just by one variable, the $y$, and now you take a derived notion by $Q - y_1$ up to $Q - y_k$. This corresponds to the Tate filtration. And I mean, you can do the same with with a with a sets, right? So if you have a profile sets somewhere, then you just plug the profile sets here in the middle and then get the same.
+Transition turns out to be just $Q$ minus one, and so this sits in degree zero, and this sits in homological degree one. And if you do the similar computation with more variables, $y_1$ to $y_k$, then you get a similar picture but just the $k$ of the variables $y$. This is computed by a complex in the $y$ variable. So instead, what you take is you take $\Z$ and then you join $y_1$ up to $y_k$, and then again you take such power series in $Q$. And then, I mean, some of this was the derived notion just by one variable, the $y$, and now you take a derived notion by $Q - y_1$ up to $Q - y_k$. This corresponds to the Tate filtration. And I mean, you can do the same with with a with a sets, right? So if you have a profile sets somewhere, then you just plug the profile sets here in the middle and then get the same.
 
 So now we have a somewhat concrete formula for these things, right? So if you want to compute the underlying ring, we literally just have to understand the colimit of all $k$ of these things. So the ring we're interested in is just the colimit over all of this. Take $y_1$ to $y_k$, and if you found it, then you take the derived and here it turns out to be a case where it's really very important that each individual level to take the derived $\mathcal{D}$fied colimit, because there will be high homology.
 
@@ -91,13 +128,13 @@ So far, there was no apparent polynomial growth condition at all, there was just
 
 So, what is the $H_0$? You really just take this ring and then quotient out by $Q - y_1, \dots, Q - y_k$, or if you take a separate quotient, really by the closure of all these things. In other words, here, I'm formally allowed to replace any occurrence of any of these variables by $1$, it's really just set to $Q$.
 
-So this, there's a question: what is the image of this thing mapping towards the power series where all the $y_i$ are? Let me again recall what this was. This was the union over all $n$ of the limit over $M$ of the part of this thing which was of norm at most $n$. So this wasn't literally written as a finite free module, but I mean, you take a basis by giving $\mathbb{Z}[1/Q]$ to $\mathbb{Z}[1/Q]$ and then you append the variables by one. But in particular, it will actually be sufficient to analyze the part where all of these are say just equal to $1$, $\mathbb{Z}$ or $1$. So here, we're just allowed to take some kind of bounded sum, but then we have all these $y_1$ through $y_k$ here at the disposal, but for each of them individually, I can take, I can take a, I mean, just each coefficient individually is bounded. So for example, if I like, for each $n$, we have to analyze what the image is, but then which multiples of $Q$ which like integer times $Q$ can I achieve? Well, this integer times $Q$, like, for each occurrence of $Q$, I can decide whether I want to keep it a $Q$ or whether I make it a $y_1,...,y_k$, but for each $y_1,...,y_k$, I can use it at
+So this, there's a question: what is the image of this thing mapping towards the power series where all the $y_i$ are? Let me again recall what this was. This was the union over all $n$ of the limit over $M$ of the part of this thing which was of norm at most $n$. So this wasn't literally written as a finite free module, but I mean, you take a basis by giving $\Z[1/Q]$ to $\Z[1/Q]$ and then you append the variables by one. But in particular, it will actually be sufficient to analyze the part where all of these are say just equal to $1$, $\Z$ or $1$. So here, we're just allowed to take some kind of bounded sum, but then we have all these $y_1$ through $y_k$ here at the disposal, but for each of them individually, I can take, I can take a, I mean, just each coefficient individually is bounded. So for example, if I like, for each $n$, we have to analyze what the image is, but then which multiples of $Q$ which like integer times $Q$ can I achieve? Well, this integer times $Q$, like, for each occurrence of $Q$, I can decide whether I want to keep it a $Q$ or whether I make it a $y_1,...,y_k$, but for each $y_1,...,y_k$, I can use it at
 
-The coefficient of $Q$ to the $m$ can lie in $\mathbb{Z}_n^* \times \mathbb{Z}_{n+k}$. Okay, I would have to be slightly more careful here about the precise notation, but I mean basically something like that. And so the question is, how does this grow? How does this grow in $m$ and in $M$? This is precisely a polynomial of degree $k$, right? And then this is just the polynomial function of...
+The coefficient of $Q$ to the $m$ can lie in $\Z_n^* \times \Z_{n+k}$. Okay, I would have to be slightly more careful here about the precise notation, but I mean basically something like that. And so the question is, how does this grow? How does this grow in $m$ and in $M$? This is precisely a polynomial of degree $k$, right? And then this is just the polynomial function of...
 
 Yeah, so whenever I have something that grows where the coefficients grow in $m$ just like a polynomial, then because I have all these monomials here at my disposal, I can somehow split up all the individual summands to make them bounded. There are a lot of choices about how you go about doing this. And when you want to prove that this complex actually ends up being in degree zero, you somehow have to show that a different way of arranging the terms here differs from the other one by something bounded, some bounded thing in the next term of the complex. And this will actually not be true for a given $k$, but when you allow your $k$ to increase a little bit, then you can do it.
 
-There's a question in the chat about whether you can interchange the order of $\mathbb{Z} , Y ,S$, and indeed you can interchange the order. The kind of argument you have to do here to see that this is well-behaved is a little reminiscent of the arguments you have to prove that liquid cohomology is well-behaved, but it's several orders of magnitude easier. It's again a situation where you have some kind of system of complexes where each term has some kind of norm, and then you have to see that if you have something with differential zero, you can bound the preimage. But here, you can really just do it.
+There's a question in the chat about whether you can interchange the order of $\Z , Y ,S$, and indeed you can interchange the order. The kind of argument you have to do here to see that this is well-behaved is a little reminiscent of the arguments you have to prove that liquid cohomology is well-behaved, but it's several orders of magnitude easier. It's again a situation where you have some kind of system of complexes where each term has some kind of norm, and then you have to see that if you have something with differential zero, you can bound the preimage. But here, you can really just do it.
 
 All right, so this is all I wanted to say about the proof of this box formation. Now, I want to talk briefly about Gassar-Greenberg real vector spaces. Let me condense or light... We started emitting the light at a couple of times, so throughout this course we're always working with this light filling, and it might not always be mentioned.
 
@@ -107,11 +144,11 @@ Actually, why is that? It's easy to see, and it's intuitively believable, that i
 
 By the way, general question: non-condensed sets will not be used anymore in the setup originally, right? There was a question about how originally, extremely disconnected sets played quite a crucial role in
 
-Over the place, that's only from this, maybe related questions like: Can you also define the sum of liquid real vector spaces that worked not just in the $p$-adic setting, but in the full condensed setting? You can ask the same question about the Gaussian orthogonal structure---whether you can also define that on all condensed modules. I think you can, but the argument we gave here does not work because we used the internal projectivity of $\mathbb{P}^1$, so you would have to argue slightly more carefully to see that there is a group structure on real vector spaces in the full condensed setting.
+Over the place, that's only from this, maybe related questions like: Can you also define the sum of liquid real vector spaces that worked not just in the $p$-adic setting, but in the full condensed setting? You can ask the same question about the Gaussian orthogonal structure---whether you can also define that on all condensed modules. I think you can, but the argument we gave here does not work because we used the internal projectivity of $\P^1$, so you would have to argue slightly more carefully to see that there is a group structure on real vector spaces in the full condensed setting.
 
 Generally, this is only a telescopic argument. If you wanted something more, you can always rewrite like a finite sum and then a new sum where you still have a sequence of coefficients and powers of $q$ to the $n$. Here, anything that's $p$-liquid for any $p$ or $\alpha$-liquid for any $\alpha$ is always a condensed vector space. This is an extremely general class of condensed vector spaces, but it's still a workable class for many purposes.
 
-So, you can now wonder what are the free real vector spaces corresponding to this. Here's a proposition: Our guess, which is the analytic $\mathbb{R}$ corresponding to the Gaussian orthogonal group, is real vector spaces. Again, it's clear that this defines a group structure because of the good properties of $\mathbb{P}^1$. This is just obtained by taking the one we had, completing it, and then modding out by the group of roots of unity.
+So, you can now wonder what are the free real vector spaces corresponding to this. Here's a proposition: Our guess, which is the analytic $\R$ corresponding to the Gaussian orthogonal group, is real vector spaces. Again, it's clear that this defines a group structure because of the good properties of $\P^1$. This is just obtained by taking the one we had, completing it, and then modding out by the group of roots of unity.
 
 Setting $q = \frac{1}{2}$, you take this completed ring and then mod out by the group of roots of unity, and you actually get the real numbers. These are like functions on the real part of this thing, and if you set $p = \frac{1}{2}$, you just get the real numbers.
 
@@ -145,21 +182,21 @@ The goal with this discussion of complex geometry would be just as good. So the 
 
 Finally, let me try to do some geometry. The goal is to define the GU. Okay, let me again record. The idea is something we've already used a couple of times. We have this fixed $t$, and an additive $B$, which we can use to normalize absolute values. So when you want to understand how large some other function is, you can see how large this is compared to $Q$. We can use $Q$ to measure the size of any other function.
 
-Basically, you're wondering how the powers of the absolute value of $F$ from $\mathbb{C}$ to $\mathbb{P}^1$ behave. One way to organize this information is in the following setup. I will start to use this formal analytic language that this whole course aims to introduce. This language is really convenient to phrase things, because I could give a more down-to-earth version, but it would be much more confusing. It's a really elegant way of packaging the information.
+Basically, you're wondering how the powers of the absolute value of $F$ from $\C$ to $\P^1$ behave. One way to organize this information is in the following setup. I will start to use this formal analytic language that this whole course aims to introduce. This language is really convenient to phrase things, because I could give a more down-to-earth version, but it would be much more confusing. It's a really elegant way of packaging the information.
 
 Let me explain a little bit about this. We have a morphism $T$ from some $F$-algebra $A$ to $\mathbb{A}^1$. On the fine locus, you have the coordinate function. In particular, when you want to do something for any function, you can do it for the universal function, which is the function $T$ on $\mathbb{A}^1$. This gives you a map from the spectrum of $A$ to $\mathbb{A}^1$, sending your function $T$ to your given one. So to define something for any function, it's enough to do it for $\mathbb{A}^1$.
 
-There is some kind of absolute value of $T$ function, measuring against the absolute value of $Q$. This can actually be infinite, because some could be some kind of unbounded function. A better way to think about this is that you have $\mathbb{P}^1$, and if you have the point with homogeneous coordinates $(x:y)$, this goes to $|x/y|$.
+There is some kind of absolute value of $T$ function, measuring against the absolute value of $Q$. This can actually be infinite, because some could be some kind of unbounded function. A better way to think about this is that you have $\P^1$, and if you have the point with homogeneous coordinates $(x:y)$, this goes to $|x/y|$.
 
 The implicit assumption here is that something as down-to-earth as this closed interval will have a certain very crazy incarnation in this analytic setup, and this is required to make sense of this. Again, the idea is that if you really want to go from 0 to $\infty$ here, I need to normalize the absolute value of $Q$. What I always do is to - but it doesn't matter here again, and I'll just assume we're in a formalism where something like this makes sense, where we have some way of measuring the absolute value on this.
 
 Then we can define what I call the analytic Checkers space, which is the preimage of the open part. Intuitively, this is the union over all $n$ of the locus where the absolute value of $T$ is bounded between some powers of the absolute value of $Q$. This was something that already entered at the beginning of my last lecture, that this is what you just start with if you want to define the $T$-adic cohomology.
 
-Then you still have a $\mathbb{G}_m$ action on this, by multiplication by 2. This map here is actually some kind of multiplicative map. If the absolute values multiply, the product of the absolute values, where this happens to be zero and the other is infinity, then there's no claim being made. But in particular, on this locus, you have this analytic Checkers space mapping to $[0,\infty]$, and this corresponds to multiplication by $1/2$ here. This map here is actually proper, because $\mathbb{P}^1$ is proper, $[0,\infty]$ is proper, so the map is proper.
+Then you still have a $\mathbb{G}_m$ action on this, by multiplication by 2. This map here is actually some kind of multiplicative map. If the absolute values multiply, the product of the absolute values, where this happens to be zero and the other is infinity, then there's no claim being made. But in particular, on this locus, you have this analytic Checkers space mapping to $[0,\infty]$, and this corresponds to multiplication by $1/2$ here. This map here is actually proper, because $\P^1$ is proper, $[0,\infty]$ is proper, so the map is proper.
 
-Proper, and then if you pass the equation, then you have $\mathbb{G}_m / \mathbb{Z}$. I mean, this must be totally discontinuous. I mean, free and totally discontinuous is actually because it's, it is here, right? So this then is just $\mathbb{F}^\times / \mathbb{Z}$, which is a copy of the circle $S^1$. 
+Proper, and then if you pass the equation, then you have $\mathbb{G}_m / \Z$. I mean, this must be totally discontinuous. I mean, free and totally discontinuous is actually because it's, it is here, right? So this then is just $\F^\times / \Z$, which is a copy of the circle $S^1$. 
 
-So the $\mathbb{G}_m$ is locally isomorphic to $S^1$, but now $S^1$ is again proper. And so this means that this one is proper, but of course it's also locally isomorphic to this one, which is an open subset of $\mathbb{P}^1$, and $\mathbb{P}^1$ ought to be smooth, so it's a curve. And this is the $\mathbf{D}$, right? And so this is how we want to argue, how we think to construct this curve.
+So the $\mathbb{G}_m$ is locally isomorphic to $S^1$, but now $S^1$ is again proper. And so this means that this one is proper, but of course it's also locally isomorphic to this one, which is an open subset of $\P^1$, and $\P^1$ ought to be smooth, so it's a curve. And this is the $\mathbf{D}$, right? And so this is how we want to argue, how we think to construct this curve.
 
 Questions? $\mathbf{Z}_\infty$ is also defined over this $a$. You can base change it to $a$, you don't have to write it. And this always--there will be a functor from condensed sets towards analytic spaces, and so $\mathbf{Z}_\infty$ I consider as a closed set, and this will have an incarnation as an analytic space. This will actually mean that the theory of analytic spaces will be related to the condensed story in two ways: one, because the analytic rings themselves are founded on condensed things, which is the role that condensed objects have played so far. But suddenly there will be another role that the condensed sets play, because the way this thing will be realized in the analytic space world, it actually just uses the adic rings, it will not use any interesting condensed structure on the ring level.
 
