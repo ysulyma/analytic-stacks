@@ -2,7 +2,9 @@
 
 This is an attempt to crowd-source notes for the Clausen-Scholze course on [Analytic Stacks](https://www.youtube.com/playlist?list=PLx5f8IelFRgGmu6gmL-Kf_Rl_6Mm7juZO).
 
-I downloaded the (auto-generated) YouTube captions, ran them through ChatGPT/Anthropic to clean them up, and they now need to be reviewed and edited by humans.
+I downloaded the (auto-generated) YouTube captions, ran them through ChatGPT/Anthropic to clean them up, and they now need to be corrected and edited by humans.
+
+These notes are not endorsed by either Clausen or Scholze; any errors are solely the fault of the transcribers. Sections in red were auto-generated from the captions and have not yet been cleaned up by humans.
 
 ## Contributing
 
