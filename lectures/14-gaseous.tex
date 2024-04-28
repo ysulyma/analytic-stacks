@@ -54,6 +54,7 @@ Before the proof, let's introduce some notation.
   As a condensed abelian group, this is the same as the module $P$ defined earlier. The monoid structure of $\N\cup\{\infty\}$ induces a ring structure on $P$. But it will be useful to keep $P$ as a module separate from $\Z[\hat q]$ as a ring.
 \end{definition}
 
+\begin{proof}
 By definition, (1) is equivalent to asking for a map
 \[
   \underbrace{\Z[\hat q][q^\pm]}_{\defeq A_0^\tri} \to A^\tri.
@@ -73,23 +74,80 @@ by
 
 This is extremely analogous to how we defined solid modules. In that case $A^\tri_0$ was just $\Z$, and we asked for the same condition with $q=1$. And because this $\ul\Hom(P,-)$ has such excellent properties, it's immediate to check (and this is what we did for solid modules) that this subcategory has all the stability properties that we ask for for an analytic ring.
 
-Then the pair $(A_0^\tri,\Mod_A)$ is a pre-analytic ring (c.f.\ Definition \citeme of Lecture 13). It satisfies all the properties of an analytic ring, except for the property that the ring itself is complete: $A^\hat_0\notin\Mod_A$.
+Then the pair $(A_0^\tri,\Mod_A)$ is a pre-analytic ring (c.f.\ Definition \citeme{} of Lecture 13). It satisfies all the properties of an analytic ring, except for the property that the ring itself is complete: $A^\tri_0\notin\Mod_A$.
 
 But conditions (1) and (2) are equivalent to asking for a map from $(A_0^\tri,\Mod_A)$ to an analytic ring, and in the previous lecture we saw that there is a left adjoint from pre-analytic rings to analytic rings, so we can complete this pre-analytic ring. So the completion of $(A_0^\tri,\Mod_A)$ does the job.
+\end{proof}
 
-\begin{unfinished}{15:18}
-And as I also explained last time, it's actually better to, when you have a general string, to complete it in the sense of an animated analytic rank, because a priori, the completion of the unit in this case, the derived completion, might not be zero. And then the better object to consider is the derived completion. In this case, it will turn out to be the case that this derived completion actually sits in degree zero, so there will not be a difference. So, that's one reason that we somehow switch in this discussion about completion of analytic structures.
+As explained last time, when you have a general analytic ring, it's to complete it in the sense of an animated analytic rank, because a priori the derived completion might not sit in degree zero and in that case the better object to consider is the derived completion. In this case, it will turn out to be the case that this derived completion actually sits in degree zero, so there will not be a difference. So, that's one reason that we somehow switch in this discussion about completion of analytic structures.
 
-The reason for the final stretch of the talk last time was that we now want to compute this analytic ring structure. And for this, DUS gave some general recipe for computing this completion factor in some cases.
+The reason for the final stretch of the previous lecture was that we now want to compute this analytic ring structure. For this, we saw in Lecture \ref{sec:13-analytic-rings} some general recipes for computing this completion functor in some cases.
 
-Describe the condensed structure. Here's a way to do that. Let me try to write big so that there are no questions about indices.
+\begin{theorem}
+  The following describes the initial analytic animated ring $A=(A^\tri,\Mod_A)$ as above; it turns out to live in degree 0:
+  \begin{enumerate}
+    \item $A^\tri$ and all $A[T]$, $T\in\Pro_\N(\Fin)$ sit in degree 0, and are quasiseparated.
 
-Take a union over $K$ and $n \geq -n$. Basically, $K$ is giving me the polynomial degree, and $n$ is giving me the order of the pole of my the wrong suit, broadly speaking. So then I'm taking a product over all $n$ which are at least $-n$, of those which lie in the interval from $n + n$ to the $Kn + n$, right integer in these bounds. Each of these is a finite set, so this product here is a finite set. Then taking the union, this describes this as a condensed set first of all, but then a subset of here and stable under the ring structure.
+    \item the underlying ring $A^\tri(*)$ is a subring of the Laurent series ring $\Z\lsr q$, given by
+    \[
+      A^\tri(*) =
+      \left\{
+        \sum_{n\gg-\infty} a_n q^n
+        \in \Z\lsr q
+        \,\middle|\,
+        |a_n| \text{ has at most polynomial growth}
+      \right\}
+    \]
+    As for the condensed structure, we have
+    \[
+      A^\tri
+      =
+      \bigcup_{\substack{k>0\\n>0}}
+      \prod_{m\ge-n}
+      \left(
+        \Z\cap
+        \left[
+          -(m+n)^k, (m+n)^k
+        \right]
+      \right)
+      q^m
+    \]
+  \end{enumerate}
+  {\normalfont Basically, $k$ is giving the polynomial growth, and $n$ is giving the order of the pole of the Laurent series. Each term in the product is a finite set, so the product is a light profinite set. Taking the union, this describes $A^\tri$ as a condensed set (and hence as a condensed ring).}
+  \begin{enumerate}
+  \setcounter{enumi}2
+    \item for a light profinite set $S=\lim_i S_i\in\Pro_\N(\Fin)$, we have
+    \begin{align*}
+      A[S]
+        &\subset \Z\lsr{q}[S]^\solid\\
+        &= \left(\lim_i \Z\psr q[S_i]\right)[q^\pm]\\
+        &= \M(S,\Z\lsr q)
+    \end{align*}
+    for the free $A$-module on $S$. So in particular, we only need to describe $A[S]$ as a condensed set, since it inherits the module structure from the target. It is given by
+    \[
+      A[S](*) =
+      \left\{
+        \mu = \sum_{m\in\Z} \mu_m q^m \in \Z\lsr q[S]^\solid
+        \,\middle|\,
+        \parbox[c]{3.1cm}{\raggedright $\mu_n\in\Z[S]\subset\Z[S]^\solid$,\\$|\mu_n|$ have at most polynomial growth}
+      \right\}
+    \]
+    Once again, this is describing the underlying module of $A[S]$. For the condensed structure, we have
+    \[
+      A[S]
+      =
+      \bigcup_{\substack{k>0\\n>0}}
+      \lim_i
+      \left(
+      \prod_{m\ge-n}
+        \Z[S_i]_{\le(n+m)^k}
+        q^m
+      \right)
+    \]
+  \end{enumerate}
+\end{theorem}
 
-What I'm not sure why start call me switch to my usual name $S$. So this describes this thing, and then it also describes the free modules. For $Liv_{prof} S$, written as a limit of $fin_S$ modules, $S$ has a natural norm form to write it. One way to say it is that if it's living like also on $\Z$ power series $\Q$, you can take the guide on $S$ and you can solidify that, so something we understand.
-
-Let me recall this is just the limit over powers of $Q$, in other words these are some kind of $\Z$ power series, two-valued measures on this proficient. It sits inside there. In particular, I only just describe it as a condensed set, because the group structure will be the one on the target.
-
+\begin{unfinished}{28:48}
 One way to think about this is that we have an element here, some kind of measure, which is a sum over all $m$ and $v$ of some measures $m \cdot Q^m$. And then again, I put a growth condition on the $m_m$. So first of all, actually say the $m_m$ are actually just sums of Dirac measures, so for any fixed power of $Q$ you cannot really take infinite sum here, this really must just be a sum of Dirac measures. But even more than that, you asked that some of these are not too large, nor of sub-polynomial growth.
 
 Now, let's describe the condensed structure. It's very similar to the above, so it's again a union over $K$ and $n$, playing the same role as above. But now we also need to squeeze in this inverse limit over $i$ to get something for $S$. And then now we just do the obvious things: we take $m \geq -n$ of the measures on $\Z \Join S_i$ which are of norm at most $n + m$ to the $K$-th power.
