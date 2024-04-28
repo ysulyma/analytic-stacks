@@ -12,7 +12,7 @@ These notes are not endorsed by either Clausen or Scholze; any errors are solely
 
 - Look at `15-stacks.tex` for an example of how to format the notes. In particular, add displaymath `\[\]`, `\begin{example}` environments, etc.
 
-- for the section you choose, **watch the original video** and edit the text as you follow along. Note that some parts of the transcript may be missing!
+- for the section you choose, **watch the original video** and edit the text as you follow along. (You can watch at 1.5x or 2x speed.) Note that some parts of the transcript may be missing!
 
 - this is very time-consuming—you don't have to do an entire lecture! A chunk of 20 minutes is helpful. However, start from the earliest unfinished text and move the `\begin{unfinished}{time}` marker down.
 
