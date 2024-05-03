@@ -78,7 +78,7 @@ Then the pair $(A_0^\tri,\Mod_A)$ is a pre-analytic ring (c.f.\ Definition \cite
 But conditions (1) and (2) are equivalent to asking for a map from $(A_0^\tri,\Mod_A)$ to an analytic ring, and in the previous lecture we saw that there is a left adjoint from pre-analytic rings to analytic rings, so we can complete this pre-analytic ring. So the completion of $(A_0^\tri,\Mod_A)$ does the job.
 \end{proof}
 
-As explained last time, when you have a general analytic ring, it's to complete it in the sense of an animated analytic rank, because a priori the derived completion might not sit in degree zero and in that case the better object to consider is the derived completion. In this case, it will turn out to be the case that this derived completion actually sits in degree zero, so there will not be a difference. So, that's one reason that we somehow switch in this discussion about completion of analytic structures.
+As explained last time, when you have a general analytic ring, it's best to complete it in the sense of an animated analytic ring, because a priori the derived completion might not sit in degree zero, and in that case the better object to consider is the derived completion. In this case, it will turn out to be the case that this derived completion actually sits in degree zero, so there will not be a difference. So, that's one reason that we somehow switch in this discussion about completion of analytic structures.
 
 The reason for the final stretch of the previous lecture was that we now want to compute this analytic ring structure. For this, we saw in Lecture \ref{sec:13-analytic-rings} some general recipes for computing this completion functor in some cases.
 
@@ -146,7 +146,26 @@ The reason for the final stretch of the previous lecture was that we now want to
   \end{enumerate}
 \end{theorem}
 
-\begin{unfinished}{28:48}
+We will not prove this completely, but want to explain where the polynomial growth condition comes from. This is the most surprising aspect, since we didn't build this into the definition anywhere.
+
+\begin{sketch}
+  We will use the formula from the end of Lecture 13 \citeme{}, which told us how to compute completions given by asking that $\underline\Hom(A,-)$ from some algebra object $A$ is $0$. Note that asking for
+  \[ 1-q\cdot\shift \actson \ul\Hom(P\tnsr_\Z A^\tri_0, M) \]
+  to be an isomorphism is equivalent to the following. Let
+  \begin{align*}
+    B
+      &\defeq \frac{P\tnsr_\Z A^\tri_0}{1-q\cdot\shift}
+    \intertext{Now we will go back on what we said above, and remember that $P$ has a ring structure. So we can write}
+      &= \frac{\Z[\hat x,\hat q][q^\pm]}{1-qx}
+  \end{align*}
+  Then the isomorphism condition is equivalent to $\ul\RHom_{A_0^\tri}(B, M)=0$.
+
+  This $B$ also has the condition that $\ul\RHom_{A_0^\tri}(B, -)$ commutes with all colimits, which follows from the same property for $P$. Thus, the derived completion in pre-analytic rings $(A_0^\tri,\Mod_A)$ is given by
+  \[ D(A_0^\tri) \ni M \mapsto \colim\Big(M \to \ul\RHom(I, M) \to \ul\RHom(I^{\tnsr 2}, M) \to \dotsb\Big) \]
+  where $I$ is defined by the fiber sequence $I\to 1\to B$.
+\end{sketch}
+
+\begin{unfinished}{37:30}
 One way to think about this is that we have an element here, some kind of measure, which is a sum over all $m$ and $v$ of some measures $m \cdot Q^m$. And then again, I put a growth condition on the $m_m$. So first of all, actually say the $m_m$ are actually just sums of Dirac measures, so for any fixed power of $Q$ you cannot really take infinite sum here, this really must just be a sum of Dirac measures. But even more than that, you asked that some of these are not too large, nor of sub-polynomial growth.
 
 Now, let's describe the condensed structure. It's very similar to the above, so it's again a union over $K$ and $n$, playing the same role as above. But now we also need to squeeze in this inverse limit over $i$ to get something for $S$. And then now we just do the obvious things: we take $m \geq -n$ of the measures on $\Z \Join S_i$ which are of norm at most $n + m$ to the $K$-th power.
