@@ -163,19 +163,36 @@ We will not prove this completely, but want to explain where the polynomial grow
   This $B$ also has the condition that $\ul\RHom_{A_0^\tri}(B, -)$ commutes with all colimits, which follows from the same property for $P$. Thus, the derived completion in pre-analytic rings $(A_0^\tri,\Mod_A)$ is given by
   \[ D(A_0^\tri) \ni M \mapsto \colim\Big(M \to \ul\RHom(I, M) \to \ul\RHom(I^{\tnsr 2}, M) \to \dotsb\Big) \]
   where $I$ is defined by the fiber sequence $I\to 1\to B$.
+  
+  Note that when you're algebraically inverting an element $f$, correspondong to a fiber sequence $fR \to R \to R/f$, this is the usual colimit formula for $R[f^{-1}]$. However, using this formula for solid completion turns out to be extremely confusing.
+
+  It will turn out that only the colimit is well-behaved: it will be concentrated in degree 0 and quasiseparated. However, the individual terms $\ul\RHom(I^{\tnsr\bullet}, M)$ will have higher homology which is probably not quasiseparated.
+
+  How do we understand this? Well, $I$ is built from $1$ and $B$; the identity $1$ is easy to understand, and $B$ is just built from $P$. So to understand what's happening here, the key is:
+
+  \textbf{Key.} Compute $\ul\Hom_\Z(P, A_0^\tri)$, and more generally $\ul\Hom_\Z(P, A_0^\tri[S])$.
+
+  Note also that we can proceed without inverting $q$ in all of this; will do so. This means we need to understand
+  \[ \ul\Hom_\Z(P, P) = \ul\Hom_\Z(\Z[\hat x], \Z[\hat q]) \]
+
+  \begin{lemma}
+  \[
+    \color{red}\ul\Hom_\Z(P, P)
+    =
+    \bigcup_{n>0} \lim_m\Big((\Z[q]/q^m)_{\le n}[x^*]\Big)
+  \]
+  where
+  \[ (\Z[q]/q^m)_{\le n} \defeq \left\{\sum_i a_i q^i \in \Z[q]/q^m \,\middle|\, \sum_i |a_i| \le n\right\} \]
+  More generally,
+  \[
+    \color{red}\ul\Hom_\Z(\Z[\hat x], \Z[\hat q][S])
+    =
+    \bigcup_{n>0} \lim_{m,i} \Big(\Z[q]/q^m)[S_i]_{\le n}[x^*]\Big)
+  \]
+  \end{lemma}
 \end{sketch}
 
-\begin{unfinished}{37:30}
-One way to think about this is that we have an element here, some kind of measure, which is a sum over all $m$ and $v$ of some measures $m \cdot Q^m$. And then again, I put a growth condition on the $m_m$. So first of all, actually say the $m_m$ are actually just sums of Dirac measures, so for any fixed power of $Q$ you cannot really take infinite sum here, this really must just be a sum of Dirac measures. But even more than that, you asked that some of these are not too large, nor of sub-polynomial growth.
-
-Now, let's describe the condensed structure. It's very similar to the above, so it's again a union over $K$ and $n$, playing the same role as above. But now we also need to squeeze in this inverse limit over $i$ to get something for $S$. And then now we just do the obvious things: we take $m \geq -n$ of the measures on $\Z \Join S_i$ which are of norm at most $n + m$ to the $K$-th power.
-
-I wonder if it might be a bit clearer to just drop the $n > 0$ and only take the term $n = \Z$ and then just invert $Q$ on the outside. But then I would have to do this funny thing where I replace $n + m$ here by something like $n + 2$ in order for the zero coefficients to be allowed to grow. Okay, yeah, or you could have a constant $C$ in front, like polynomial growth. Anyway, this is correct, and you can certainly find many other ways to write this.
-
-I thought if I'm already taking a union, then inverting $Q$ at the end seems like an operation many... I don't know, a matter of taste, I guess.
-
-Okay, so I don't want to give
-
+\begin{unfinished}{47:00}
 Is our goal given by asking that the integral cohomology derive from some algebra? Note that this condition, that the integral cohomology is equal to the point, let me call it $c$. So this is the triangle modulo $\R$. But now I actually want to think about $\P$ as a ring. I didn't want to do that, and I want to keep my notation separate. But at this point, I do want to remember that $\P$ admits a ring structure.
 
 It's actually a free $\P$-module on the topological generator $X$, and $\mathbb{A}$ was also a free $\P$-module. And then okay, so I had $T$ over $\Q$, and then one minus the shift operator, which is multiplication by $X$, so this is actually a commut[ative]. So the condition is that the $\R$-linear map from $B$ (because this $\R$-Hom is literally just the cone of the Homs, and the Homs are in degree zero because of the excellent properties of $\P$), and also $B$ has the property that the internal Hom from $B$ commutes with all limits, the same property for $\P$.
