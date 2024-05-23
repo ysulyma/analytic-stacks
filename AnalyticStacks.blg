@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: AnalyticStacks.aux
+The style file: amsalpha.bst
+Database file #1: ./bibliography.bib
+Warning--missing journal name in APC
+Warning--missing journal, volume, and year in APC
+Warning--missing pages in APC
+Warning--missing journal name in BLPrismatization
+Warning--missing journal, volume, and year in BLPrismatization
+Warning--missing pages in BLPrismatization
+You've used 2 entries,
+            2624 wiz_defined-function locations,
+            567 strings with 4603 characters,
+and the built_in function-call counts, 659 in all, are:
+= -- 54
+> -- 31
+< -- 0
++ -- 11
+- -- 10
+* -- 60
+:= -- 111
+add.period$ -- 2
+call.type$ -- 2
+change.case$ -- 12
+chr.to.int$ -- 1
+cite$ -- 8
+duplicate$ -- 28
+empty$ -- 43
+format.name$ -- 12
+if$ -- 118
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 4
+newline$ -- 16
+num.names$ -- 5
+pop$ -- 14
+preamble$ -- 1
+purify$ -- 14
+quote$ -- 0
+skip$ -- 21
+stack$ -- 0
+substring$ -- 14
+swap$ -- 8
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 6
+while$ -- 5
+width$ -- 3
+write$ -- 27
+(There were 6 warnings)

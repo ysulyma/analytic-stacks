@@ -10,58 +10,83 @@
 
 \subsection{Motivation}
 
-Thank you everyone for your patience and welcome. This is going to be a course about analytic geometry. The title is "Analytic Stacks", and we're going to be trying to explain the foundations for analytic geometry that we've been trying to set up for the past few years. 
+Thank you everyone for your patience and welcome. This is going to be a course about analytic geometry. The title is "Analytic 
+Stacks", and we're going to be trying to explain the foundations for analytic geometry that we've been trying to 
+set up for the past few years. 
 
-In this first lecture, I want to give an introduction to the first half of the course (because otherwise, I'd be talking about too many concepts in one single lecture). Let me set the stage by giving some \textbf{motivation}.
+In this first lecture, I want to give an introduction to the first half of the course (because otherwise, I'd be talking 
+about too many concepts in one single lecture). Let me set the stage by giving some \textbf{motivation}.
 
 Classically, there are several different theories of analytic geometry. I'll just list the ones that I may be familiar with. 
 
 \begin{enumerate}
-    \item The gold standard is the usual theory of complex analytic spaces. In the smooth case, these are the complex manifolds. So, these are things you get by gluing together open subsets of $\C^n$ along biholomorphisms (maps that locally admit a power series expansion). There's the nonsmooth case as well, where you also locally allow the zero locus of some finite collection of analytic functions on those open subsets.
+    \item The gold standard is the usual theory of complex analytic spaces. In the smooth case, these are the complex manifolds. 
+    So, these are things you get by gluing together open subsets of $\C^n$ along biholomorphisms (maps that locally admit a power series expansion). There's the nonsmooth case as well, where you also locally allow the zero locus of some finite collection of analytic functions on those open subsets.
 
 
-    \item There's a generalization of this which was presented in Serre's book on Lie groups and Lie algebras \citeme{}, which is the locally analytic manifolds (or generalization of the smooth case at least). Consider a complete normed field $(K, |\cdot|)$ which can be archimedean or non-archimedean. Then you glue open subsets of some $K^d$ along locally analytic isomorphisms. That means we obtain locally around every point you have a convergent power series expansion with coefficients in the field $K$. 
+    \item There's a generalization of this which was presented in Serre's book on Lie groups and Lie algebras \citeme{}, which is 
+    the locally analytic manifolds (or generalization of the smooth case at least). Consider a complete normed field $(K, |\cdot|)$
+     which can be archimedean or non-archimedean. Then you glue open subsets of some $K^d$ along locally analytic isomorphisms.
+      That means we obtain locally around every point you have a convergent power series expansion with coefficients in the field 
+      $K$. 
 \end{enumerate}
  
 
 
 
-In (2) when $K = \C$, it does just recover the smooth case of (1), and that's a nice reasonable theory. When $K = \R$, it's a version of the theory of real manifolds, which is also a nice reasonable theory. 
+In (2) when $K = \C$, it does just recover the smooth case of (1), and that's a nice reasonable theory. When $K = \R$, it's a 
+version of the theory of real manifolds, which is also a nice reasonable theory. 
 
-But when $K$ is non-archimedean, it's not particularly geometrically rich unless you have some extra structure like a group structure or something like this, which gives it more geometry. The reason for this is as follows 
+But when $K$ is non-archimedean, it's not particularly geometrically rich unless you have some extra structure like a group 
+structure or something like this, which gives it more geometry. The reason for this is as follows 
 
 
 
-In the non-archimedean case, for example, when $K=\Q_p$, there's the structure is not rich enough because the topology on $\Q_p$ (or $\Q_p^d$) is totally disconnected.
+In the non-archimedean case, for example, when $K=\Q_p$, there's the structure is not rich enough because the topology 
+on $\Q_p$ (or $\Q_p^d$) is totally disconnected.
 
 \begin{remark}
-    Every unit ball will break up into $p$ many other unit balls, and those break up into $p$ many unit balls. For example, in Serre's book \citeme{}, you can find a discussion of the classification of compact $p$-adic manifolds, and it's just a very simple combinatorial classification. There's the dimension and another invariant. There's just really not much going on there.
+    Every unit ball will break up into $p$ many other unit balls, and those break up into $p$ many unit balls. For example, in 
+    Serre's book \citeme{}, you can find a discussion of the classification of compact $p$-adic manifolds, and it's just a very 
+    simple combinatorial classification. There's the dimension and another invariant. There's just really not much going on there.
 \end{remark}
     
 \begin{enumerate}
     \setcounter{enumi}{2} 
     
-    \item  This and some examples coming from uniformization of elliptic curves led John Tate \citeme{} to introduce \textbf{rigid analytic geometry}, which is over a non-archimedean field. So, it's a geometrically rich theory which works in the non-archimedean case. 
+    \item  This and some examples coming from uniformization of elliptic curves led John Tate \citeme{} to introduce 
+    \textbf{rigid analytic geometry}, which is over a non-archimedean field. So, it's a geometrically rich theory which 
+    works in the non-archimedean case. 
 \end{enumerate}
 
 
 
-In contrast to the theories above, you don't kind of really think of it in terms of specifying some ways of gluing open subsets of $K^{d}$, or you don't even necessarily think about it in topological terms at all. You more actually think about it in algebraic terms. Instead of focusing on a local model, which in the classical case might be something like an open polydisk, you instead concentrate on a class of locally allowed functions. So, there's a turn here. 
+In contrast to the theories above, you don't kind of really think of it in terms of specifying some ways of gluing open subsets 
+of $K^{d}$, or you don't even necessarily think about it in topological terms at all. You more actually think about it in algebraic 
+terms. Instead of focusing on a local model, which in the classical case might be something like an open polydisk, you instead 
+concentrate on a class of locally allowed functions. So, there's a turn here. 
 
 \begin{itemize}
-    \item Focus on local rings of functions instead of local topology and let the ring of functions tell you what the topology is supposed to be.
+    \item Focus on local rings of functions instead of local topology and let the ring of functions tell you what the topology is 
+    supposed to be.
 
-    \item The local model that Tate uses are not functions convergent on an open disk, but functions convergent on a closed disk, which is something that makes sense to use in the non-archimedean context. The local rings of functions are well quotients of functions convergent on a closed polydisk, and those are the so-called \textbf{Tate algebras}.
+    \item The local model that Tate uses are not functions convergent on an open disk, but functions convergent on a closed disk, 
+    which is something that makes sense to use in the non-archimedean context. The local rings of functions are well quotients of 
+    functions convergent on a closed polydisk, and those are the so-called \textbf{Tate algebras}.
 \end{itemize}
 
-The manner in which you're allowed to glue these local models to get global rigid analytic spaces is halfway between algebraic geometry and usual analytic geometry.
+The manner in which you're allowed to glue these local models to get global rigid analytic spaces is halfway between algebraic 
+geometry and usual analytic geometry.
 
 %It's not clear if Tate algebra is just the functions convergent on the open disk or quotient of. Oh, okay, it's a point about terminology. Yeah, it's not. Sometimes, in some references, they, but I'm not sure if it's a mistake or another. I mean, because I'm not, because depends on the reference, right? Okay, that's in the two references they say, but all the other one avoid algebra. Okay, let's say it's an apoid algebra then. Yeah, I don't. Okay. 
 
 \begin{enumerate}
     \setcounter{enumi}{3} 
 
-    \item This was generalized by Huber to the theory of \textbf{adic spaces}, and this is a generalization of rigid analytic geometry. Note that rigid analytic geometry takes place over a base field, and a very loose analogy would be that adic spaces are to rigid analytic spaces as general schemes are to varieties over a field. So it is useful generalization where you don't have to have a fixed base field.
+    \item This was generalized by Huber to the theory of \textbf{adic spaces}, and this is a generalization of rigid analytic 
+    geometry. Note that rigid analytic geometry takes place over a base field, and a very loose analogy would be that adic spaces 
+    are to rigid analytic spaces as general schemes are to varieties over a field. So it is useful generalization where you don't 
+    have to have a fixed base field.
 \end{enumerate}
 
 \begin{center}
@@ -75,64 +100,121 @@ The manner in which you're allowed to glue these local models to get global rigi
 \end{center}
 
 
-Again, you don't think necessarily of your local models topologically, kind of think of them as being algebraically specified in terms of a ring of functions. But here also there's a new twist. 
+Again, you don't think necessarily of your local models topologically, kind of think of them as being algebraically specified in 
+terms of a ring of functions. But here also there's a new twist. 
 
 \begin{itemize}
-    \item  You still have local model as some ring of functions called $A$, but you also include extra data of a certain subring $A^+ \subset A $, and what $A^{+}$ does to $A$ is you attach some space of valuations and then $A^+$ will single out those valuations which view this subring $A^+$ as consisting of integral elements.
+    \item  You still have local model as some ring of functions called $A$, but you also include extra data of a certain 
+    subring $A^+ \subset A $, and what $A^{+}$ does to $A$ is you attach some space of valuations and then $A^+$ will single 
+    out those valuations which view this subring $A^+$ as consisting of integral elements.
 \end{itemize}
 
-It's actually a very nice extra flexibility you have in Huber's theory that you can consider different choices of $A^+$ on a given appropriate topological ring $A$. We'll see from a different perspective what this choice of $A^+$ is really doing later in this lecture.
+It's actually a very nice extra flexibility you have in Huber's theory that you can consider different choices of $A^+$ on a given 
+appropriate topological ring $A$. We'll see from a different perspective what this choice of $A^+$ is really doing later in this 
+lecture.
 
 %So, maybe I'll go over here. So, when you say local ring of functions, yeah, do you mean really a sheaf on that open set? I just, no, I just mean it's something like you have, you specify a certain kind of ring, and then you say that's my functions on my basic geometric model, you know, like for you have to have transition right when you go from one open set and intersect with other open, yeah, so I what I didn't discuss gluing, so that's that you need to say that kind of thing when you discuss gluing. We'll touch on it a little bit later, but I'm actually going to, for this lecture, I'm mostly going to stick to this sort of aoid context where you just look at a single A, but of course, that does need to be discussed and it will be discussed, yeah.
 
 
- Then we proceed to Berkovich's theory. The rings of functions you see both in the context of rigid analytic spaces and in the more general context of adic spaces. The basic examples are things like you have a ring and it's complete with respect to a finitely generated ideal and you give it the inverse limit topology where all the quotients are discrete and you are also allowed to invert something, provided that the inversion is inverting everything you completed along.
+ Then we proceed to Berkovich's theory. The rings of functions you see both in the context of rigid analytic spaces and in the 
+ more general context of adic spaces. The basic examples are things like you have a ring and it's complete with respect to a 
+ finitely generated ideal and you give it the inverse limit topology where all the quotients are discrete and you are also allowed 
+ to invert something, provided that the inversion is inverting everything you completed along.
 
- So, the most basic example of these things is you can take $\Z[T]^{\wedge}_{p}[1/p]$, the ring of polynomials in one variable, and you can complete it with respect to the $p$-adic topology and then you can invert $p$ and that's the functions on the closed unit disc in the $\A^1_{\Q_p}$. So, we complete along something and then invert it, and these are also examples of $p$-adic Banach rings, and what Berkovich does is he says let's just work with arbitrary Banach rings to start with.
+ So, the most basic example of these things is you can take $\Z[T]^{\wedge}_{p}[1/p]$, the ring of polynomials in one variable, and 
+ you can complete it with respect to the $p$-adic topology and then you can invert $p$ and that's the functions on the closed unit 
+ disc in the $\A^1_{\Q_p}$. So, we complete along something and then invert it, and these are also examples of $p$-adic Banach 
+ rings, and what Berkovich does is he says let's just work with arbitrary Banach rings to start with.
  
 \begin{enumerate}
     \setcounter{enumi}{4} 
-    \item \textbf{Berkovich Theory}: The local models are given by Banach rings $(R, |\cdot|)$, note while the theories (3) and (4) are confined to the non-archimedean case, this theory over here actually allows archimedean phenomena as well because the real numbers and the complex numbers also count as Banach rings.
+    \item \textbf{Berkovich Theory}: The local models are given by Banach rings $(R, |\cdot|)$, note while the theories (3) and (4) 
+    are confined to the non-archimedean case, this theory over here actually allows archimedean phenomena as well because the real 
+    numbers and the complex numbers also count as Banach rings.
 \end{enumerate}
 
-The global theory here is not quite as smoothly functioning as in the case of $(3)$ and $(4)$. To the ring $(R, |.|)$, Berkovich attaches the space of multiplicative seminorms $\mathcal{M}(R, |.|)$, which is some compact Hausdorff space, and  the kind of gluing you're allowed to do is in some sense organized by this Berkovich space and I don't necessarily want to get into too much detail about that right now. But for example, you can see the complex analytic spaces as a special case of this, and you can also see rigid analytic geometry in some sense as a special case of this. So, this is my very, very brief review of classical theories of analytic geometry.
+The global theory here is not quite as smoothly functioning as in the case of $(3)$ and $(4)$. To the ring $(R, |.|)$, Berkovich 
+attaches the space of multiplicative seminorms $\mathcal{M}(R, |.|)$, which is some compact Hausdorff space, and  the kind of 
+gluing you're allowed to do is in some sense organized by this Berkovich space and I don't necessarily want to get into too much 
+detail about that right now. But for example, you can see the complex analytic spaces as a special case of this, and you can also 
+see rigid analytic geometry in some sense as a special case of this. So, this is my very, very brief review of classical theories 
+of analytic geometry.
 
 
 %and please feel free to ask questions if you have questions. Um, some certainties lost over like the shiness in the Uber Theory, correct in has this different gluing like in one you can glue along op get to get to get things like he has to work only over a field condition, then something quite artificial to glue it like you do in but in his language, in some sense it just transports yes to his language with some extra things which are difficult to remember, some conditions under which the theories are equivalent, yes, exactly, exactly like the notion allows you to understand, yes, exactly, exactly, yeah, so yeah, so the relation with original geometry is indeed artificial, it's kind of not the correct, okay, but anyway, um, so what do I want to say now? I want to exp... Okay, so
 
-We have all these theories, that's great, but now what again was the motivation behind coming up with a new theory? Is  just going to be point $(6)$ on the list? Well, not exactly.
+We have all these theories, that's great, but now what again was the motivation behind coming up with a new theory? Is it just going 
+to be point $(6)$ on the list? Well, not exactly.
 
 \begin{question}
     Why introduce a new theory?
 \end{question}
 
-Well, all from $(1) - (5)$ are theories of analytic geometry, and kind of the relationships between them are more or less well known and one can formulate comparisons and the web of these things is kind of well understood, in spite of the subtleties sometimes involved in the comparisons, it's fairly well understood.
+Well, all from $(1) - (5)$ are theories of analytic geometry, and kind of the relationships between them are more or less well 
+known and one can formulate comparisons and the web of these things is kind of well understood, in spite of the subtleties 
+sometimes involved in the comparisons, it's fairly well understood.
 
-But so far, there's no common framework in which you can put all of these examples, they all have their own flavors, and while you can formulate comparisons, it's not that those comparisons are taking place in some larger category that you consider, it's kind of done by hand in every situation, formulating the comparisons between these things.
+But so far, there's no common framework in which you can put all of these examples, they all have their own flavors, and while you 
+can formulate comparisons, it's not that those comparisons are taking place in some larger category that you consider, 
+it's kind of done by hand in every situation, formulating the comparisons between these things.
 
 \begin{answer}
     
-        We want to accommodate all examples in a single theory, so that's one thing, um, you'd like a general theory of analytic spaces which can be specialized to whichever context you might uh be interested in.
+        We want to accommodate all examples in a single theory, so that's one thing, um, you'd like a general theory of 
+        analytic spaces which can be specialized to whichever context you might uh be interested in.
 
         
-        The second reason would be, out of all the above theories the only rich theory allowing both archimedean and non-archimedean geometry is Berkovich's but the gluing is not so well worked outand in particular, the gluing was investigated by Berkovich he basically restricted to the non-archimedean case almost from the start and then more general gluings were investigated by Piono \citeme{} for example but in that they always do the same thing they fix a Banach ring as the base ring and then they define an affine space of some dimension over that base ring and then they glue along some kind of subsets of a affine space that they that they pick out that's sort of how the gluing works in Berkovich's theory. The Banach rings they take as their base rings often have restrictive hypotheses on them\footnote{so its not really understanding how you can glue two Banach rings together to get some more global object and indeed the things you're gluing along in these a affine spaces are oftentimes not even controlled by Banach rings themselves they're just some other kind of objects so the nature of the gluing is constrained to a finite type situation and it's a little artificial, maybe not necessarily artificial but it doesn't quite fit the mold when you think of how you go from like affine schemes to general schemes for example just by gluing those local models in some naive way.} such as finite type.
+        The second reason would be, out of all the above theories the only rich theory allowing both 
+        archimedean and non-archimedean geometry is Berkovich's but the gluing is not so well worked outand in particular, 
+        the gluing was investigated by Berkovich he basically restricted to the non-archimedean case almost from the start 
+        and then more general gluings were investigated by Piono \citeme{} for example but in that they always do the same thing 
+        they fix a Banach ring as the base ring and then they define an affine space of some dimension over that base ring and 
+        then they glue along some kind of subsets of a affine space that they that they pick out that's sort of how the
+         gluing works in Berkovich's theory. The Banach rings they take as their base rings often have restrictive 
+         hypotheses on them\footnote{so its not really understanding how you can glue two Banach rings together to get 
+         some more global object and indeed the things you're gluing along in these a affine spaces are oftentimes not even 
+         controlled by Banach rings themselves they're just some other kind of objects so the nature of the gluing is constrained 
+         to a finite type situation and it's a little artificial, maybe not necessarily artificial but it doesn't quite fit 
+         the mold when you think of how you go from like affine schemes to general schemes for example just by gluing those 
+         local models in some naive way.} such as finite type.
 
         
-         Even individually in their own context in which they're supposed to operate uh these theories are less flexible than for example the theory of schemes and one major reason has to do with issues of descent.
+         Even individually in their own context in which they're supposed to operate uh these theories are less 
+         flexible than for example the theory of schemes and one major reason has to do with issues of descent.
 
 \end{answer}
 
-For example, one of the main constructions when you have a scheme is the category of quasi-coherent sheaves. When you have a commutative ring, you look at the category of modules over that ring, and then it just glues to a general scheme, and that is what a quasi-coherent sheaf is. But you don't have that in analytic geometry in any of the classical theories. The reason is, you always have some local model given by a ring and to that ring, you can certainly assign the category of all $R$-modules, but then it does not glue. So, it is just not the case that if you have, you know, in any of the allowed gluings that people choose, it is just not the case that an R-module on two open subsets or closed subsets or anything that have gluing data on the intersection globalizes to a general R-module.
+For example, one of the main constructions when you have a scheme is the category of quasi-coherent sheaves. When you have a 
+commutative ring, you look at the category of modules over that ring, and then it just glues to a general scheme, and that is what 
+a quasi-coherent sheaf is. But you don't have that in analytic geometry in any of the classical theories. The reason is, you always 
+have some local model given by a ring and to that ring, you can certainly assign the category of all $R$-modules, but then it does 
+not glue. So, it is just not the case that if you have, you know, in any of the allowed gluings that people choose, it is just not 
+the case that an R-module on two open subsets or closed subsets or anything that have gluing data on the intersection globalizes 
+to a general R-module.
 
 \begin{remark}
-    Classically, you only can glue maybe finite type or finally presented modules, and this does give rise to the theory of coherent sheaves, which is a beautiful and extremely useful theory. It is one of the main tools you have in analytic geometry, but it is still constrained by the finiteness hypotheses that come into it. So, for example, if you have a map of analytic spaces, you cannot consider like the push-forward of the structure sheaf as a coherent sheaf, but that is one of the main examples of quasi-coherent sheaths you like to play with in algebraic geometry. But it is still not as general and flexible as we are used to from algebraic geometry with quasi-coherent sheaf which have no inherent finesse conditions,
+    Classically, you only can glue maybe finite type or finally presented modules, and this does give rise to the theory of 
+    coherent sheaves, which is a beautiful and extremely useful theory. It is one of the main tools you have in analytic geometry, 
+    but it is still constrained by the finiteness hypotheses that come into it. So, for example, if you have a map of analytic 
+    spaces, you cannot consider like the push-forward of the structure sheaf as a coherent sheaf, but that is one of the main 
+    examples of quasi-coherent sheaths you like to play with in algebraic geometry. But it is still not as general and flexible 
+    as we are used to from algebraic geometry with quasi-coherent sheaf which have no inherent finesse conditions,
 \end{remark}
 
-These are some theoretical reasons why we might want a new theory but there is also potentially a practical reason. So this is much more speculative, coming from the Langlands program.Recently, Fargues and Scholze, famously "geometrised" local Langlands and that led to clarification of the local Langlands program.
+These are some theoretical reasons why we might want a new theory but there is also potentially a practical reason. So this is much 
+more speculative, coming from the Langlands program.Recently, Fargues and Scholze, famously "geometrised" local Langlands and that 
+led to clarification of the local Langlands program.
 
-So, what was this geometrization based on ?.It was based on replacing $\Bbb{Q}_p$ by a more exotic object, namely the Fargues-Fontaine curves and this was produced in the language of adic spaces $\Bbb{Q}_p$ which are not at all of finite type. So this is an exotic beast which thankfully this theory of adic spaces existed to accommodate it.
+So, what was this geometrization based on ?.It was based on replacing $\mathbb{Q}_p$ by a more exotic object, namely the Fargues-Fontaine 
+curves and this was produced in the language of adic spaces $\mathbb{Q}_p$ which are not at all of finite type. 
+So this is an exotic beast which thankfully this theory of adic spaces existed to accommodate it.
 
-Again, \textbf{(very)} speculatively one might hope that not just the local uh Langlands program but the global Langlands program can also be geometrized\footnote{Dustin: "Peter is always very optimistic but I'm always.."}. But this would involve replacing say $\Bbb{Q}$ or $\Bbb{Z}$ by some family of exotic analytic spaces, um, and whatever such a thing is it is going to have to have both archimedean and non-archimedean aspects, for example, there should also be a version over the real numbers\footnote{Dustin: "which I bielive Peter is is working out"} and it also is not going to be finite type in any sense so there is simply no existing theory which could possibly give the language to describe such an object if such an object even exists!. But it is good to have a theory a precise theory to to guide exploration of of the possibility of such exotic things, um, so that is another motivation.
+Again, \textbf{(very)} speculatively one might hope that not just the local uh Langlands program but the global Langlands program 
+can also be geometrized\footnote{Dustin: "Peter is always very optimistic but I'm always.."}. But this would involve replacing say 
+$\Bbb{Q}$ or $\Bbb{Z}$ by some family of exotic analytic spaces, um, and whatever such a thing is it is going to have to have both 
+archimedean and non-archimedean aspects, for example, there should also be a version over the real 
+numbers\footnote{Dustin: "which I bielive Peter is is working out"} and it also is not going to be finite type in any sense so 
+there is simply no existing theory which could possibly give the language to describe such an object if such an object even exists!. But it is good to have a theory a precise theory to to guide exploration of of the possibility of such exotic things, um, so that is another motivation.
 
 %so that is the end of my um motivation section, uh, so now's a good time for questions if people have them, so you you are going to introduce this B SP I mean theory what what is are more general theory encompasses all of this yeah I'm going to we are going to introduce a new theory and explain the relation to the previous theories, yeah, yeah, so that yeah that is good to say yeah so our our goal is in this course is to introduce a new theory of analytic geometry and to explain the relation with the previous theories, yeah, so you will let not only the basic analytic ring but also some analytic spaces analytic yeah yeah but today I'm only going to give an introduction to the apoid situations kind of analytic Rings because it will already be enough, uh, already be enough there, yes, why is the theory of BL spaces insufficient, oh, it does not have any archimedean, it does not, there are no, it is non-archimedean by Design, yeah, yeah, Al, some I remember forgot now how it was called some kind of spectrum that they combines and forgot the name of this someone consider but they didn't develop it so uhhuh yeah there could be other theories than the ones I listed I just listed the ones that I knew were well studied and yeah, okay,
 
@@ -140,29 +222,59 @@ Again, \textbf{(very)} speculatively one might hope that not just the local uh L
 
 \subsection{Condensed Mathematics}
 
- The issue with the descent can be attributed to the fact that these in all these different theories of analytic geometry these rings that you have describing the local models they're not just abstract rings they're topological rings and for many purposes it is important to remember the topology.
+ The issue with the descent can be attributed to the fact that these in all these different theories of analytic geometry these 
+ rings that you have describing the local models they're not just abstract rings they're topological rings and for many purposes 
+ it is important to remember the topology.
 
- For example in algebraic geometry the polynomial ring in two variables $\Bbb{Z}[x,y]$ which is functions on $\Bbb{A}^{2}_{\Bbb{Z}}$ is the tensor product of polynomial rings $\Bbb{Z}[x]$ and $\Bbb{Z}[y]$. But in rigid analytic geometry if you take the two Tate algebras in dimension one and tensor it you're going to get some crazy thing because you took an algebraic tensor product and you forgot the $p$-adic topology but if you do a $p$-adically complete tensor product you get the \textbf{correct} geometric ring of functions in the two variable case. So in performing constructions such as tensor products which are basically calculating fiber products geometrically you need to remember the topology and that is at the basis for the reason why you don't have a naive theory of quasi-coherent sheaves and you have problems with gluing outside the finitely generated case.
+ For example in algebraic geometry the polynomial ring in two variables $\Bbb{Z}[x,y]$ which is functions on 
+ $\Bbb{A}^{2}_{\Bbb{Z}}$ is the tensor product of polynomial rings $\Bbb{Z}[x]$ and $\Bbb{Z}[y]$. But in rigid analytic geometry 
+ if you take the two Tate algebras in dimension one and tensor it you're going to get some crazy thing because you took an 
+ algebraic tensor product and you forgot the $p$-adic topology but if you do a $p$-adically complete tensor product 
+ you get the \textbf{correct} geometric ring of functions in the two variable case. So in performing constructions 
+ such as tensor products which are basically calculating fiber products geometrically you need to remember the 
+ topology and that is at the basis for the reason why you don't have a naive theory of quasi-coherent sheaves and you 
+ have problems with gluing outside the finitely generated case.
 
-But topological rings and topological modules over them, which would be the kind of natural thing to do if you're thinking about quasi-coherent sheaves, are not suitable for a general theory. The basic reason there is,if you form this category and it is \textbf{not abelian}.
+But topological rings and topological modules over them, which would be the kind of natural thing to do if you're thinking about 
+quasi-coherent sheaves, are not suitable for a general theory. The basic reason there is,if you form this category and it is 
+\textbf{not abelian}.
 
 %the category of topological modules over a topological ring, and you can dress it up however you like, you can make it much more specific or whatever, it is just not going to be a billion, and the phenomenon is that if you have a dense inclusion of modules which happens all the time when you have infinite-dimensional things, uh, then it is going to be both an epimorphism and a monomorphism, uh, generally speaking, uh, in your reasonable categories, but it is not going to be an isomorphism, so you separated, yeah, yeah, I would have to say separated to make that literally a true claim, so you have a non-strict map, then the image is two topologies, and this is not yeah, CEG world, yes, yes, yes, yes, um, right, so, uh, so 
 
-What we do is to go back to the basics and define a replacement for the category of topological spaces. We do that in such a way that it is then very easy to pile algebraic structure on top of those things and talk about the analogues of topological rings and topological modules over them and such that we will get an abelian category in the end.
+What we do is to go back to the basics and define a replacement for the category of topological spaces. We do that in such a way 
+that it is then very easy to pile algebraic structure on top of those things and talk about the analogues of topological rings 
+and topological modules over them and such that we will get an abelian category in the end.
 
 
-The basic idea is very old, certainly, Grothendieck used this idea many times and but I think it might even be older than Grothendieck. Topological space is kind of funny because you have second-order data, you have a set of points and then you have a set of subsets of that, and that is fundamentally what makes it difficult to mix with algebraic structures, hence instead you would want to stick with kind of first-order data just points and the basic idea is you single out a collection of nice test spaces $S$, and then instead of encoding a topological space $X$ as traditionally we just record the data of what should be continuous maps 
+The basic idea is very old, certainly, Grothendieck used this idea many times and but I think it might even be older than 
+Grothendieck. Topological space is kind of funny because you have second-order data, you have a set of points and then you have a 
+set of subsets of that, and that is fundamentally what makes it difficult to mix with algebraic structures, hence instead you 
+would want to stick with kind of first-order data just points and the basic idea is you single out a collection of nice 
+test spaces $S$, and then instead of encoding a topological space $X$ as traditionally we just record the data of what 
+should be continuous maps 
   $$ S \xrightarrow{f} X$$
-So we are going to choose a nice collection of test spaces and then we only care about a topological space as far as the phenomena are seen by maps from these nice test objects.  
+So we are going to choose a nice collection of test spaces and then we only care about a topological space as far as the phenomena 
+are seen by maps from these nice test objects.  
 
 
-Formally our test spaces will be profinite sets, which is the same thing as a totally disconnected uh, compact Hausdorff spaces, it is also just the same thing as inverse limits of finite sets where the finite sets have a discrete topology and the inverse limit has the inverse limit topology. This is what we we uh used in a previous iteration of this kind of course, the first course Peter taught on condensed math was with this class of test spaces but it does cause some troubles, it is a large category so there is no if there is no cardinal bound on the profinite sets then when you encode all of this data you're encoding more than a set worth of data and it it does cause some technical troubles. We more or less worked around them but so we are actually going to take a a slight variant of this for the purposes of this course and we will explain in more detail in the first few lectures why we make this precise choice.
+Formally our test spaces will be profinite sets, which is the same thing as a totally disconnected uh, compact Hausdorff spaces, 
+it is also just the same thing as inverse limits of finite sets where the finite sets have a discrete topology and the inverse 
+limit has the inverse limit topology. This is what we we uh used in a previous iteration of this kind of course, the first course 
+Peter taught on condensed math was with this class of test spaces but it does cause some troubles, it is a large category so there 
+is no if there is no cardinal bound on the profinite sets then when you encode all of this data you're encoding more than a set 
+worth of data and it it does cause some technical troubles. We more or less worked around them but so we are actually going to 
+take a a slight variant of this for the purposes of this course and we will explain in more detail in the first few lectures why 
+we make this precise choice.
 
 \begin{definition}
-    A \textbf{light} profinite set is a countable inverse limit of finite sets it is also the same thing as requiring it to be metrizable we deonote the category of light profinite sets by $\lightprof$. A \textbf{light condensed set} is a sheaf of sets on the category of light profinite sets with respect to the Grothendieck topology given by finite collections of jointly surjective continuous maps.
+    A \textbf{light} profinite set is a countable inverse limit of finite sets it is also the same thing as requiring it to be 
+    metrizable we deonote the category of light profinite sets by $\lightprof$. A \textbf{light condensed set} is a sheaf of sets 
+    on the category of light profinite sets with respect to the Grothendieck topology given by finite collections of jointly 
+    surjective continuous maps.
 \end{definition}    
 
-We are using the language of grothendieck topologies here and possibly not everyone is familiar with the language of Grothendieck topology and in  general how you play with categories of sheaves. Let me make it more explicit, a light condensed set is a functor 
+We are using the language of grothendieck topologies here and possibly not everyone is familiar with the language of Grothendieck 
+topology and in  general how you play with categories of sheaves. Let me make it more explicit, a light condensed set is a functor 
 $$ X : \lightprof \rightarrow \sets$$
 such that 
 \begin{itemize}
@@ -175,12 +287,16 @@ such that
 
 \begin{example}
     
-Any topological space $X$ gives a condensed set such that $X(S) = \mathrm{Cont}(S,X)$ it is easy to see the functoriality and it is easy to verify all of these properties listed above\footnote{Because we are going to fairly seriously make use of the theory of Grothendieck topology and sheaves in this course, it's just not worth it to avoid that theory, especially since it comes up both here in the definition of light condensed set and also later in the way in which you glue uh the affine case of analytic spaces to general analytic spaces, so if you're not familiar with the theory of Grothendieck topologies and you want to follow this course I suggest you read up on it.}.
+Any topological space $X$ gives a condensed set such that $X(S) = \mathrm{Cont}(S,X)$ it is easy to see the functoriality and it 
+is easy to verify all of these properties listed above\footnote{Because we are going to fairly seriously make use of the theory of 
+Grothendieck topology and sheaves in this course, it's just not worth it to avoid that theory, especially since it comes up both 
+here in the definition of light condensed set and also later in the way in which you glue uh the affine case of analytic spaces to 
+general analytic spaces, so if you're not familiar with the theory of Grothendieck topologies and you want to follow this course I 
+suggest you read up on it.}.
 \end{example}
 
 
 \begin{unfinished}{41:00}
-
 
    um, okay, yes, question, so what is a morphism between two uh, two profile sets like Prof set, yeah, just a continuous map, require some filtration it's just a continuous map but it's also a map of pro systems if you're thinking of it as a accountable inverse limit it's equivalent proem it's yeah, yeah, it's the same same thing yes, do we know what are the points in the category of FL content sets points in the c ah oh oh in the topos thetic sense yeah, I think so yeah they gean um debatable so we we'll discuss more such things in the in the coming lectures um isance of topological space in is that skul no not not for General topologic IAL spes but for a large class of topological spaces it is yeah um right so so some there's one thing that's clear right I started with a general idea or you take some collection of test spaces and then you okay then you say what you axiomatize the properties of maps from test spaces to a given topological space and you arrive at this axiomatics but okay it's actually not so simple because there's many possible choices of test spaces and beyond that there's many possible choices of which properties you want to put in your act which properties you see mapping out from those test spaces to x that you put in the axioms uh for your general objects like condensed sets actually there are other properties Satisfied by X of s when X is a topological space that I didn't put in the axiomatics um so there's kind of a little bit of a delicate balance here and we will discuss more about how we arrived at precisely this this Choice both of the test category of light profite sets and this for now I just want to make a couple of remarks which will maybe give a a sense for why we make this precise definition so so first of all uh two maybe the two most important examples of light profinite sets are the point uh and then there's this uh the one point compactification of the natural numbers um and with this you kind of get the underlying set so if you take X of s then you think of that as the underlying set of your condensed set and with this you get kind of a notion of a convergent sequences uh in your your condens set you get a set of conver set of convergent sequences again it's abstract so it's not literally well in the case of a topological space it literally is the set of convergent sequences so also those things were considered in this topology of oh yes yes yes that's correct yeah and but they had this they use this projective things projective covers which are not light that's correct so this will be discussed this will be discussed in in in due time yeah so but yeah so yeah it's true bot and schultza had this definition but that doesn't mean that it was necessarily the correct thing to do for the purposes I'm about to discuss but yeah it turned out it was um okay and then but then um uh so then another remark is that allowing all surjections uh to count as covers gives a nice simplification of the structure of the category and in particular it gives some good homological algebra properties when you pass to light condensed ailan groups um this you have lot of flexibility of working locally when you allow arbitrary surjections to count as covers but on the other hand uh restricting the topology or requiring uh the topology the gro de topology to be finitary uh gives good categorical compactness properties for light profite sets uh sitting by the on meding inside all uh light condensed sets and and moreover and even and even for uh all metrizable compact house D spaces so for example uh the unit interval famously is a has a surjection from the canra set given by decimal expansions uh and this is a light profinite set and the fact that you have a finitary Gro deque topology and on the other hand this this guy is covered by this guy which is one of the basic test objects it means that the compactness of these compact hous door spaces which kind of we know from General topology actually translates into a nice categorical compactness property inside this larger category um and for this it's actually important to have a these larger light profinite sets than just the sets of convergent sequences okay um let's see okay questions Prof at light it's countable no no that's not countable I mean you you could ask the collection of clo and subsets to be countable so count yeah or yeah something like or it's the same as metrizable for sure so yeah no no they adjust every point of the accountable neighborhood B is weaker than the second count yeah some way yeah yeah you need you need a accountable basis for the topology in total yeah so anyway okay yeah it is the same thing as opposite category of the countable yes I guess yeah exactly yeah it's the same saying that the set of clo and subsets is is countable yeah okay further questions um so I remind you that this is this is just an introduction we will go into much more detail in the in the coming lectures okay so so what do we have now we have uh oh maybe I give myself a Blackboard um so what do you have so far when now I've explained the light Prof finite sets and so um we're going to move on to analytic rings and I'll start with a point which is that these okay from now on sorry so I'm going to drop the light okay so just so I don't have to write it and say it all the time from now on condensed set means light condensed set and profite set means light profite set I always have this cabil uh hypothesis floating around um so condensed sets uh gives rise to the notion of condensed ring and condensed module over condensed ring and it's really uh if you're familiar with the gr topologies and so on it's completely immediate so it's just a sheath of rings and then a sheath of module over that sheath of rings on this uh on this site here it's also just a ring object in this category
 
